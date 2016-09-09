@@ -11,7 +11,7 @@ Node::Node() {
 	m_year = 0;
 	m_month = 0;
 	m_day = 0;
-	//m_details;
+	m_details = std::vector<std::string>();
 	m_next = nullptr;
 	m_prev = nullptr;
 }
