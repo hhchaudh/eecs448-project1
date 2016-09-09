@@ -77,7 +77,7 @@ private:
     int m_year; //Year of the Node
     int m_month; //Month of the Node
     int m_day; //Day of the Node
-    std::vector<std::string> details; //Vector of details for the Node
+    std::vector<std::string> m_details; //Vector of details for the Node
 };
 
 #endif
