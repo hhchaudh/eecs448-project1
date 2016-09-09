@@ -8,6 +8,9 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <string>
+#include <vector>
+
 class Node {
 public:
     /**
@@ -52,10 +55,29 @@ public:
     *   @return The value of the day of the Node
     */
     int getDay() const;
+    /**
+    *   @pre none
+    *   @post Sets the vector of details for that Node
+    *   @return none
+    */
+    void setDetails(std::vector<std::string> details);
+    /**
+    *   @pre none
+    *   @post Pushes a details onto the vector of details in the Node
+    *   @return none
+    */
+    void addDetail(std::string detail);
+    /**
+    *   @pre A vector of details for the Node
+    *   @post none
+    *   @return A vector of strings that are the details for that Node
+    */
+    std::vector<std::string> getDetails() const;
 private:
     int m_year; //Year of the Node
-    int m_month; //Mont of the Node
+    int m_month; //Month of the Node
     int m_day; //Day of the Node
+    std::vector<std::string> details; //Vector of details for the Node
 };
 
 #endif
