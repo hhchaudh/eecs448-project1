@@ -73,11 +73,37 @@ public:
     *   @return A vector of strings that are the details for that Node
     */
     std::vector<std::string> getDetails() const;
+    /**
+    *  @pre none
+    *  @post Set the pointer to the next Node
+    *  @return none
+    */
+    void setNext(Node* next);
+    /**
+    *  @pre A Node after the current Node
+    *  @post none
+    *  @return The next Node
+    */
+    Node* getNext() const;
+    /**
+    *  @pre none
+    *  @post Set the pointer to the previous Node
+    *  @return none
+    */
+    void setPrev(Node* prev);
+    /**
+    *  @pre A Node before the current Node
+    *  @post none
+    *  @return The previous Node
+    */
+    Node* getPrev() const;
 private:
     int m_year; //Year of the Node
     int m_month; //Month of the Node
     int m_day; //Day of the Node
     std::vector<std::string> m_details; //Vector of details for the Node
+    Node* m_next; //Pointer to the next Node
+    Node* m_prev; //Pointer to the previous Node
 };
 
 #endif
