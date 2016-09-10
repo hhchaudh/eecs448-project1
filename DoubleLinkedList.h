@@ -79,7 +79,7 @@ public:
 	*  @post none
 	*  @return A pointer to the Node that represents the day requested
 	*/
-	Node* getNode(int year, int month, int day) const;
+	Node* getNode(int year, int month, int day) const; 
 private:
 	Node* m_front; //Pointer to the first Node
 	Node* m_back; //Pointer to the last Node

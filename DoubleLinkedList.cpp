@@ -17,6 +17,20 @@ DoubleLinkedList::DoubleLinkedList(int startYear, int startMonth, int endYear, i
 	m_front = nullptr;
 	m_back = nullptr;
 	m_size = 0;
+	for (int year=startYear; year<=endYear; year++) { //Cycle through the years
+		int l_startMonth = 1; //Starting month for the loop
+		int l_endMonth = 12; //Ending month for the loop
+
+		//Check when the month cycle should end and begin
+		if (year == startYear) { l_startMonth = startMonth; }
+		if (year == endYear) { l_endMonth = endMonth; }
+
+		for (int month=l_startMonth; month <= l_endMonth; month++) { //Cycle through the months
+			for (int day=1; day<=numDays(year,month); day++) { //Cycle through the days
+				pushBack(year,month,day);
+			}
+		}
+	}
 }
 
 DoubleLinkedList::~DoubleLinkedList() {
