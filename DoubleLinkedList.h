@@ -84,7 +84,7 @@ private:
 	Node* m_front; //Pointer to the first Node
 	Node* m_back; //Pointer to the last Node
 	int m_size; //Size of the DoubleLinkedList
-	int numDays(int year, int month);
+	int numDays(int year, int month); //Gets the number of days in the month for that year
 };
 
 #endif
