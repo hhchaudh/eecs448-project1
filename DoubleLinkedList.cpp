@@ -13,6 +13,12 @@ DoubleLinkedList::DoubleLinkedList() {
 	m_size = 0;
 }
 
+DoubleLinkedList::DoubleLinkedList(int startYear, int startMonth, int endYear, int endMonth) {
+	m_front = nullptr;
+	m_back = nullptr;
+	m_size = 0;
+}
+
 DoubleLinkedList::~DoubleLinkedList() {
 	while (m_size > 0) {
 		removeFront();
@@ -121,3 +127,17 @@ Node* DoubleLinkedList::getNode(int year, int month, int day) const {
 	}
 	return(temp);
 }
+
+int DoubleLinkedList::numDays(int year, int month) {
+	int val = 0; //Used to add extra day to February for leap year
+	int daysInMonths[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	if (month == 2) { //If not checking for February
+		if (year % 400 == 0) {
+			val = 1;
+		} else if (year % 4 == 0 && year % 100 != 0) {
+			val = 1;
+		}
+	}
+	return(daysInMonths[month-1] + val);
+}
+
