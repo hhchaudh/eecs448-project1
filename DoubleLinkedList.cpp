@@ -108,3 +108,16 @@ Node* DoubleLinkedList::getFront() const {
 Node* DoubleLinkedList::getBack() const {
 	return(m_back);
 }
+
+Node* DoubleLinkedList::getNode(int year, int month, int day) const {
+	bool isFound = false;
+	Node* temp = m_front;
+	while(temp != nullptr && !isFound) {
+		if (temp->getYear() == year && temp->getMonth() == month && temp->getDay() == day) {
+			isFound = true;
+		} else {
+			temp = temp->getNext();
+		}
+	}
+	return(temp);
+}
