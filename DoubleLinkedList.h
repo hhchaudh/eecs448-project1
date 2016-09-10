@@ -12,7 +12,7 @@
 #include <vector>
 #include "Node.h"
 
-class LinkedList {
+class DoubleLinkedList {
 public:
 	/**
 	*  @pre none
@@ -43,7 +43,7 @@ public:
 	*  @post Adds a Node to the front of the DoubleLinkedList
 	*  @return none
 	*/
-	void pushFront();
+	void pushFront(int year, int month, int day);
 	/**
 	*  @pre At least one Node in the DoubleLinkedList
 	*  @post Removes the front Node from the DoubleLinkedList
@@ -55,13 +55,25 @@ public:
 	*  @post Adds a Node to the back of the DoubleLinkedList
 	*  @return none
 	*/
-	void pushBack();
+	void pushBack(int year, int month, int day);
 	/**
 	*  @pre At least one Node in the DoubleLinkedList
 	*  @post Deletes the last Node in the DoubleLinkedList
 	*  @return none
 	*/
 	void removeBack();
+	/**
+	*  @pre At least one Node in the DoubleLinkedList
+	*  @post none
+	*  @return A pointer to the front Node
+	*/
+	Node* getFront() const;
+	/**
+	*  @pre At least one Node in the DoubleLinkedList
+	*  @post none
+	*  @return A pointer to the back Node
+	*/
+	Node* getBack() const;
 	/**
 	*  @pre At least one Node in the DoubleLinkedList
 	*  @post none
