@@ -11,12 +11,18 @@
 
 int main() 
 {
+	//Create Linked list object
+	//Create read/write object
 	//Create a while loop for when the program is running.
+	//While holder
+	while(1)
+	{
+		//User input and program is running
+	}
+	return(0);	
 	//Check for user exiting and save the data.
 	//Delete linked list.
-	//Delete read write.	
 	//Delete read write.
-	return(0);
 }
 //Method to be called when program is exiting.
 saveData()
