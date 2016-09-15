@@ -12,14 +12,15 @@
 int main() 
 {
 	//Create Linked list object
+	DoubleLinkedList calender = new DoubleLinkedList();
 	//Create read/write object
+	ReadWrite writer = new ReadWrite();
 	//Create a while loop for when the program is running.
 	//While holder
 	while(1)
 	{
 		//User input and program is running
 	}
-	return(0);	
 	//Check for user exiting and save the data.
 	//Delete linked list.
 	//Delete read write.
