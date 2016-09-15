@@ -1,9 +1,6 @@
 /**
-*       @file Node.h
-*       @author Brad Gibbons
-*       @date 2016.09.09
-*       Purpose: To hold the details of a specific day of the year
-*/
+ * Purpose: To hold the details of a specific day of the year.
+ */
 
 #ifndef NODE_H
 #define NODE_H
@@ -11,91 +8,81 @@
 #include <string>
 #include <vector>
 
+/**
+ * Node object used to store a year, month, day, and details.
+ * @author Brad Gibbons
+ * @version 1.0, 15 Sep 2016
+ */
 class Node {
 public:
     /**
-    *   @pre none
-    *   @post Creates and initializes a Node instance
-    *   @return none
-    */
+     * Constructor for a Node object.
+     */
     Node();
     /**
-    *   @pre none
-    *   @post Sets the year of the Node
-    *   @return none
-    */
+     * Sets the year stored in the node.
+     * @param year 	The year to be stored in the node.
+     */
     void setYear(int year);
     /**
-    *   @pre A stored year in the Node
-    *   @post none
-    *   @return The value of the year of the Node
-    */
+     * Method to get the year currently stored in the node.
+     * @return The year currently stored in the node.
+     */
     int getYear() const;
     /**
-    *   @pre none
-    *   @post Sets the month of the Node
-    *   @return none
-    */
+     * Sets the month stored in the node.
+     * @param month	The month to be stored in the node.
+     */
     void setMonth(int month);
     /**
-    *   @pre A stored month in the Node
-    *   @post none
-    *   @return The value of the month of the Node
-    */
+     * Method to get the month currently stored in the node.
+     * @return The month currently stored in the node.
+     */
     int getMonth() const;
     /**
-    *   @pre none
-    *   @post Sets the day of the Node
-    *   @return none
-    */
-    void setDay(int year);
+     * Sets the day stored in the node.
+	 * @param day 	The day to be stored in the node.
+	 */
+    void setDay(int day);
     /**
-    *   @pre A stored day in the Node
-    *   @post none
-    *   @return The value of the day of the Node
-    */
+     * Method to get the day currently stored in the node.
+     * @return The day currently stored in the node.
+     */
     int getDay() const;
     /**
-    *   @pre none
-    *   @post Sets the vector of details for that Node
-    *   @return none
-    */
+     * Sets the details stored in the node.
+     * @param details 	A vector of strings that are the details.
+     */
     void setDetails(std::vector<std::string> details);
     /**
-    *   @pre none
-    *   @post Pushes a details onto the vector of details in the Node
-    *   @return none
-    */
+     * Adds a details to the current list of details.
+     * @param detail 	A string to be pushed onto the current details.
+     */
     void addDetail(std::string detail);
     /**
-    *   @pre A vector of details for the Node
-    *   @post none
-    *   @return A vector of strings that are the details for that Node
-    */
+     * Returns the vector of details stored in the node.
+     * @return A vector of strings that are the details in the node.
+     */
     std::vector<std::string> getDetails() const;
     /**
-    *  @pre none
-    *  @post Set the pointer to the next Node
-    *  @return none
-    */
+     * A pointer to another node.
+     * @param next 	The node to point the current node to.
+     */
     void setNext(Node* next);
     /**
-    *  @pre A Node after the current Node
-    *  @post none
-    *  @return The next Node
-    */
+     * Returns a pointer to the next node.
+     * @return The node the current node is pointing to.
+     */
     Node* getNext() const;
     /**
-    *  @pre none
-    *  @post Set the pointer to the previous Node
-    *  @return none
-    */
+     * A pointer to another node.
+     * @param prev 	The node to point the current node to.
+     */
     void setPrev(Node* prev);
     /**
-    *  @pre A Node before the current Node
-    *  @post none
-    *  @return The previous Node
-    */
+     * Returns a pointer to the next node.
+     * @return The node the current node is pointing to.
+     */
     Node* getPrev() const;
 private:
     int m_year; //Year of the Node
