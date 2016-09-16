@@ -1,10 +1,3 @@
-/**
-*	@file Node.cpp
-* 	@author Brad Gibbons
-*	@date 2016.09.09
-*	Purpose: Implementaion of the Node class
-*/
-
 #include "Node.h"
 
 Node::Node() {
