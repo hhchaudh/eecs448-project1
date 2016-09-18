@@ -4,7 +4,9 @@
  	if(!(isFile())){
 		std::ifstream info("user.txt");
  	}
- 	m_curdate[3] = {2016,8,1};
+ 	m_curdate[0] = 2016;
+ 	m_curdate[1] = 8;
+ 	m_curdate[2] = 1;
  }
 
  bool ReadWrite::isFile() const {
