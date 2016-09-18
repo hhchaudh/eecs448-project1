@@ -12,6 +12,7 @@
 	#include <vector>
  	#include <fstream>
  	#include "DoubleLinkedList.h"
+ 	#include "Node.h"
 
 	class ReadWrite
 	{
@@ -19,12 +20,12 @@
 		ReadWrite();
 		~ReadWrite();
 		bool isFile() const;
-		int getDate();
-		void setDate(int curdate);
+		int* getDate();
+		void setDate(int curdate[]);
 		void getFileInfo(DoubleLinkedList* dll);
 		void storeFileInfo(DoubleLinkedList* dll);
 	private:
-		int* m_curdate;
+		int m_curdate[];
 	};
 
 	#endif

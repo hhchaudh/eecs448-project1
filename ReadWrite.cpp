@@ -4,19 +4,20 @@
  	if(!(isFile())){
 		std::ifstream info("user.txt");
  	}
- 	m_curdate = {0,0,0};
+ 	m_curdate = {2016,8,1};
  }
 
- bool ReadWrite::isFile(){
- 	if(std::ifstream info("user.txt"))
+ bool ReadWrite::isFile() const {
+ 	if(std::ifstream info("user.txt")){
  		return true;
+ 	}
  }
 
- int ReadWrite::getDate(){
+ int* ReadWrite::getDate(){
  	return m_curdate;
  }
 
- void ReadWrite::setDate(int* curdate){
+ void ReadWrite::setDate(int curdate[]){
  	m_curdate = curdate;
  }
 
