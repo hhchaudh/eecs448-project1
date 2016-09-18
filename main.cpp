@@ -12,6 +12,7 @@
 int main() 
 {
 	int currentDate=0;
+	bool isRunning=true;
 	//Create Linked list object
 	DoubleLinkedList* calender = new DoubleLinkedList(2016,8,2017,5);
 	//Create read/write object
@@ -22,9 +23,15 @@ int main()
 	currentDate=writer.getDate();
 	//Create a while loop for when the program is running.
 	//While holder
-	while(1)
+	while(isRunning==true)
 	{
+		//Needs to follow the changing days
+		//Needs to go to the right index in the double linked list user dll method.
+		//Needs to write/delete in that section
+		//Sets details using node method
+		//Needs to check for user exit.
 		//User input and program is running
+		bool isRunning=false;
 	}
 	//Check for user exiting and save the data.
 	writer.setDate(currentDate);
