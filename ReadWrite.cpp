@@ -4,13 +4,14 @@
  	if(!(isFile())){
 		std::ifstream info("user.txt");
  	}
+ 	m_curdate.resize(3);
  	m_curdate[0] = 2016;
  	m_curdate[1] = 8;
  	m_curdate[2] = 1;
  }
 
  ReadWrite::~ReadWrite(){
- 	
+
  }
 
  bool ReadWrite::isFile() const {
