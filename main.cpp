@@ -8,18 +8,27 @@
 #include <iostream>
 #include "Node.h"
 #include "DoubleLinkedList.h"
-
+#include "ReadWrite.h"
 int main() 
 {
+	int currentDate=0;
+	//Create Linked list object
+	DoubleLinkedList* calender = new DoubleLinkedList(2016,8,2017,5);
+	//Create read/write object
+	ReadWrite writer = ReadWrite();
+	//Get File info
+	writer.getFileInfo(calender);
+	//Setting current date
+	currentDate=writer.getCurrentDate();
 	//Create a while loop for when the program is running.
+	//While holder
+	while(1)
+	{
+		//User input and program is running
+	}
 	//Check for user exiting and save the data.
+	writer.setCurrentDate(currentDate);
+	writer.storeFileInfo(calender);
 	//Delete linked list.
-	//Delete read write.	
-	//Delete read write.
-	return(0);
-}
-//Method to be called when program is exiting.
-saveData()
-{
-
+	delete calender;
 }
