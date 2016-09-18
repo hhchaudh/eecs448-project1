@@ -19,7 +19,7 @@ int main()
 	//Get File info
 	writer.getFileInfo(calender);
 	//Setting current date
-	currentDate=writer.getCurrentDate();
+	currentDate=writer.getDate();
 	//Create a while loop for when the program is running.
 	//While holder
 	while(1)
@@ -27,7 +27,7 @@ int main()
 		//User input and program is running
 	}
 	//Check for user exiting and save the data.
-	writer.setCurrentDate(currentDate);
+	writer.setDate(currentDate);
 	writer.storeFileInfo(calender);
 	//Delete linked list.
 	delete calender;
