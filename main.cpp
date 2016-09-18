@@ -6,12 +6,13 @@
 */
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Node.h"
 #include "DoubleLinkedList.h"
 #include "ReadWrite.h"
 int main() 
 {
-	int currentDate [3]={0,0,0};
+	std::vector<int> currentDate = std::vector<int>();
 	bool isRunning=true;
 	//Create Linked list object
 	DoubleLinkedList* calender = new DoubleLinkedList(2016,8,2017,5);
