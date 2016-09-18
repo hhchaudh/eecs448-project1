@@ -39,7 +39,7 @@ int main()
 		//Sets details using node method
 		//Needs to check for user exit.
 		//User input and program is running
-		bool isRunning=false;
+		isRunning=false;
 	}
 	//Check for user exiting and save the data.
 	std::cout << "ping: Call setDate()" << std::endl;
