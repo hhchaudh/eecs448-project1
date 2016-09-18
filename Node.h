@@ -65,6 +65,11 @@ public:
      */
     std::vector<std::string> getDetails() const;
     /**
+     * Removes the detail at the given index.
+     * @param index     The index of the detail to be removed.
+     */
+    void removeDetail(int index);
+    /**
      * A pointer to another node.
      * @param next 	The node to point the current node to.
      */

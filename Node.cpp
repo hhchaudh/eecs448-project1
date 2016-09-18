@@ -45,6 +45,10 @@ std::vector<std::string> Node::getDetails() const {
 	return(m_details);
 }
 
+void Node::removeDetail(int index) {
+	m_details.erase(m_details.begin() + index);
+}
+
 void Node::setNext(Node* next) {
 	m_next = next;
 }
