@@ -4,7 +4,7 @@
  	if(!(isFile())){
 		std::ifstream info("user.txt");
  	}
- 	m_curdate[] = {2016,8,1};
+ 	m_curdate[3] = {2016,8,1};
  }
 
  bool ReadWrite::isFile() const {
@@ -19,7 +19,9 @@
  }
 
  void ReadWrite::setDate(int curdate[]){
- 	m_curdate = curdate;
+ 	m_curdate[0] = curdate[0];
+ 	m_curdate[1] = curdate[1];
+ 	m_curdate[2] = curdate[2];
  }
 
  void ReadWrite::getFileInfo(DoubleLinkedList* dll){
@@ -90,7 +92,7 @@
  				y_str = std::string(y_char);
  				m_str = std::string(m_char);
  				d_str = std::string(d_char);
- 				of << y_str + m_str + d_str + + tempvec[j] + "\n";
+ 				of << y_str + m_str + d_str + tempvec[j] + "\n";
  			}
  		}
  		temp = temp->getNext();
