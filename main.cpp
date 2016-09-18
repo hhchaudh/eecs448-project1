@@ -26,11 +26,32 @@ int main()
 	std::cout << "Choose a month (Aug-May)" << std::endl;
 	std::cout << "Choose a day (correctly)" << std::endl;
 	//Check for user exiting and save the data.
-	writer.setDate(currentDate);
-	writer.storeFileInfo(calender);
+	//writer.setDate(currentDate);
+	//writer.storeFileInfo(calender);
 	//Delete linked list.
 	delete calender;
 
 
 	
+}
+while(isRunning)
+{	
+	int command = 0;
+	std::cout<<"Enter Command"<<std::endl;
+	std::cout << "1) Year View" << std::endl;
+	std::cout << "2) Month View" << std::endl;
+	std::cout << "3) Week View" << std::endl;
+	std::cout << "4) Day View" << std::endl;
+	std::cout << "5) " << std::endl;
+	std::cout << "6) " << std::endl;
+	std::cout << "7) " << std::endl;
+	std::cout << "8) " << std::endl;
+	if(command==1)
+	{
+
+	}
+	if(command==10)
+	{
+		isRunning=false;
+	}
 }
