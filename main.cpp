@@ -13,7 +13,7 @@ int main()
 {
 	int currentDate=0;
 	//Create Linked list object
-	DoubleLinkedList* calender = new DoubleLinkedList();
+	DoubleLinkedList* calender = new DoubleLinkedList(2016,8,2017,5);
 	//Create read/write object
 	ReadWrite writer = ReadWrite();
 	//Get File info
