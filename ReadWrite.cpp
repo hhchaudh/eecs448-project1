@@ -18,11 +18,11 @@
  		return false;
  }
 
- int* ReadWrite::getDate(){
+ std::vector<int> ReadWrite::getDate(){
  	return m_curdate;
  }
 
- void ReadWrite::setDate(int curdate[]){
+ void ReadWrite::setDate(std::vector<int> curdate){
  	m_curdate[0] = curdate[0];
  	m_curdate[1] = curdate[1];
  	m_curdate[2] = curdate[2];

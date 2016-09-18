@@ -20,12 +20,12 @@
 		ReadWrite();
 		~ReadWrite();
 		bool isFile() const;
-		int* getDate();
-		void setDate(int curdate[]);
+		std::vector<int> getDate();
+		void setDate(std::vector<int> curdate);
 		void getFileInfo(DoubleLinkedList* dll);
 		void storeFileInfo(DoubleLinkedList* dll);
 	private:
-		int m_curdate[];
+		std::vector<int> m_curdate;
 	};
 
 	#endif
