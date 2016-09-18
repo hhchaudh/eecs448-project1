@@ -1,10 +1,3 @@
-/**
-*       @file DoubleLinkedList.cpp
-*       @author Brad Gibbons
-*       @date 2016.09.09
-*       Purpose: Implementation of the DoubleLinkedList class
-*/
-
 #include "DoubleLinkedList.h"
 
 DoubleLinkedList::DoubleLinkedList() {

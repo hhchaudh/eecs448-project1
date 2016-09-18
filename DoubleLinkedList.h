@@ -1,9 +1,6 @@
 /**
-*       @file DoubleLinkedList.h
-*       @author Brad Gibbons
-*       @date 2016.09.09
-*       Purpose: To handle the creation and interaction of Nodes- specifically for a Calender
-*/
+ * Purpose: To handle the creation and interaction of Nodes- specifically for a Calender
+ */
 
 #ifndef DOUBLELINKEDLIST_H
 #define DOUBLELINKEDLIST_H
@@ -12,73 +9,73 @@
 #include <vector>
 #include "Node.h"
 
+/**
+ * A list to store Node objects.
+ * @author Brad Gibbons
+ * @version 1.0, 15 Sep 2016
+ */
 class DoubleLinkedList {
 public:
 	/**
-	*  @pre none
-	*  @post An instantiated DoubleLinkedList object
-	*  @return none
-	*/
+	 * A constructor for the DoubleLinkedList object.
+	 */
 	DoubleLinkedList();
 	/**
-	*  @pre none
-	*  @post An instantiated DoubleLinkedList object that contains the dates specified
-	*  @return none
-	*/
+	 * An overload constructor for the DoubleLinkedList object to populate the list with Node objects.
+	 * @param startYear 	The starting year for the linked list.
+	 * @param startMonth 	The starting month for the linked list.
+	 * @param endYear 		The ending year for the linked list.
+	 * @param endMonth 		The ending month for the linked list.
+	 */
 	DoubleLinkedList(int startYear, int startMonth, int endYear, int endMonth);
 	/**
-	*  @pre A LinkedList object
-	*  @post Deletes the Nodes contained by the DoubleLinkedList
-	*  @return none
-	*/
+	 * A deconstructor to delete the Node objects stored in the list.
+	 */
 	~DoubleLinkedList();
 	/**
-	*  @pre none
-	*  @post none
-	*  @return The number of Nodes in the DoubleLinkedList
-	*/
+	 * Method to get the size of the list.
+	 * @return The number of Node objects in the linked list.
+	 */
 	int size() const;
 	/**
-	*  @pre none
-	*  @post Adds a Node to the front of the DoubleLinkedList
-	*  @return none
-	*/
+	 * Adds a Node to the front of the list with set values.
+	 * @param year 	Year to be stored in the added Node object.
+	 * @param month Month to be stored in the added Node object.
+	 * @param day 	Day to be stored in the added Node object.
+	 */
 	void pushFront(int year, int month, int day);
 	/**
-	*  @pre At least one Node in the DoubleLinkedList
-	*  @post Removes the front Node from the DoubleLinkedList
-	*  @return none
-	*/
+	 * Removes the front Node in the list.
+	 */
 	void removeFront();
 	/**
-	*  @pre none
-	*  @post Adds a Node to the back of the DoubleLinkedList
-	*  @return none
-	*/
+	 * Adds a Node to the back of the list with set values.
+	 * @param year 	Year to be stored in the added Node object.
+	 * @param month Month to be stored in the added Node object.
+	 * @param day 	Day to be stored in the added Node object.
+	 */
 	void pushBack(int year, int month, int day);
 	/**
-	*  @pre At least one Node in the DoubleLinkedList
-	*  @post Deletes the last Node in the DoubleLinkedList
-	*  @return none
-	*/
+	 * Removes the back Node in the list.
+	 */
 	void removeBack();
 	/**
-	*  @pre At least one Node in the DoubleLinkedList
-	*  @post none
-	*  @return A pointer to the front Node
-	*/
+	 * Method to get the front Node in the list.
+	 * @return The Node currently at the front of the list.
+	 */
 	Node* getFront() const;
 	/**
-	*  @pre At least one Node in the DoubleLinkedList
-	*  @post none
-	*  @return A pointer to the back Node
-	*/
+	 * Method to return the back Node in the list.
+	 * @return The Node currently at the back of the list.
+	 */
 	Node* getBack() const;
 	/**
-	*  @pre At least one Node in the DoubleLinkedList
-	*  @post none
-	*  @return A pointer to the Node that represents the day requested
-	*/
+	 * Method to get the Node with the set date.
+	 * @param year 	Year to be searched for.
+	 * @param month Month to be searched for.
+	 * @param day 	Day to be searched for.
+	 * @return A node with the specified values.
+	 */
 	Node* getNode(int year, int month, int day) const; 
 private:
 	Node* m_front; //Pointer to the first Node

@@ -1,15 +1,17 @@
-/*	
-	@file ReadWrite.h
-	@author Jackson Schilmoeller
-	@date Created: 9/8/2016
-	@brief Generates file, user.txt, to keep user calendar data, and retrieve information from previous sessions
-*/
+/**	
+ *	@file ReadWrite.h
+ *	@author Jackson Schilmoeller
+ *	@date Created: 9/8/2016
+ *	@brief Generates file, user.txt, to keep user calendar data, and retrieve information from previous sessions
+ **/
 
 	#ifndef READ_WRITE_H
 	#define READ_WRITE_H
 
 	#include <iostream>
 	#include <vector>
+ 	#include <fstream>
+ 	#include "DoubleLinkedList.h"
 
 	class ReadWrite
 	{
@@ -17,12 +19,12 @@
 		ReadWrite();
 		~ReadWrite();
 		bool isFile() const;
-		int fileSize() const;
-		int* getCalInfo();
-		std::vector<string> getCalDetails();
-		void storeFileInfo();
+		int getDate();
+		void setDate(int curdate);
+		void getFileInfo(DoubleLinkedList* dll);
+		void storeFileInfo(DoubleLinkedList* dll);
 	private:
-		std::vector<string> rw_v;
+		int* m_curdate;
 	};
 
 	#endif
