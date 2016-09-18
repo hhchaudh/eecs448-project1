@@ -9,6 +9,10 @@
  	m_curdate[2] = 1;
  }
 
+ ReadWrite::~ReadWrite(){
+ 	
+ }
+
  bool ReadWrite::isFile() const {
  	std::ifstream info("user.txt");
  	if(info.is_open()){
