@@ -11,7 +11,7 @@
 #include "ReadWrite.h"
 int main() 
 {
-	int currentDate []={};
+	int currentDate [3]={0,0,0};
 	bool isRunning=true;
 	//Create Linked list object
 	DoubleLinkedList* calender = new DoubleLinkedList(2016,8,2017,5);
