@@ -3,7 +3,7 @@
  ReadWrite::ReadWrite(){
  	if(!(isFile())){
 		std::ofstream of("user.txt");
-		of << 20160801;
+		of << "20160801";
  	}
  	m_curdate.resize(3);
  	m_curdate[0] = 2016;
@@ -17,11 +17,7 @@
 
  bool ReadWrite::isFile() const {
  	std::ifstream info("user.txt");
- 	if(info.is_open())
- 		return true;
- 	else
- 		return false;
- 	info.close();
+ 	return info.good();
  }
 
  std::vector<int> ReadWrite::getDate(){
@@ -101,7 +97,7 @@
  	}
  	std::ofstream of; //open out file stream
  	of.open("user.txt", std::ofstream::out | std::ofstream::trunc);
- 	of << y_str + m_str + d_str + "\n";
+ 	of << y_str + m_str + d_str;
  	for(int i=0; i<dll->size(); i++){
  		temp = dll->getFront();
  		tempvec = temp->getDetails();
@@ -128,7 +124,7 @@
  				{
  					d_str = "0" + d_str;
  				}
- 				of << y_str + m_str + d_str + tempvec[j] + "\n";
+ 				of << "\n" + y_str + m_str + d_str + tempvec[j];
  			}
  		}
  		temp = temp->getNext();
