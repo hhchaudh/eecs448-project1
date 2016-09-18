@@ -4,11 +4,12 @@
  	if(!(isFile())){
 		std::ifstream info("user.txt");
  	}
- 	m_curdate = {2016,8,1};
+ 	m_curdate[] = {2016,8,1};
  }
 
  bool ReadWrite::isFile() const {
- 	if(std::ifstream info("user.txt")){
+ 	std::ifstream info("user.txt");
+ 	if(info.is_open()){
  		return true;
  	}
  }
@@ -60,25 +61,36 @@
  void ReadWrite::storeFileInfo(DoubleLinkedList* dll){
  	Node* temp = nullptr;
  	std::vector<std::string> tempvec;
- 	char* t_char = itoa(m_curdate);
- 	char* y_char;
- 	char* m_char;
- 	char* d_char;
- 	std::string str;
- 	str = string(t_char);
+ 	char y_char[4];
+ 	char m_char[2];
+ 	char d_char[2];
+ 	itoa(m_curdate[0],y_char,10);
+ 	itoa(m_curdate[1],m_char,10);
+ 	itoa(m_curdate[2],d_char,10);
+ 	int y_int;
+ 	int m_int;
+ 	int d_int;
+ 	std::string y_str(y_char);
+ 	std::string m_str(m_char);
+ 	std::string d_str(d_char);
  	std::ofstream of; //open out file stream
  	of.open("user.txt", std::ofstream::out | std::ofstream::trunc);
- 	of << str + "\n";
+ 	of << y_str + m_str + d_str + "\n";
  	for(int i=0; i<dll->size(); i++){
  		temp = dll->getFront();
  		tempvec = temp->getDetails();
  		if(tempvec.size() != 0){
  			for(int j=0; j<tempvec.size(); j++){
- 				y_char = temp->getYear();
- 				m_char = temp->getMonth();
- 				d_char = temp->getDay();
- 				str = string(itoa(y_char)) + string(itoa(m_char)) + string(itoa(d_char)) + tempvec[j];
- 				of << str + "\n";
+ 				y_int = temp->getYear();
+ 				m_int = temp->getMonth();
+ 				d_int = temp->getDay();
+ 				itoa(y_int,y_char,10);
+ 				itoa(m_int,m_char,10);
+ 				itoa(d_int,d_char,10);
+ 				y_str = std::string(y_char);
+ 				m_str = std::string(m_char);
+ 				d_str = std::string(d_char);
+ 				of << y_str + m_str + d_str + + tempvec[j] + "\n";
  			}
  		}
  		temp = temp->getNext();
