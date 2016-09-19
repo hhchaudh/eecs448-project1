@@ -168,7 +168,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 1) {
 		if (day - 1 < 1) {
-			date = findNumDaysMonth(year, month - 1) - (1 - (day));
+			date = findNumDaysMonth(year, month - 1) - (day);
 			currentMonthDays = findNumDaysMonth(year, month - 1);
 		}
 		else {
@@ -190,7 +190,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 2) {
 		if (day - 2 < 1) {
-			date = findNumDaysMonth(year, month - 1) - (1 - (day - 1));
+			date = findNumDaysMonth(year, month - 1) - (day - 1);
 			currentMonthDays = findNumDaysMonth(year, month - 1);
 		}
 		else {
@@ -213,7 +213,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 3) {
 		if (day - 3 < 1) {
-			date = findNumDaysMonth(year, month - 1) - (1 - (day - 2));
+			date = findNumDaysMonth(year, month - 1) - (day - 2);
 			currentMonthDays = findNumDaysMonth(year, month - 1);
 		}
 		else {
@@ -235,7 +235,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 4) {
 		if (day - 4 < 1) {
-			date = findNumDaysMonth(year,month - 1) - (1 - (day - 3));
+			date = findNumDaysMonth(year,month - 1) - (day - 3);
 			currentMonthDays = findNumDaysMonth(year,month - 1);
 		}
 
@@ -258,7 +258,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 5) {
 		if (day - 5 < 1) {
-			date = findNumDaysMonth(year,month - 1) - (1 - (day - 4));
+			date = findNumDaysMonth(year,month - 1) - (day - 4);
 			currentMonthDays = findNumDaysMonth(year,month - 1);
 		}
 		else {
@@ -280,7 +280,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 6) {
 		if (day - 6 < 1) {
-			date = findNumDaysMonth(year,month - 1) - (1 - (day - 5));
+			date = findNumDaysMonth(year,month - 1) - (day - 5);
 			currentMonthDays = findNumDaysMonth(year,month - 1);
 		}
 		else {
