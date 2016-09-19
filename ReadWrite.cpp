@@ -43,7 +43,7 @@
  	std::ifstream inf; //create infile stream
  	inf.open("user.txt"); //read in from existing user.txt
  	if(inf.is_open()){
- 		inf >> curdate; //read in first line, current date
+ 		getline(inf,curdate); //read in first line, current date
  		if(curdate.size() == 8){
  			//lengthy type conversion process
  			std::string curYstr = curdate.substr(0,4);
@@ -55,8 +55,8 @@
  			m_curdate[0] = atoi(curYchar); //parse year
  			m_curdate[1] = atoi(curMchar); //parse month
  			m_curdate[2] = atoi(curDchar); //parse day
- 			inf >> str;
  			while(!(inf.eof())){ //read in, line by line, existing file
+ 				getline(inf,str);
  				//populate dll with info
  				t_year = atoi((str.substr(0,4)).c_str());
  				t_month = atoi((str.substr(4,2)).c_str());
@@ -65,7 +65,6 @@
  				//use parts of date and det to fill dll
  				temp = dll->getNode(t_year,t_month,t_day);
  				temp->addDetail(det);
- 				inf >> str;
  			}
  		}
  		else
