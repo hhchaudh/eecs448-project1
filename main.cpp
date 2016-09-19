@@ -1,9 +1,3 @@
-/**
-*	@file : main.cpp
-*	@author: Brad Gibbons, Rony Singh, Jackson Schilmoeller, Chris Porras
-*	@date: 2016.09.09
-*	Purpose: Implementation of the program
-*/
 #include <string>
 #include <iostream>
 #include <vector>
@@ -11,12 +5,23 @@
 #include "DoubleLinkedList.h"
 #include "ReadWrite.h"
 
+/**
+ * Returns the day of the week (sun=0 through sat=6).
+ * @param y 	The year of the day
+ * @param m 	The month of the day
+ * @param d 	The day
+ * @return The day of the week as an int (sun=0 through sat=6).
+ */
 int dayofweek(int y, int m, int d) {
 	static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
 	y -= m < 3;
 	return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
 }
 
+/**
+ * Prints the given year.
+ * @param year 	The year to be printed.
+ */
 void printYear(int year) {
 	if (year == 2016) {
 		std::cout << "AUGUST 2016 | SEPTEMBER 2016 | OCTOBER 2016 | NOVEMBER 2016 | DECEMBER 2016" << std::endl;
@@ -28,6 +33,11 @@ void printYear(int year) {
 	return;
 }
 
+/**
+ * Prints the month for the given year.
+ * @param year 	The year of the month to be printed.
+ * @param month The month to be printed.
+ */
 void printMonth(int year, int month) {
 	int monthStartDay = 0;
 	int weekStartDay = 0;
@@ -129,6 +139,12 @@ void printMonth(int year, int month) {
 	std::cout << std::endl;
 }
 
+/**
+ * Finds the number of days in the month of the given year
+ * @param year 	The year of the month
+ * @param month The month to be checked
+ * @return The number of days in the month for the given year
+ */
 int findNumDaysMonth(int year, int month) {
 	int val = 0; //Used to add extra day to February for leap year
 	int daysInMonths[] = {31,28,31,30,31,30,31,31,30,31,30,31};
@@ -142,6 +158,12 @@ int findNumDaysMonth(int year, int month) {
 	return(daysInMonths[month-1] + val);
 }
 
+/**
+ * Prints the week for the given year, month, and day.
+ * @param year 	The year of the week to be printed.
+ * @param month The month of the week to be printed.
+ * @param day 	The day of the week to be printed.
+ */
 void printWeek(int year, int month, int day) {
 	int weekDay = dayofweek(year, month, day);
 
@@ -303,6 +325,12 @@ void printWeek(int year, int month, int day) {
 	std::cout << std::endl;
 }
 
+/**
+ * Prints the day for the given year, month, and day.
+ * @param year 	The year of the day to be printed.
+ * @param month The month of the day to be printed.
+ * @param day 	The day to be printed.
+ */
 void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
 	std::cout << "Day: "<< day << " - " << month << " - " << year << std::endl;
 	Node* temp = calendar->getNode(year, month, day);
@@ -313,6 +341,11 @@ void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
 	return;
 }
 
+/**
+ * Takes a command as a string and parses it into the seperate parts.
+ * @param command_str 	The string to be broken apart.
+ * @return A vector of strings that are the different parts of the command.
+ */
 std::vector<std::string> parseCommand(std::string command_str) {
 	std::vector<std::string> command_vec = std::vector<std::string>();
 	int index = 0;
@@ -330,6 +363,13 @@ std::vector<std::string> parseCommand(std::string command_str) {
 	return(command_vec);
 }
 
+/**
+ * Checks what command should be ran.
+ * @param comand_vec 	The seperated command.
+ * @param calendar 		The DoubleLinkedList object that is the calendar.
+ * @param currentDate 	The current date of focus for the program.
+ * @return A vector of ints that are either the new current day, or a command to close the program.
+ */
 std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	if (command_vec[0] == "help") { //If first command is help
@@ -399,6 +439,15 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 	return(ret);
 }
 
+/**
+ * The main method of the program.
+ * @author Rony Singh
+ * @author Jackson Schilmoeller
+ * @author Chris Porras
+ * @author Brad Gibbons
+ * @version 1.0, 18 Sep 2016
+ * @return The return message of the program.
+ */
 int main() {
 	//Setup on startup
 	std::string command_str = std::string();
