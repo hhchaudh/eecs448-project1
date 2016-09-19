@@ -26,7 +26,7 @@ int main()
 	while(isRunning)
 	{	
 		int command = 0;
-		std::cout << "Current date is: "+currentDate[0]+","+currentDate[1]+","+currentDate[2] << std:endl;
+		std::cout << "Current date is: " + currentDate[0] + "," + currentDate[1] + "," + currentDate[2] << std::endl;
 		std::cout << "Enter Command " <<std::endl;
 		std::cout << "1) Go to day" << std::endl;
 		std::cout << "2) Add detatil" << std::endl;
@@ -53,7 +53,7 @@ int main()
 			std::cout << "4)April" << std::endl;
 			std::cout << "5)May" << std::endl;
 			std::cin >> month;
-			std::cout << "Choose a day (correctly)" + calender.numDays(year,month) << std::endl;
+			std::cout << "Choose a day (correctly)" + calender->numDays(year,month) << std::endl;
 			std::cin >> day;
 			currentDate[0]=year;
 			if(month!=6 && month!=7)
@@ -64,7 +64,7 @@ int main()
 		}
 		if(command==2)
 		{	
-			string detail = "";
+			std::string detail = "";
 			std::cout << "Detail to add:" << std::endl;
 			std::cin >> detail;
 			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2]);
@@ -73,10 +73,10 @@ int main()
 		if(command==3)
 		{	
 			int index = 0;
-			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2])
-			std::vector<std::string> details = temp.getDetails();
+			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2]);
+			std::vector<std::string> details = temp->getDetails();
 			std::cout << "Which detail?" << std::endl;
-			for(int i=0; i<details.length,i++)
+			for(int i=0; i<details.size(),i++)
 			{
 				std::cout << i+") "+ details[i] << std::endl;
 			} 
@@ -88,8 +88,8 @@ int main()
 		if(command==4)
 		{	
 			std::cout << "Details for today" << std::endl;
-			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2])
-			std::vector<std::string> details = temp.getDetails();
+			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2]);
+			std::vector<std::string> details = temp->getDetails();
 			for(int i=0; i<details.length,i++)
 			{
 				std::cout << i+") "+ details[i] << std::endl;
