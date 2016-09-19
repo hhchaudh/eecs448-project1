@@ -345,7 +345,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		} else if (command_vec[1] == "month") {
 			printMonth(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()));
 		} else if (command_vec[1] == "week") {
-			//printWeek(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()));
+			printWeek(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()));
 		} else if (command_vec[1] == "day") {
 			printDay(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()), calendar);
 			ret.push_back(atoi(command_vec[2].c_str()));
