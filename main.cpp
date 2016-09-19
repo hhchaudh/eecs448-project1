@@ -169,7 +169,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 1) {
 		if (day - 1 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 1));
+			date = findNumDaysMonth(month - 1) - (1 - (day));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 		else {
@@ -191,7 +191,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 2) {
 		if (day - 2 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 2));
+			date = findNumDaysMonth(month - 1) - (1 - (day - 1));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 		else {
@@ -214,7 +214,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 3) {
 		if (day - 3 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 3));
+			date = findNumDaysMonth(month - 1) - (1 - (day - 2));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 		else {
@@ -236,7 +236,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 4) {
 		if (day - 4 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 4));
+			date = findNumDaysMonth(month - 1) - (1 - (day - 3));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 
@@ -259,7 +259,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 5) {
 		if (day - 5 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 5));
+			date = findNumDaysMonth(month - 1) - (1 - (day - 4));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 		else {
@@ -281,7 +281,7 @@ void printWeek(int year, int month, int day) {
 	}
 	else if (weekDay == 6) {
 		if (day - 6 < 1) {
-			date = findNumDaysMonth(month - 1) - (1 - (day - 6));
+			date = findNumDaysMonth(month - 1) - (1 - (day - 5));
 			currentMonthDays = findNumDaysMonth(month - 1);
 		}
 		else {
@@ -351,7 +351,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		} else if (command_vec[1] == "month") {
 			printMonth(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()));
 		} else if (command_vec[1] == "week") {
-			//printWeek(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()));
+			printWeek(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()));
 		} else if (command_vec[1] == "day") {
 			printDay(atoi(command_vec[2].c_str()), atoi(command_vec[3].c_str()), atoi(command_vec[4].c_str()), calendar);
 			ret.push_back(atoi(command_vec[2].c_str()));
