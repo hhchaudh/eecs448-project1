@@ -101,8 +101,8 @@ int main()
 		}
 	}
 	//Check for user exiting and save the data.
-	//writer.setDate(currentDate);
-	//writer.storeFileInfo(calender);
+	writer.setDate(currentDate);
+	writer.storeFileInfo(calender);
 	//Delete linked list.
 	delete calender;
 	//Ok	
