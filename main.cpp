@@ -153,7 +153,7 @@ void printWeek(int year, int month, int day) {
 
 	std::cout << "SUN|MON|TUE|WED|THU|FRI|SAT" << std::endl;
 	if (weekDay == 0) {
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -164,7 +164,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 1) {
@@ -174,7 +174,7 @@ void printWeek(int year, int month, int day) {
 		else {
 			date = day - 1;
 		}
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -185,7 +185,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 2) {
@@ -196,7 +196,7 @@ void printWeek(int year, int month, int day) {
 			date = day - 2;
 		}
 
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -207,7 +207,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 3) {
@@ -217,7 +217,7 @@ void printWeek(int year, int month, int day) {
 		else {
 			date = day - 3;
 		}
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -228,7 +228,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 4) {
@@ -239,7 +239,7 @@ void printWeek(int year, int month, int day) {
 		else {
 			date = day - 4;
 		}
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -250,7 +250,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 5) {
@@ -260,7 +260,7 @@ void printWeek(int year, int month, int day) {
 		else {
 			date = day - 5;
 		}
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -271,7 +271,7 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
 	else if (weekDay == 6) {
@@ -281,7 +281,7 @@ void printWeek(int year, int month, int day) {
 		else {
 			date = day - 6;
 		}
-		for (int i = daysDrawn; i < daysDrawn; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (date > currentMonthDays) {
 				date = 1;
 			}
@@ -292,10 +292,10 @@ void printWeek(int year, int month, int day) {
 				std::cout << date << "  ";
 			}
 			date++;
-			daysDrawn++;
+
 		}
 	}
-
+	std::cout << std::endl;
 }
 
 void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
