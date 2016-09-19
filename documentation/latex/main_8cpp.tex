@@ -1,0 +1,209 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Node.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Double\+Linked\+List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Read\+Write.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a511d8990df64a4a2a777c0af1436ef91}{dayofweek} (int y, int m, int d)
+\begin{DoxyCompactList}\small\item\em Returns the day of the week (sun=0 through sat=6). \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a0070fc540bf9551f5bd8ab60f8fb8071}{print\+Year} (int year)
+\begin{DoxyCompactList}\small\item\em Prints the given year. \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a38170ad22adcff150572ecb2b2bf6ad1}{print\+Month} (int year, int month)
+\begin{DoxyCompactList}\small\item\em Prints the month for the given year. \end{DoxyCompactList}\item 
+int \hyperlink{main_8cpp_ad707908a23285d58630908f2bfa1f700}{find\+Num\+Days\+Month} (int year, int month)
+\begin{DoxyCompactList}\small\item\em Finds the number of days in the month of the given year. \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a533f2fe7e47e3ad9361cdb616f7779f0}{print\+Week} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Prints the week for the given year, month, and day. \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a5aee6f5bf889f05cc9a878401df3f05b}{print\+Day} (int year, int month, int day, \hyperlink{class_double_linked_list}{Double\+Linked\+List} $\ast$calendar)
+\begin{DoxyCompactList}\small\item\em Prints the day for the given year, month, and day. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d}{parse\+Command} (std\+::string command\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Takes a command as a string and parses it into the seperate parts. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{main_8cpp_ae6db6b92c10e18b318eba72769180db7}{check\+Command} (std\+::vector$<$ std\+::string $>$ command\+\_\+vec, \hyperlink{class_double_linked_list}{Double\+Linked\+List} $\ast$calendar, std\+::vector$<$ int $>$ current\+Date)
+\begin{DoxyCompactList}\small\item\em Checks what command should be ran. \end{DoxyCompactList}\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em The main method of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_ae6db6b92c10e18b318eba72769180db7}{}\label{main_8cpp_ae6db6b92c10e18b318eba72769180db7} 
+\index{main.\+cpp@{main.\+cpp}!check\+Command@{check\+Command}}
+\index{check\+Command@{check\+Command}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{check\+Command()}{checkCommand()}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ check\+Command (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{command\+\_\+vec,  }\item[{\hyperlink{class_double_linked_list}{Double\+Linked\+List} $\ast$}]{calendar,  }\item[{std\+::vector$<$ int $>$}]{current\+Date }\end{DoxyParamCaption})}
+
+
+
+Checks what command should be ran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comand\+\_\+vec} & The seperated command. \\
+\hline
+{\em calendar} & The \hyperlink{class_double_linked_list}{Double\+Linked\+List} object that is the calendar. \\
+\hline
+{\em current\+Date} & The current date of focus for the program. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of ints that are either the new current day, or a command to close the program. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a511d8990df64a4a2a777c0af1436ef91}{}\label{main_8cpp_a511d8990df64a4a2a777c0af1436ef91} 
+\index{main.\+cpp@{main.\+cpp}!dayofweek@{dayofweek}}
+\index{dayofweek@{dayofweek}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{dayofweek()}{dayofweek()}}
+{\footnotesize\ttfamily int dayofweek (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{m,  }\item[{int}]{d }\end{DoxyParamCaption})}
+
+
+
+Returns the day of the week (sun=0 through sat=6). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & The year of the day \\
+\hline
+{\em m} & The month of the day \\
+\hline
+{\em d} & The day \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The day of the week as an int (sun=0 through sat=6). 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_ad707908a23285d58630908f2bfa1f700}{}\label{main_8cpp_ad707908a23285d58630908f2bfa1f700} 
+\index{main.\+cpp@{main.\+cpp}!find\+Num\+Days\+Month@{find\+Num\+Days\+Month}}
+\index{find\+Num\+Days\+Month@{find\+Num\+Days\+Month}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{find\+Num\+Days\+Month()}{findNumDaysMonth()}}
+{\footnotesize\ttfamily int find\+Num\+Days\+Month (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month }\end{DoxyParamCaption})}
+
+
+
+Finds the number of days in the month of the given year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year of the month \\
+\hline
+{\em month} & The month to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of days in the month for the given year 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main method of the program. 
+
+\begin{DoxyAuthor}{Author}
+Rony Singh 
+
+Jackson Schilmoeller 
+
+Chris Porras 
+
+Brad Gibbons 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0, 18 Sep 2016 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The return message of the program. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d}{}\label{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d} 
+\index{main.\+cpp@{main.\+cpp}!parse\+Command@{parse\+Command}}
+\index{parse\+Command@{parse\+Command}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{parse\+Command()}{parseCommand()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ parse\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{command\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Takes a command as a string and parses it into the seperate parts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+\_\+str} & The string to be broken apart. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings that are the different parts of the command. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a5aee6f5bf889f05cc9a878401df3f05b}{}\label{main_8cpp_a5aee6f5bf889f05cc9a878401df3f05b} 
+\index{main.\+cpp@{main.\+cpp}!print\+Day@{print\+Day}}
+\index{print\+Day@{print\+Day}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Day()}{printDay()}}
+{\footnotesize\ttfamily void print\+Day (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day,  }\item[{\hyperlink{class_double_linked_list}{Double\+Linked\+List} $\ast$}]{calendar }\end{DoxyParamCaption})}
+
+
+
+Prints the day for the given year, month, and day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year of the day to be printed. \\
+\hline
+{\em month} & The month of the day to be printed. \\
+\hline
+{\em day} & The day to be printed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a38170ad22adcff150572ecb2b2bf6ad1}{}\label{main_8cpp_a38170ad22adcff150572ecb2b2bf6ad1} 
+\index{main.\+cpp@{main.\+cpp}!print\+Month@{print\+Month}}
+\index{print\+Month@{print\+Month}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Month()}{printMonth()}}
+{\footnotesize\ttfamily void print\+Month (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month }\end{DoxyParamCaption})}
+
+
+
+Prints the month for the given year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year of the month to be printed. \\
+\hline
+{\em month} & The month to be printed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a533f2fe7e47e3ad9361cdb616f7779f0}{}\label{main_8cpp_a533f2fe7e47e3ad9361cdb616f7779f0} 
+\index{main.\+cpp@{main.\+cpp}!print\+Week@{print\+Week}}
+\index{print\+Week@{print\+Week}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Week()}{printWeek()}}
+{\footnotesize\ttfamily void print\+Week (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Prints the week for the given year, month, and day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year of the week to be printed. \\
+\hline
+{\em month} & The month of the week to be printed. \\
+\hline
+{\em day} & The day of the week to be printed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a0070fc540bf9551f5bd8ab60f8fb8071}{}\label{main_8cpp_a0070fc540bf9551f5bd8ab60f8fb8071} 
+\index{main.\+cpp@{main.\+cpp}!print\+Year@{print\+Year}}
+\index{print\+Year@{print\+Year}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Year()}{printYear()}}
+{\footnotesize\ttfamily void print\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
+
+
+
+Prints the given year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year to be printed. \\
+\hline
+\end{DoxyParams}

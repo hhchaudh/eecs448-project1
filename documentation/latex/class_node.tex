@@ -1,0 +1,275 @@
+\hypertarget{class_node}{}\section{Node Class Reference}
+\label{class_node}\index{Node@{Node}}
+
+
+Purpose\+: To hold the details of a specific day of the year.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node} ()
+\begin{DoxyCompactList}\small\item\em Constructor for a \hyperlink{class_node}{Node} object. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_abd3420118a8a964e0678d1a975039e1f}{set\+Year} (int year)
+\begin{DoxyCompactList}\small\item\em Sets the year stored in the node. \end{DoxyCompactList}\item 
+int \hyperlink{class_node_a6d491d341577e676e56b4b0201844b4f}{get\+Year} () const
+\begin{DoxyCompactList}\small\item\em Method to get the year currently stored in the node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_ad8e3dddfff350a83c7f1026ffe346e62}{set\+Month} (int month)
+\begin{DoxyCompactList}\small\item\em Sets the month stored in the node. \end{DoxyCompactList}\item 
+int \hyperlink{class_node_a6c0cdac83e0e0fbb2cb594715a4feb5e}{get\+Month} () const
+\begin{DoxyCompactList}\small\item\em Method to get the month currently stored in the node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_aa6c9c8301e00180ae43100eb9c1ac458}{set\+Day} (int day)
+\begin{DoxyCompactList}\small\item\em Sets the day stored in the node. \end{DoxyCompactList}\item 
+int \hyperlink{class_node_a73aa0f295caeb4106319ebb8d6c9f9d8}{get\+Day} () const
+\begin{DoxyCompactList}\small\item\em Method to get the day currently stored in the node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_a9541a5a3f82ea381417dcfe36c3844a6}{set\+Details} (std\+::vector$<$ std\+::string $>$ details)
+\begin{DoxyCompactList}\small\item\em Sets the details stored in the node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_a0f18850ca6a3b31325924e747003e3ce}{add\+Detail} (std\+::string detail)
+\begin{DoxyCompactList}\small\item\em Adds a details to the current list of details. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_node_a264e8357261b6cc1c1969493b2b956d4}{get\+Details} () const
+\begin{DoxyCompactList}\small\item\em Returns the vector of details stored in the node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_a1f233dbcd9ecd73c194b4e629ff08564}{remove\+Detail} (int index)
+\begin{DoxyCompactList}\small\item\em Removes the detail at the given index. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_ae0062432733265c491000494625c3a04}{set\+Next} (\hyperlink{class_node}{Node} $\ast$next)
+\begin{DoxyCompactList}\small\item\em A pointer to another node. \end{DoxyCompactList}\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_node_a7207ac6b9786567730715f0d2a230764}{get\+Next} () const
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the next node. \end{DoxyCompactList}\item 
+void \hyperlink{class_node_a169576a90ab0bd0706491c445616c909}{set\+Prev} (\hyperlink{class_node}{Node} $\ast$prev)
+\begin{DoxyCompactList}\small\item\em A pointer to another node. \end{DoxyCompactList}\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_node_af3a5d9a808825f8fb5c3cbe1d51abe68}{get\+Prev} () const
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the next node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Purpose\+: To hold the details of a specific day of the year. 
+
+\hyperlink{class_node}{Node} object used to store a year, month, day, and details. \begin{DoxyAuthor}{Author}
+Brad Gibbons 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0, 15 Sep 2016 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{}\label{class_node_ad7a34779cad45d997bfd6d3d8043c75f} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \hyperlink{class_node}{Node} object. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_node_a0f18850ca6a3b31325924e747003e3ce}{}\label{class_node_a0f18850ca6a3b31325924e747003e3ce} 
+\index{Node@{Node}!add\+Detail@{add\+Detail}}
+\index{add\+Detail@{add\+Detail}!Node@{Node}}
+\subsubsection{\texorpdfstring{add\+Detail()}{addDetail()}}
+{\footnotesize\ttfamily void Node\+::add\+Detail (\begin{DoxyParamCaption}\item[{std\+::string}]{detail }\end{DoxyParamCaption})}
+
+
+
+Adds a details to the current list of details. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em detail} & A string to be pushed onto the current details. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_a73aa0f295caeb4106319ebb8d6c9f9d8}{}\label{class_node_a73aa0f295caeb4106319ebb8d6c9f9d8} 
+\index{Node@{Node}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Day()}{getDay()}}
+{\footnotesize\ttfamily int Node\+::get\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the day currently stored in the node. 
+
+\begin{DoxyReturn}{Returns}
+The day currently stored in the node. 
+\end{DoxyReturn}
+\hypertarget{class_node_a264e8357261b6cc1c1969493b2b956d4}{}\label{class_node_a264e8357261b6cc1c1969493b2b956d4} 
+\index{Node@{Node}!get\+Details@{get\+Details}}
+\index{get\+Details@{get\+Details}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Details()}{getDetails()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Node\+::get\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the vector of details stored in the node. 
+
+\begin{DoxyReturn}{Returns}
+A vector of strings that are the details in the node. 
+\end{DoxyReturn}
+\hypertarget{class_node_a6c0cdac83e0e0fbb2cb594715a4feb5e}{}\label{class_node_a6c0cdac83e0e0fbb2cb594715a4feb5e} 
+\index{Node@{Node}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Month()}{getMonth()}}
+{\footnotesize\ttfamily int Node\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the month currently stored in the node. 
+
+\begin{DoxyReturn}{Returns}
+The month currently stored in the node. 
+\end{DoxyReturn}
+\hypertarget{class_node_a7207ac6b9786567730715f0d2a230764}{}\label{class_node_a7207ac6b9786567730715f0d2a230764} 
+\index{Node@{Node}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Next()}{getNext()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Node\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a pointer to the next node. 
+
+\begin{DoxyReturn}{Returns}
+The node the current node is pointing to. 
+\end{DoxyReturn}
+\hypertarget{class_node_af3a5d9a808825f8fb5c3cbe1d51abe68}{}\label{class_node_af3a5d9a808825f8fb5c3cbe1d51abe68} 
+\index{Node@{Node}!get\+Prev@{get\+Prev}}
+\index{get\+Prev@{get\+Prev}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Prev()}{getPrev()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Node\+::get\+Prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a pointer to the next node. 
+
+\begin{DoxyReturn}{Returns}
+The node the current node is pointing to. 
+\end{DoxyReturn}
+\hypertarget{class_node_a6d491d341577e676e56b4b0201844b4f}{}\label{class_node_a6d491d341577e676e56b4b0201844b4f} 
+\index{Node@{Node}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Year()}{getYear()}}
+{\footnotesize\ttfamily int Node\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the year currently stored in the node. 
+
+\begin{DoxyReturn}{Returns}
+The year currently stored in the node. 
+\end{DoxyReturn}
+\hypertarget{class_node_a1f233dbcd9ecd73c194b4e629ff08564}{}\label{class_node_a1f233dbcd9ecd73c194b4e629ff08564} 
+\index{Node@{Node}!remove\+Detail@{remove\+Detail}}
+\index{remove\+Detail@{remove\+Detail}!Node@{Node}}
+\subsubsection{\texorpdfstring{remove\+Detail()}{removeDetail()}}
+{\footnotesize\ttfamily void Node\+::remove\+Detail (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Removes the detail at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the detail to be removed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_aa6c9c8301e00180ae43100eb9c1ac458}{}\label{class_node_aa6c9c8301e00180ae43100eb9c1ac458} 
+\index{Node@{Node}!set\+Day@{set\+Day}}
+\index{set\+Day@{set\+Day}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Day()}{setDay()}}
+{\footnotesize\ttfamily void Node\+::set\+Day (\begin{DoxyParamCaption}\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Sets the day stored in the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & The day to be stored in the node. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_a9541a5a3f82ea381417dcfe36c3844a6}{}\label{class_node_a9541a5a3f82ea381417dcfe36c3844a6} 
+\index{Node@{Node}!set\+Details@{set\+Details}}
+\index{set\+Details@{set\+Details}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Details()}{setDetails()}}
+{\footnotesize\ttfamily void Node\+::set\+Details (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{details }\end{DoxyParamCaption})}
+
+
+
+Sets the details stored in the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em details} & A vector of strings that are the details. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_ad8e3dddfff350a83c7f1026ffe346e62}{}\label{class_node_ad8e3dddfff350a83c7f1026ffe346e62} 
+\index{Node@{Node}!set\+Month@{set\+Month}}
+\index{set\+Month@{set\+Month}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Month()}{setMonth()}}
+{\footnotesize\ttfamily void Node\+::set\+Month (\begin{DoxyParamCaption}\item[{int}]{month }\end{DoxyParamCaption})}
+
+
+
+Sets the month stored in the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em month} & The month to be stored in the node. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_ae0062432733265c491000494625c3a04}{}\label{class_node_ae0062432733265c491000494625c3a04} 
+\index{Node@{Node}!set\+Next@{set\+Next}}
+\index{set\+Next@{set\+Next}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Next()}{setNext()}}
+{\footnotesize\ttfamily void Node\+::set\+Next (\begin{DoxyParamCaption}\item[{\hyperlink{class_node}{Node} $\ast$}]{next }\end{DoxyParamCaption})}
+
+
+
+A pointer to another node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next} & The node to point the current node to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_a169576a90ab0bd0706491c445616c909}{}\label{class_node_a169576a90ab0bd0706491c445616c909} 
+\index{Node@{Node}!set\+Prev@{set\+Prev}}
+\index{set\+Prev@{set\+Prev}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Prev()}{setPrev()}}
+{\footnotesize\ttfamily void Node\+::set\+Prev (\begin{DoxyParamCaption}\item[{\hyperlink{class_node}{Node} $\ast$}]{prev }\end{DoxyParamCaption})}
+
+
+
+A pointer to another node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prev} & The node to point the current node to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_node_abd3420118a8a964e0678d1a975039e1f}{}\label{class_node_abd3420118a8a964e0678d1a975039e1f} 
+\index{Node@{Node}!set\+Year@{set\+Year}}
+\index{set\+Year@{set\+Year}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Year()}{setYear()}}
+{\footnotesize\ttfamily void Node\+::set\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
+
+
+
+Sets the year stored in the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year to be stored in the node. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_node_8h}{Node.\+h}\item 
+\hyperlink{_node_8cpp}{Node.\+cpp}\end{DoxyCompactItemize}

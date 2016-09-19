@@ -1,0 +1,264 @@
+\hypertarget{class_double_linked_list}{}\section{Double\+Linked\+List Class Reference}
+\label{class_double_linked_list}\index{Double\+Linked\+List@{Double\+Linked\+List}}
+
+
+Purpose\+: To handle the creation and interaction of Nodes-\/ specifically for a Calender.  
+
+
+
+
+{\ttfamily \#include $<$Double\+Linked\+List.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_double_linked_list_a7e2c72978120a51da2251e378ef1892c}{Double\+Linked\+List} ()
+\begin{DoxyCompactList}\small\item\em A constructor for the \hyperlink{class_double_linked_list}{Double\+Linked\+List} object. \end{DoxyCompactList}\item 
+\hyperlink{class_double_linked_list_aca14acc73e64f2cf121f1a9f06f37693}{Double\+Linked\+List} (int start\+Year, int start\+Month, int end\+Year, int end\+Month)
+\begin{DoxyCompactList}\small\item\em An overload constructor for the \hyperlink{class_double_linked_list}{Double\+Linked\+List} object to populate the list with \hyperlink{class_node}{Node} objects. \end{DoxyCompactList}\item 
+\hyperlink{class_double_linked_list_ab808039dac47f1f62d00fcf0951550c5}{$\sim$\+Double\+Linked\+List} ()
+\begin{DoxyCompactList}\small\item\em A deconstructor to delete the \hyperlink{class_node}{Node} objects stored in the list. \end{DoxyCompactList}\item 
+int \hyperlink{class_double_linked_list_afc6ea2333d56b8d011b32a982b52986e}{size} () const
+\begin{DoxyCompactList}\small\item\em Method to get the size of the list. \end{DoxyCompactList}\item 
+void \hyperlink{class_double_linked_list_ae4d516bcfeea73b92b9cb927c3a157c7}{push\+Front} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Adds a \hyperlink{class_node}{Node} to the front of the list with set values. \end{DoxyCompactList}\item 
+void \hyperlink{class_double_linked_list_a436c04186fe23d797cae9f89eb1ae579}{remove\+Front} ()
+\begin{DoxyCompactList}\small\item\em Removes the front \hyperlink{class_node}{Node} in the list. \end{DoxyCompactList}\item 
+void \hyperlink{class_double_linked_list_a9f5ff04eb32e7fa3e37734754a98df80}{push\+Back} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Adds a \hyperlink{class_node}{Node} to the back of the list with set values. \end{DoxyCompactList}\item 
+void \hyperlink{class_double_linked_list_aa142f7151ffc4f93aa7e5fb111dbf356}{remove\+Back} ()
+\begin{DoxyCompactList}\small\item\em Removes the back \hyperlink{class_node}{Node} in the list. \end{DoxyCompactList}\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_double_linked_list_a9f32e3a5518aaddc4d16639d0d07726c}{get\+Front} () const
+\begin{DoxyCompactList}\small\item\em Method to get the front \hyperlink{class_node}{Node} in the list. \end{DoxyCompactList}\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_double_linked_list_a0b03a5a7cbdf78a0bcc6fce02e97d895}{get\+Back} () const
+\begin{DoxyCompactList}\small\item\em Method to return the back \hyperlink{class_node}{Node} in the list. \end{DoxyCompactList}\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_double_linked_list_a77b6120e0c3fe125b9228f4235fbc1f8}{get\+Node} (int year, int month, int day) const
+\begin{DoxyCompactList}\small\item\em Method to get the \hyperlink{class_node}{Node} with the set date. \end{DoxyCompactList}\item 
+bool \hyperlink{class_double_linked_list_a9d07d8d5b62ee69959b76667e83642ac}{check\+Year} (int year) const
+\begin{DoxyCompactList}\small\item\em Checks if the year requested exists. \end{DoxyCompactList}\item 
+bool \hyperlink{class_double_linked_list_a5b15624d2284b0bd9bcb5e137242da77}{check\+Month} (int year, int month) const
+\begin{DoxyCompactList}\small\item\em Checks if the month exists in the calender for the given year. \end{DoxyCompactList}\item 
+bool \hyperlink{class_double_linked_list_a30a4acb8c596efd5dfa89aee133f58b2}{check\+Day} (int year, int month, int day) const
+\begin{DoxyCompactList}\small\item\em Checks if the given day exists in the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Purpose\+: To handle the creation and interaction of Nodes-\/ specifically for a Calender. 
+
+A list to store \hyperlink{class_node}{Node} objects. \begin{DoxyAuthor}{Author}
+Brad Gibbons 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0, 15 Sep 2016 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_double_linked_list_a7e2c72978120a51da2251e378ef1892c}{}\label{class_double_linked_list_a7e2c72978120a51da2251e378ef1892c} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!Double\+Linked\+List@{Double\+Linked\+List}}
+\index{Double\+Linked\+List@{Double\+Linked\+List}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{Double\+Linked\+List()}{DoubleLinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Double\+Linked\+List\+::\+Double\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A constructor for the \hyperlink{class_double_linked_list}{Double\+Linked\+List} object. 
+
+\hypertarget{class_double_linked_list_aca14acc73e64f2cf121f1a9f06f37693}{}\label{class_double_linked_list_aca14acc73e64f2cf121f1a9f06f37693} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!Double\+Linked\+List@{Double\+Linked\+List}}
+\index{Double\+Linked\+List@{Double\+Linked\+List}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{Double\+Linked\+List()}{DoubleLinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Double\+Linked\+List\+::\+Double\+Linked\+List (\begin{DoxyParamCaption}\item[{int}]{start\+Year,  }\item[{int}]{start\+Month,  }\item[{int}]{end\+Year,  }\item[{int}]{end\+Month }\end{DoxyParamCaption})}
+
+
+
+An overload constructor for the \hyperlink{class_double_linked_list}{Double\+Linked\+List} object to populate the list with \hyperlink{class_node}{Node} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Year} & The starting year for the linked list. \\
+\hline
+{\em start\+Month} & The starting month for the linked list. \\
+\hline
+{\em end\+Year} & The ending year for the linked list. \\
+\hline
+{\em end\+Month} & The ending month for the linked list. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_double_linked_list_ab808039dac47f1f62d00fcf0951550c5}{}\label{class_double_linked_list_ab808039dac47f1f62d00fcf0951550c5} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!````~Double\+Linked\+List@{$\sim$\+Double\+Linked\+List}}
+\index{````~Double\+Linked\+List@{$\sim$\+Double\+Linked\+List}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{$\sim$\+Double\+Linked\+List()}{~DoubleLinkedList()}}
+{\footnotesize\ttfamily Double\+Linked\+List\+::$\sim$\+Double\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A deconstructor to delete the \hyperlink{class_node}{Node} objects stored in the list. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_double_linked_list_a30a4acb8c596efd5dfa89aee133f58b2}{}\label{class_double_linked_list_a30a4acb8c596efd5dfa89aee133f58b2} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!check\+Day@{check\+Day}}
+\index{check\+Day@{check\+Day}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{check\+Day()}{checkDay()}}
+{\footnotesize\ttfamily bool Double\+Linked\+List\+::check\+Day (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the given day exists in the list. 
+
+\begin{DoxyReturn}{Returns}
+True if the day exists in the list, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a5b15624d2284b0bd9bcb5e137242da77}{}\label{class_double_linked_list_a5b15624d2284b0bd9bcb5e137242da77} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!check\+Month@{check\+Month}}
+\index{check\+Month@{check\+Month}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{check\+Month()}{checkMonth()}}
+{\footnotesize\ttfamily bool Double\+Linked\+List\+::check\+Month (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the month exists in the calender for the given year. 
+
+\begin{DoxyReturn}{Returns}
+True if the month exists for the year, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a9d07d8d5b62ee69959b76667e83642ac}{}\label{class_double_linked_list_a9d07d8d5b62ee69959b76667e83642ac} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!check\+Year@{check\+Year}}
+\index{check\+Year@{check\+Year}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{check\+Year()}{checkYear()}}
+{\footnotesize\ttfamily bool Double\+Linked\+List\+::check\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the year requested exists. 
+
+\begin{DoxyReturn}{Returns}
+True if the year is part of the list, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a0b03a5a7cbdf78a0bcc6fce02e97d895}{}\label{class_double_linked_list_a0b03a5a7cbdf78a0bcc6fce02e97d895} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!get\+Back@{get\+Back}}
+\index{get\+Back@{get\+Back}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Back()}{getBack()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Double\+Linked\+List\+::get\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to return the back \hyperlink{class_node}{Node} in the list. 
+
+\begin{DoxyReturn}{Returns}
+The \hyperlink{class_node}{Node} currently at the back of the list. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a9f32e3a5518aaddc4d16639d0d07726c}{}\label{class_double_linked_list_a9f32e3a5518aaddc4d16639d0d07726c} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!get\+Front@{get\+Front}}
+\index{get\+Front@{get\+Front}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Front()}{getFront()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Double\+Linked\+List\+::get\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the front \hyperlink{class_node}{Node} in the list. 
+
+\begin{DoxyReturn}{Returns}
+The \hyperlink{class_node}{Node} currently at the front of the list. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a77b6120e0c3fe125b9228f4235fbc1f8}{}\label{class_double_linked_list_a77b6120e0c3fe125b9228f4235fbc1f8} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Node()}{getNode()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Double\+Linked\+List\+::get\+Node (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the \hyperlink{class_node}{Node} with the set date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be searched for. \\
+\hline
+{\em month} & Month to be searched for. \\
+\hline
+{\em day} & Day to be searched for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A node with the specified values. 
+\end{DoxyReturn}
+\hypertarget{class_double_linked_list_a9f5ff04eb32e7fa3e37734754a98df80}{}\label{class_double_linked_list_a9f5ff04eb32e7fa3e37734754a98df80} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!push\+Back@{push\+Back}}
+\index{push\+Back@{push\+Back}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{push\+Back()}{pushBack()}}
+{\footnotesize\ttfamily void Double\+Linked\+List\+::push\+Back (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Adds a \hyperlink{class_node}{Node} to the back of the list with set values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+{\em month} & Month to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+{\em day} & Day to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_double_linked_list_ae4d516bcfeea73b92b9cb927c3a157c7}{}\label{class_double_linked_list_ae4d516bcfeea73b92b9cb927c3a157c7} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!push\+Front@{push\+Front}}
+\index{push\+Front@{push\+Front}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{push\+Front()}{pushFront()}}
+{\footnotesize\ttfamily void Double\+Linked\+List\+::push\+Front (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Adds a \hyperlink{class_node}{Node} to the front of the list with set values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+{\em month} & Month to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+{\em day} & Day to be stored in the added \hyperlink{class_node}{Node} object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_double_linked_list_aa142f7151ffc4f93aa7e5fb111dbf356}{}\label{class_double_linked_list_aa142f7151ffc4f93aa7e5fb111dbf356} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!remove\+Back@{remove\+Back}}
+\index{remove\+Back@{remove\+Back}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{remove\+Back()}{removeBack()}}
+{\footnotesize\ttfamily void Double\+Linked\+List\+::remove\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the back \hyperlink{class_node}{Node} in the list. 
+
+\hypertarget{class_double_linked_list_a436c04186fe23d797cae9f89eb1ae579}{}\label{class_double_linked_list_a436c04186fe23d797cae9f89eb1ae579} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!remove\+Front@{remove\+Front}}
+\index{remove\+Front@{remove\+Front}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{remove\+Front()}{removeFront()}}
+{\footnotesize\ttfamily void Double\+Linked\+List\+::remove\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the front \hyperlink{class_node}{Node} in the list. 
+
+\hypertarget{class_double_linked_list_afc6ea2333d56b8d011b32a982b52986e}{}\label{class_double_linked_list_afc6ea2333d56b8d011b32a982b52986e} 
+\index{Double\+Linked\+List@{Double\+Linked\+List}!size@{size}}
+\index{size@{size}!Double\+Linked\+List@{Double\+Linked\+List}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Double\+Linked\+List\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the size of the list. 
+
+\begin{DoxyReturn}{Returns}
+The number of \hyperlink{class_node}{Node} objects in the linked list. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_double_linked_list_8h}{Double\+Linked\+List.\+h}\item 
+\hyperlink{_double_linked_list_8cpp}{Double\+Linked\+List.\+cpp}\end{DoxyCompactItemize}

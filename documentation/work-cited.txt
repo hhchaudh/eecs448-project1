@@ -1,0 +1,3 @@
+Project image: https://i.ytimg.com/vi/AJzplFR0ijs/hqdefault.jpg
+Checking if a file exists: http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
+Checking which day of the week a day is on: http://stackoverflow.com/questions/6385190/correctness-of-sakamotos-algorithm-to-find-the-day-of-week
