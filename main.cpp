@@ -42,11 +42,24 @@ int main()
 			std::cout << "Choose a year (2015/2016)" << std::endl;
 			std::cin >> year;
 			std::cout << "Choose a month (Aug-May)" << std::endl;
+			std::cout << "8)August" << std::endl;
+			std::cout << "9)September" << std::endl;
+			std::cout << "10)October" << std::endl;
+			std::cout << "11)November" << std::endl;
+			std::cout << "12)December" << std::endl;
+			std::cout << "1)January" << std::endl;
+			std::cout << "2)February" << std::endl;
+			std::cout << "3)March" << std::endl;
+			std::cout << "4)April" << std::endl;
+			std::cout << "5)May" << std::endl;
 			std::cin >> month;
 			std::cout << "Choose a day (correctly)" + calender.numDays(year,month) << std::endl;
 			std::cin >> day;
 			currentDate[0]=year;
-			currentDate[1]=month;
+			if(month!=6 && month!=7)
+			{
+				currentDate[1]=month;
+			}
 			currentDate[2]=day;	
 		}
 		if(command==2)
@@ -91,6 +104,7 @@ int main()
 	//writer.setDate(currentDate);
 	//writer.storeFileInfo(calender);
 	//Delete linked list.
-	delete calender;	
+	delete calender;
+	//Ok	
 }
 
