@@ -135,6 +135,45 @@ Node* DoubleLinkedList::getNode(int year, int month, int day) const {
 	return(temp);
 }
 
+bool DoubleLinkedList::checkYear(int year) const {
+	bool isFound = false;
+	Node* temp = m_front;
+	while (temp != nullptr && !isFound) {
+		if (temp->getYear() == year) {
+			isFound = true;
+		} else {
+			temp = temp->getNext();
+		}
+	}
+	return(isFound);
+}
+
+bool DoubleLinkedList::checkMonth(int year, int month) const {
+	bool isFound = false;
+	Node* temp = m_front;
+	while (temp != nullptr && !isFound) {
+		if (temp->getYear() == year && temp->getMonth() == month) {
+			isFound = true;
+		} else {
+			temp = temp->getNext();
+		}
+	}
+	return(isFound);
+}
+
+bool DoubleLinkedList::checkDay(int year, int month, int day) const {
+	bool isFound = false;
+	Node* temp = m_front;
+	while (temp != nullptr && !isFound) {
+		if (temp->getYear() == year && temp->getMonth() == month && temp->getDay() == day) {
+			isFound = true;
+		} else {
+			temp = temp->getNext();
+		}
+	}
+	return(isFound);
+}
+
 int DoubleLinkedList::numDays(int year, int month) {
 	int val = 0; //Used to add extra day to February for leap year
 	int daysInMonths[] = {31,28,31,30,31,30,31,31,30,31,30,31};

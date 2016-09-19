@@ -76,7 +76,22 @@ public:
 	 * @param day 	Day to be searched for.
 	 * @return A node with the specified values.
 	 */
-	Node* getNode(int year, int month, int day) const; 
+	Node* getNode(int year, int month, int day) const;
+	/**
+	 * Checks if the year requested exists.
+	 * @return True if the year is part of the list, false otherwise.
+	 */
+	bool checkYear(int year) const;
+	/**
+	 * Checks if the month exists in the calender for the given year.
+	 * @return True if the month exists for the year, false otherwise.
+	 */
+	bool checkMonth(int year, int month) const;
+	/**
+	 * Checks if the given day exists in the list
+	 * @return True if the day exists in the list, false otherwise.
+	 */
+	bool checkDay(int year, int month, int day) const;
 private:
 	Node* m_front; //Pointer to the first Node
 	Node* m_back; //Pointer to the last Node
