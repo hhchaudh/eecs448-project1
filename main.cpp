@@ -26,7 +26,10 @@ int main()
 	while(isRunning)
 	{	
 		int command = 0;
-		std::cout << "Current date is: " + currentDate[0] + "," + currentDate[1] + "," + currentDate[2] << std::endl;
+		int y=currentDate[0];
+		int m=currentDate[1];
+		int d=currentDate[2];
+		std::cout << "Current date is: " + y + "," + m + "," + d << std::endl;
 		std::cout << "Enter Command " <<std::endl;
 		std::cout << "1) Go to day" << std::endl;
 		std::cout << "2) Add detatil" << std::endl;
@@ -76,7 +79,7 @@ int main()
 			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2]);
 			std::vector<std::string> details = temp->getDetails();
 			std::cout << "Which detail?" << std::endl;
-			for(int i=0; i<details.size(),i++)
+			for(int i=0; i<details.size();i++)
 			{
 				std::cout << i+") "+ details[i] << std::endl;
 			} 
@@ -90,7 +93,7 @@ int main()
 			std::cout << "Details for today" << std::endl;
 			Node* temp = calender->getNode(currentDate[0],currentDate[1],currentDate[2]);
 			std::vector<std::string> details = temp->getDetails();
-			for(int i=0; i<details.length,i++)
+			for(int i=0; i<details.size();i++)
 			{
 				std::cout << i+") "+ details[i] << std::endl;
 			} 
