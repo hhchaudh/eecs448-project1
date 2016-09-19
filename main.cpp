@@ -29,7 +29,7 @@ int main()
 		int y=currentDate[0];
 		int m=currentDate[1];
 		int d=currentDate[2];
-		std::cout << "Current date is: " + y + "," + m + "," + d << std::endl;
+		std::cout << "Current date is: " << y << "," << m << "," << d << std::endl;
 		std::cout << "Enter Command " <<std::endl;
 		std::cout << "1) Go to day" << std::endl;
 		std::cout << "2) Add detatil" << std::endl;
@@ -56,7 +56,7 @@ int main()
 			std::cout << "4)April" << std::endl;
 			std::cout << "5)May" << std::endl;
 			std::cin >> month;
-			std::cout << "Choose a day (correctly)" + calender->numDays(year,month) << std::endl;
+			std::cout << "Choose a day (correctly)" << std::endl;
 			std::cin >> day;
 			currentDate[0]=year;
 			if(month!=6 && month!=7)
