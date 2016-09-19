@@ -335,6 +335,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		std::cout << "goto day [year] [month] [day]  || Display the day with the specified [year], [month], and [day] and change it to the currently focused day\n";
 		std::cout << "detail add                     || Add a detail to the currently checked out day displayed at the command entry\n";
 		std::cout << "detail remove [index]          || Remove the detail at the index of the currently checked out day\n";
+		std::cout << "details                        || Display the details of the current day\n";
 		std::cout << "exit                           || Exit the program\n";
 	} else if (command_vec[0] == "exit") { //If first command is exit
 		ret.push_back(0);
@@ -365,6 +366,8 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		} else {
 			std::cout << "Incorrect input: type 'help' for more help\n";
 		}
+	} else if (command_vec[0] == "details") {
+		printDay(currentDate[0], currentDate[1], currentDate[2], calendar);
 	} else {
 		std::cout << "incorrect input: type 'help' for more help\n";
 	}
