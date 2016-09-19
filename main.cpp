@@ -129,6 +129,175 @@ void printMonth(int year, int month) {
 	std::cout << std::endl;
 }
 
+int findNumDaysMonth(int month) {
+	int numOfDaysInMonth = 0;
+	if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+		numOfDaysInMonth = 31;
+	}
+	else if (month == 4 || month == 6 || month == 9 || month == 11) {
+		numOfDaysInMonth = 30;
+	}
+	else if (month == 2) {
+		numOfDaysInMonth = 28;
+	}
+	return(numOfDaysInMonth);
+}
+
+void printWeek(int year, int month, int day) {
+	int weekDay = dayofweek(year, month, day);
+
+	int date = day;
+	int daysDrawn = 0;
+
+	int currentMonthDays = findNumDaysMonth(month);
+
+	std::cout << "SUN|MON|TUE|WED|THU|FRI|SAT" << std::endl;
+	if (weekDay == 0) {
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 1) {
+		if (day - 1 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 1));
+		}
+		else {
+			date = day - 1;
+		}
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 2) {
+		if (day - 2 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 2));
+		}
+		else {
+			date = day - 2;
+		}
+
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 3) {
+		if (day - 3 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 3));
+		}
+		else {
+			date = day - 3;
+		}
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 4) {
+		if (day - 4 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 4));
+		}
+
+		else {
+			date = day - 4;
+		}
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 5) {
+		if (day - 5 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 5));
+		}
+		else {
+			date = day - 5;
+		}
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+	else if (weekDay == 6) {
+		if (day - 6 < 1) {
+			date = findNumDaysMonth(month - 1) - (1 - (day - 6));
+		}
+		else {
+			date = day - 6;
+		}
+		for (int i = daysDrawn; i < daysDrawn; i++) {
+			if (date > currentMonthDays) {
+				date = 1;
+			}
+			if (date < 10) {
+				std::cout << date << "   ";
+			}
+			else {
+				std::cout << date << "  ";
+			}
+			date++;
+			daysDrawn++;
+		}
+	}
+
+}
+
 void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
 	std::cout << "Day: "<< day << " - " << month << " - " << year << std::endl;
 	Node* temp = calendar->getNode(year, month, day);
