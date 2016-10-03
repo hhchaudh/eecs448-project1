@@ -81,9 +81,9 @@
  	char y_char[4];
  	char m_char[2];
  	char d_char[2];
- 	itoa(m_curdate[0],y_char,10);
- 	itoa(m_curdate[1],m_char,10);
- 	itoa(m_curdate[2],d_char,10);
+	sprintf( y_char, "%d", m_curdate[0]);
+	sprintf( m_char, "%d", m_curdate[1]);
+	sprintf( d_char, "%d", m_curdate[2]);
  	int y_int = 0;
  	int m_int = 0;
  	int d_int = 0;
@@ -115,16 +115,16 @@
  		tempvec = temp->getDetails(); //get details for current day/node
  		if(tempvec.size() != 0){ //check if there are details
  			sanity = 0;
- 			for(int j=0; j<tempvec.size(); j++){ //loop for number of details
+ 			for(unsigned int j=0; j<tempvec.size(); j++){ //loop for number of details
  				if(j!=tempvec.size()){
  					//get date of current node
  					y_int = temp->getYear();
  					m_int = temp->getMonth();
  					d_int = temp->getDay();
  					//convert to char*
- 					itoa(y_int,y_char,10);
- 					itoa(m_int,m_char,10);
- 					itoa(d_int,d_char,10);
+					sprintf( y_char, "%d", y_int);
+					sprintf( m_char, "%d", m_int);
+					sprintf( d_char, "%d", d_int);
  					//typecast to string
  					y_str = std::string(y_char);
  					m_str = std::string(m_char);

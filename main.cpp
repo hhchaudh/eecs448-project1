@@ -168,7 +168,7 @@ void printWeek(int year, int month, int day) {
 	int weekDay = dayofweek(year, month, day);
 
 	int date = day;
-	int daysDrawn = 0;
+	//int daysDrawn = 0;
 
 	int currentMonthDays = findNumDaysMonth(year, month);
 
@@ -335,7 +335,7 @@ void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
 	std::cout << "Day: "<< day << " - " << month << " - " << year << std::endl;
 	Node* temp = calendar->getNode(year, month, day);
 	std::vector<std::string> details = temp->getDetails();
-	for (int i = 0; i < details.size(); i++) {
+	for (unsigned int i = 0; i < details.size(); i++) {
 		std::cout << i << ") " <<details[i] << std::endl;
 	}
 	return;
@@ -348,7 +348,7 @@ void printDay(int year, int month, int day, DoubleLinkedList* calendar) {
  */
 std::vector<std::string> parseCommand(std::string command_str) {
 	std::vector<std::string> command_vec = std::vector<std::string>();
-	int index = 0;
+	unsigned int index = 0;
 	std::string temp = "";
 	while (index < command_str.length()) {
 		if (command_str.at(index) != ' ') {
@@ -425,7 +425,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		} else if (command_vec[1] == "remove") {
 			std::vector<std::string> details =  calendar->getNode(currentDate[0], currentDate[1], currentDate[2])->getDetails();
 			int index = atoi(command_vec[2].c_str());
-			if (index >= 0 && index < details.size() && details.size() != 0) {
+			if (index >= 0 && (unsigned)index < details.size() && details.size() != 0) {
 				temp->removeDetail(index);
 			}
 		} else {

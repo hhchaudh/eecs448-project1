@@ -5,6 +5,7 @@
 #ifndef READ_WRITE_H
 #define READ_WRITE_H
 
+#include <cstdio>
 #include <iostream>
 #include <vector>
 #include <fstream>
