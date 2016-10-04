@@ -76,21 +76,16 @@ void DoubleLinkedList::removeFront() {
 }
 
 void DoubleLinkedList::pushBack(int year, int month, int day) {
+	Node* temp = new Node();
+	//Set values for the new Node
+	temp->setYear(year);
+	temp->setMonth(month);
+	temp->setDay(day);
 	if (m_size == 0) { //If no Nodes have been added
-		Node* temp = new Node();
-		//Set values for the new Node
-		temp->setYear(year);
-		temp->setMonth(month);
-		temp->setDay(day);
 		//Point m_front and m_back
 		m_front = temp;
 		m_back = m_front;
 	} else { //If one or more Nodes have been added already
-		Node* temp = new Node();
-		//Set values for the new Node
-		temp->setYear(year);
-		temp->setMonth(month);
-		temp->setDay(day);
 		//Point the new Node and previous m_back to each other
 		temp->setPrev(m_back);
 		m_back->setNext(temp);

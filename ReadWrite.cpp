@@ -68,8 +68,15 @@
  			}
  		}
  		else
+		{
  			std::cout<<"Error: user.txt not formatted correctly";
+		}
  	}
+	else
+	{
+		std::cout<<"Error: Could not open user.txt for reading.";
+	}
+	
  	inf.close();
  }
 

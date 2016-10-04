@@ -351,10 +351,12 @@ std::vector<std::string> parseCommand(std::string command_str) {
 	unsigned int index = 0;
 	std::string temp = "";
 	while (index < command_str.length()) {
-		if (command_str.at(index) != ' ') {
+		if (command_str.at(index) != ' ' && command_str.at(index) != '\t') {
 			temp.append(1,command_str.at(index));
 		} else {
-			command_vec.push_back(temp);
+			if( temp != "" ) {
+				command_vec.push_back(temp);
+			}
 			temp = "";
 		}
 		index++;
@@ -382,6 +384,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 		std::cout << "detail remove [index]          || Remove the detail at the index of the currently checked out day\n";
 		std::cout << "details                        || Display the details of the current day\n";
 		std::cout << "exit                           || Exit the program\n";
+		std::cout << "\n";
 	} else if (command_vec[0] == "exit") { //If first command is exit
 		ret.push_back(0);
 	} else if (command_vec[0] == "goto") { //If first command is goto
@@ -434,7 +437,8 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 	} else if (command_vec[0] == "details") {
 		printDay(currentDate[0], currentDate[1], currentDate[2], calendar);
 	} else {
-		std::cout << "incorrect input: type 'help' for more help\n";
+		std::cout << "incorrect input |" << command_vec[0] << "| is not a valid command.\n";
+		std::cout << "Try typing 'help' for a list of commands.\n\n";
 	}
 	return(ret);
 }
@@ -450,20 +454,41 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
  */
 int main() {
 	//Setup on startup
-	std::string command_str = std::string();
-	std::vector<std::string> command_vec = std::vector<std::string>();
+	std::string command_str = std::string(); // string to catch user input
+	// user's command string broken into tokens, starts as help to display help.
+	std::vector<std::string> command_vec { "help" };
 	bool isRunning=true;
+	
+	// default the current date. We are just going to blindly write over this though.
 	std::vector<int> currentDate = {2016,8,1};
+	
+	// create our calendar which is a linked list of days.
 	DoubleLinkedList* calendar = new DoubleLinkedList(2016,8,2017,5);
+	
+	// create the database with current date 2016,8,1 if it does not exist
+	// also set internal current date of writer to 2016,8,1 no matter what.
 	ReadWrite writer = ReadWrite();
+	
+	// get the current date and all events stored in the file.
 	writer.getFileInfo(calendar);
+	
+	// use the current date that was in the file.
 	currentDate = writer.getDate();
 	std::vector<int> ret = std::vector<int>();
+	
+	// welcome message + help menu.
+	std::cout << "\n\n---- Welcome to the Calendar Program ----\n\n";
+	std::cout << "Valid commands are:\n";
+	checkCommand(command_vec, calendar, currentDate);
 
 	//Run program
 	while(isRunning) {
+		// prompt user for a command.
 		std::cout << currentDate[2] << "-" << currentDate[1] << "-" << currentDate[0] << " Enter Command> ";
 		getline(std::cin, command_str);
+		
+		// break the command up by spaces and tabs. Multiple spaces allowed. 
+		// Garunteed vecotr[0] is at least "" even if the user didn't enter anything.
 		command_vec = parseCommand(command_str);
 		ret = checkCommand(command_vec, calendar, currentDate);
 		if (ret.size() == 1) {
@@ -475,7 +500,7 @@ int main() {
 		}
 	}
 
-	//Delete linked list.
+	//Store Calendar info to file and delete linked list.
 	writer.setDate(currentDate);
 	writer.storeFileInfo(calendar);
 	delete calendar;
