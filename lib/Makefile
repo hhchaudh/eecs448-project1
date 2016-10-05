@@ -1,8 +1,11 @@
-calendar.a: cmd_help.o
-	ar rvs calendar.a cmd_help.o
+calendar.a: cmd_help.o cmd_view.o
+	ar rvs calendar.a cmd_help.o cmd_view.o
 
-cmd_help.o: cmd_help.cpp $(INC_DIR)/cmd_help.h
+cmd_help.o: cmd_help.cpp $(INC_DIR)/command.h
 	g++ -std=c++11 -g -Wall -I$(INC_DIR) $(DEBUG) -c cmd_help.cpp
+
+cmd_view.o: cmd_view.cpp $(INC_DIR)/command.h
+	g++ -std=c++11 -g -Wall -I$(INC_DIR) $(DEBUG) -c cmd_view.cpp
 
 clean:
 	rm *.o calendar.a || echo ------clean lib done------

@@ -1,5 +1,5 @@
 #include "calendar_std.h"
-#include "cmd_help.h"
+#include "command.h"
 
 /**
  * Returns the day of the week (sun=0 through sat=6).
@@ -382,6 +382,7 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
 		{ "help", &CMD_HELP::func },
+		{ "view", &CMD_VIEW::func },
 		{ "exit", &cmd_exit       }
 	};
 	
