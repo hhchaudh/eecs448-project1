@@ -23,6 +23,7 @@ namespace UTIL
 	extern int getMonNum( std::string monthName );
 	extern std::string getMonth( int m );
 	extern Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate );
+	extern void printDay( Node * day );
 }
 
 #endif

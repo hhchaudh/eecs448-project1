@@ -66,6 +66,78 @@ std::string getMonth( int m )
 	return months[m];
 }
 
+void printDay( Node * day )
+{
+	// print the day header.
+	std::cout << "Day: "<< day->getDay() << " - " << day->getMonth() << " - " << day->getYear() << std::endl;
+	std::cout << "   | DBook | Start Time | End Time |      Event" << std::endl;
+	
+	std::vector<Detail> dets = day->getDetails();
+	
+	// step through the details and mark the overlaps.
+	auto current = dets.begin();
+	auto done = dets.end();
+	Detail * latestEnding = nullptr;
+	for ( ; current != done; current++ )
+	{
+		current->setDoubleBooked( false );  // assume it is false and only set if it is double booked.
+		if( current->getStartHours() == 99 ){ continue; } // ignore day events.
+		
+		if( latestEnding == nullptr ) // no event to compare it to so no overlap yet
+		{
+			latestEnding = &(*current); // and detail has the latest ending.
+			continue;
+		}
+		
+		if(  (  current->getStartHours() < latestEnding->getDoneHours()  )
+			 || (
+				     current->getStartHours()   ==  latestEnding->getDoneHours()
+				  && current->getStartMinutes() <   latestEnding->getDoneMinutes() 	
+				)
+		)
+		{
+			// overlapping events
+			current->setDoubleBooked( true );
+			latestEnding->setDoubleBooked( true );
+			if(  ( current->getDoneHours() > latestEnding->getDoneHours() )
+			     || (
+						current->getDoneHours()   == latestEnding->getDoneHours()
+				     && current->getDoneMinutes() >  latestEnding->getDoneMinutes()	
+					)
+			)
+			{
+				latestEnding = &(*current);
+			}
+		}
+	}
+	
+	// Step through events and print.
+	current = dets.begin();
+	done = dets.end();
+	int i = 0;
+	for ( ; current != done; current++, i++ )
+	{
+		int buf_size = 64;
+		char buffer[ buf_size ];
+		std::cout << i << ") |";
+		if( current->getDoubleBooked() ){  std::cout << "   X   |";  }
+		else						    {  std::cout << "       |";  }
+		if( current->getStartHours() == 99 ){  std::cout << "    -----   |   -----  |";  }
+		else
+		{
+			snprintf( buffer, buf_size,
+					 "    %02d:%02d   |   %02d:%02d  |", 
+					 current->getStartHours(), current->getStartMinutes(), 
+					 current->getDoneHours(),  current->getDoneMinutes() 
+			);
+			buffer[ buf_size - 1 ]  = '\0';
+			std::cout << buffer;
+		}
+		
+		std::cout << " " << current->getText() << "\n";
+	}
+}
+
 Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 {
 	int dayOfWeek = getDayofweek( day );

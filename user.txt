@@ -1,2 +1,7 @@
 20160801
 2016080199999999I hate HIM!!!!!!
+2016080108300945I This should print second. Conflict.
+2016080109301045I This should print Third. Conflict.
+2016080114001630I This should print Fourth.
+2016080214001630I An event on another day.
+2016083014001630I Yet another event.

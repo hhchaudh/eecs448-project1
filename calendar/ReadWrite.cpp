@@ -59,6 +59,7 @@
 				Detail myDet;
  				getline(inf,str);
  				//populate dll with info
+ 				if( str == "" ){ break; }
  				t_year = atoi((str.substr(0,4)).c_str());
  				t_month = atoi((str.substr(4,2)).c_str());
  				t_day = atoi((str.substr(6,2)).c_str());
