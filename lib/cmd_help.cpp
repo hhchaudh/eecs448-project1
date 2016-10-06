@@ -1,3 +1,4 @@
+#include "calendar_std.h"
 #include "command.h"
 
 namespace CMD_HELP

@@ -1,142 +1,61 @@
+#include "calendar_std.h"
 #include "command.h"
 
 namespace CMD_VIEW
 {
-static int getDayofweek(int y, int m, int d) {
-	static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
-	y -= m < 3;
-	return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
-}
 
-static int getDayofweek( Node * day ) {
-	return getDayofweek( day->getYear(), day->getMonth(), day->getDay() );
-}
-
-static int month_to_year[] = {
-//  INVAL  JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC
-	2017, 2017, 2017, 2017, 2017, 2017, 2017, 2017, 2016, 2016, 2016, 2016, 2016
-};
-
-std::unordered_map<std::string, int> mon_to_int = {
-        { "JAN", 1 }, { "FEB", 2 }, { "MAR", 3 }, { "APR", 4  }, { "MAY", 5  }, { "JUN", 6  }, 
-        { "jan", 1 }, { "feb", 2 }, { "mar", 3 }, { "apr", 4  }, { "may", 5  }, { "jun", 6  }, 
-		{ "JUL", 7 }, { "AUG", 8 }, { "SEP", 9 }, { "OCT", 10 }, { "NOV", 11 }, { "DEC", 12 },
-		{ "jul", 7 }, { "aug", 8 }, { "sep", 9 }, { "oct", 10 }, { "nov", 11 }, { "dec", 12 }
-};
-
-static void printCalHead()
-{
-	std::cout << "| SUN | MON | TUE | WED | THU | FRI | SAT |\n";
-	return;
-}
-
-static void printWeekHead()
-{
-	std::cout << "|-----------------------------------------|\n";
-	return;
-}
-
-static int getMonNum( std::string monthName )
-{
-	auto month = mon_to_int.find( monthName );
-	if( month == mon_to_int.end() ) {
-		return 0;
+static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
+	std::vector<int> ret = std::vector<int>();
+	
+	// check the command got the right amount of arguments.
+	if( command_vec.size() != 1 )
+	{
+		std::cout << "Incorrect input: should be: view month [month]\n\n";
+		return( ret );
 	}
 	
-	return mon_to_int[ monthName ];
-}
-
-std::string months[] = {
-	"ERR", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-};
-
-static std::string getMonth( int m )
-{
-	if ( m < 1 || m > 12 )
-	{ return "ERR"; }
-	return months[m];
-}
-
-static Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
-{
-	int dayOfWeek = getDayofweek( day );
-	int origionalMonth = day->getMonth();
-	
-	// Step backward through this week until we get to Sunday or beginning of Calendar
-	while (  (dayOfWeek > 0)  &&  (day->getPrev() != nullptr)  )
+	// Check that that argument was a month that is in the Calendar
+	Node * day = calendar->getFront();
+	int desiredMonthNum = UTIL::getMonNum( command_vec[0] );
+	while ( day != nullptr && day->getMonth() != desiredMonthNum )
 	{
-		// If we don't want to wrap to the previous month, Then stop at the first.
-		if(   !monthWrap   &&   ( day->getMonth() != origionalMonth )   )
-		{
-			day = day->getNext();
-			dayOfWeek++;
-			break;
-		}
-		
-		day = day->getPrev();
-		dayOfWeek--;
-	}
-	
-	// we might not be on Sunday, so print blank spots until the day we are at.
-	std::cout << "|";
-	std::string blankDay = "     |";
-	for ( int i = 0; i < dayOfWeek; i++ )
-	{
-		std::cout << blankDay;
-	}
-	
-	// Print the days until the end of week, or the end of the calendar.
-	while (   (dayOfWeek < 7)  &&  (day != nullptr)   )
-	{
-		// If we don't want to wrap around months, then stop here.
-		if(   !monthWrap   &&   ( day->getMonth() != origionalMonth )   )
-		{
-			break;
-		}
-		
-		char buff[3];
-		sprintf( buff, "%2d", day->getDay() );
-		std::cout << " " << buff;
-		
-		// print '*' if day has details.
-		if( day->getDetails().size() != 0 )  { std::cout << "*";    }
-		else                                 { std::cout << " ";    }
-		
-		// print '@' if this is the current selected day.
-		if( day->getMonth() == currentDate[1] && day->getDay() == currentDate[2])
-		     { std::cout << "@";  }
-		else { std::cout << " ";  }
-		
-		std::cout << "|";
-		
-		dayOfWeek++;
 		day = day->getNext();
 	}
 	
-	// might not have printed a full week, so fill the rest with blanks.
-	for( int i = dayOfWeek; i < 7; i++ )
+	if( day == nullptr )
 	{
-		std::cout << blankDay;
+		std::cout << "Incorrect input: Could not find the month: " << command_vec[0] << "\n\n";
+		return( ret );
 	}
-
-	std::cout << "\n";	
-	// return a pointer to the next day that we didn't print, or NULL if we are at end of Calendar.
-	return day;
+	
+	// not only is the month in the Calendar, we also have a pointer to the first day of that month.
+	UTIL::printWeekHead();
+	UTIL::printCalHead();
+	UTIL::printWeekHead();
+	while( day != nullptr && day->getMonth() == desiredMonthNum )
+	{
+		// print all the weeks of the month.
+		day = UTIL::printWeek( day, false, currentDate );
+		UTIL::printWeekHead();
+	}
+	
+	std::cout << "\n";
+	
+	return( ret );
 }
-
 
 static std::vector<int> week(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
 	if( command_vec.size() != 2 )
 	{
-		std::cout << "Incorrect input: should be: view week month day\n\n";
+		std::cout << "Incorrect input: should be: view week [month] [day]\n\n";
 		return( ret );
 	}
 	
-	int monthNum = getMonNum( command_vec[0] );
+	int monthNum = UTIL::getMonNum( command_vec[0] );
 	int dayNum = atoi(  command_vec[1].c_str()  );
-	int year = month_to_year[ monthNum ];
+	int year = UTIL::month_to_year[ monthNum ];
 	if( !monthNum  ||  !dayNum  ||  ( calendar->getNode( year, monthNum, dayNum ) == nullptr )   )
 	{
 		std::cout << "Incorrect input: Could not find the date:" << monthNum << "/" << dayNum << "/" << year << "\n\n";
@@ -145,11 +64,11 @@ static std::vector<int> week(std::vector<std::string> command_vec, DoubleLinkedL
 	
 	Node * day = calendar->getNode( year, monthNum, dayNum );
 	
-	printWeekHead();
-	printCalHead();
-	printWeekHead();
-	printWeek( day, true, currentDate );
-	printWeekHead();
+	UTIL::printWeekHead();
+	UTIL::printCalHead();
+	UTIL::printWeekHead();
+	UTIL::printWeek( day, true, currentDate );
+	UTIL::printWeekHead();
 	std::cout << "\n";
 	
 	return( ret );
@@ -165,11 +84,11 @@ static std::vector<int> year(std::vector<std::string> command_vec, DoubleLinkedL
 	{
 		int month_num         = curDay->getMonth();
 		int events_found      = 0;
-		std::string month_str = getMonth( month_num ); // get this day's 3 letter month code.
+		std::string month_str = UTIL::getMonth( month_num ); // get this day's 3 letter month code.
 		
 		auto printed = printed_months.find( month_str ); 
 		if( printed == printed_months.end() ) {       // is this a new month?
-			std::cout << " | " << month_str;          // yep print it
+			std::cout << "| " << month_str << " ";    // yep print it
 			printed_months.insert( { month_str, 0 } );// mark it as printed
 		}
 		else
@@ -189,7 +108,7 @@ static std::vector<int> year(std::vector<std::string> command_vec, DoubleLinkedL
 		}
 	}
 	
-	std::cout << " |\n\n";
+	std::cout << "|\n\n";
 	return( ret );
 }
 
@@ -205,8 +124,9 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
-		{ "year", &year },
-		{ "week", &week }
+		{ "year",  &year  },
+		{ "month", &month },
+		{ "week",  &week  }
 	};
 	
 	// see if the user's command was in the map.
