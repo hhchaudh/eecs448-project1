@@ -4,6 +4,37 @@
 namespace CMD_VIEW
 {
 
+static std::vector<int> day(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
+	std::vector<int> ret = std::vector<int>();
+	
+	if( command_vec.size() != 2 )
+	{
+		std::cout << "Incorrect input: should be: view day [month] [day]\n\n";
+		return( ret );
+	}
+	
+	int day   = atoi(  command_vec[1].c_str()  );
+	int month = UTIL::getMonNum( command_vec[0] );
+	int year = UTIL::month_to_year[ month ];
+	
+	if( !month  ||  !day  ||  ( calendar->getNode( year, month, day ) == nullptr )   )
+	{
+		std::cout << "Incorrect input: Could not find the date:" << month << "/" << day << "/" << year << "\n\n";
+		return( ret );
+	}
+	
+	std::cout << "Day: "<< day << " - " << month << " - " << year << std::endl;
+	Node* temp = calendar->getNode(year, month, day);
+	std::vector<Detail> details = temp->getDetails();
+	for (unsigned int i = 0; i < details.size(); i++) {
+			std::cout << i << ") " << details[i].getStartHours() << ":" << details[i].getStartMinutes() << " "
+									<< details[i].getDoneHours() << ":" << details[i].getDoneMinutes() << " "
+									<< details[i].getText() << std::endl;
+	}
+	
+	return( ret );
+}
+
 static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -126,7 +157,8 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	std::unordered_map<std::string, commandfunc *> commands = {
 		{ "year",  &year  },
 		{ "month", &month },
-		{ "week",  &week  }
+		{ "week",  &week  },
+		{ "day",   &day   }
 	};
 	
 	// see if the user's command was in the map.

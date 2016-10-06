@@ -4,6 +4,13 @@
 namespace UTIL
 {
 
+/**
+ * Returns the day of the week (sun=0 through sat=6).
+ * @param y     The year of the day
+ * @param m     The month of the day
+ * @param d     The day
+ * @return The day of the week as an int (sun=0 through sat=6).
+ */
 int getDayofweek(int y, int m, int d) {
 	static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
 	y -= m < 3;

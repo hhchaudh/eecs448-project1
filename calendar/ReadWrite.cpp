@@ -62,9 +62,11 @@
  				t_year = atoi((str.substr(0,4)).c_str());
  				t_month = atoi((str.substr(4,2)).c_str());
  				t_day = atoi((str.substr(6,2)).c_str());
-				myDet.setHours  (   atoi((str.substr(8,2)).c_str())   );
-				myDet.setMinutes(   atoi((str.substr(10,2)).c_str())   );
-				myDet.setText   (   str.substr(12)   );
+				myDet.setStartHours  (   atoi((str.substr(8,2)).c_str())   );
+				myDet.setStartMinutes(   atoi((str.substr(10,2)).c_str())   );
+				myDet.setDoneHours  (   atoi((str.substr(12,2)).c_str())   );
+				myDet.setDoneMinutes(   atoi((str.substr(14,2)).c_str())   );
+				myDet.setText   (   str.substr(16)   );
 				
  				//use parts of date and det to fill dll
  				temp = dll->getNode(t_year,t_month,t_day);
@@ -111,11 +113,13 @@
 		while ( curVec.size() != 0 )
 		{
 			auto start = curVec.begin();
-			sprintf( buffer,      "%04d",  curNode->getYear()     );
-			sprintf( buffer + 4,  "%02d",  curNode->getMonth()    );
-			sprintf( buffer + 6,  "%02d",  curNode->getDay()      );
-			sprintf( buffer + 8,  "%02d",  start->getHours()        );
-			sprintf( buffer + 10, "%02d",  start->getMinutes()      );
+			sprintf( buffer,      "%04d",  curNode->getYear()       );
+			sprintf( buffer + 4,  "%02d",  curNode->getMonth()      );
+			sprintf( buffer + 6,  "%02d",  curNode->getDay()        );
+			sprintf( buffer + 8,  "%02d",  start->getStartHours()   );
+			sprintf( buffer + 10, "%02d",  start->getStartMinutes() );
+			sprintf( buffer + 12, "%02d",  start->getDoneHours()   );
+			sprintf( buffer + 14, "%02d",  start->getDoneMinutes() );
 			
 			std::string codedDate( buffer );
 			
