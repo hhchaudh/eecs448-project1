@@ -45,6 +45,19 @@ void printWeekHead()
 	return;
 }
 
+void printDayHead()
+{
+	std::cout << "---|-------|------------|----------|---------------------------------------------------|\n";
+	return;
+}
+
+void printDayBlankBegin()
+{
+	std::cout << "   |       |            |          |";
+	return;
+}
+
+
 int getMonNum( std::string monthName )
 {
 	auto month = mon_to_int.find( monthName );
@@ -66,17 +79,11 @@ std::string getMonth( int m )
 	return months[m];
 }
 
-void printDay( Node * day )
+static void markEventsDoubleBooked( std::vector<Detail> * dets )
 {
-	// print the day header.
-	std::cout << "Day: "<< day->getDay() << " - " << day->getMonth() << " - " << day->getYear() << std::endl;
-	std::cout << "   | DBook | Start Time | End Time |      Event" << std::endl;
-	
-	std::vector<Detail> dets = day->getDetails();
-	
 	// step through the details and mark the overlaps.
-	auto current = dets.begin();
-	auto done = dets.end();
+	auto current = dets->begin();
+	auto done = dets->end();
 	Detail * latestEnding = nullptr;
 	for ( ; current != done; current++ )
 	{
@@ -99,21 +106,34 @@ void printDay( Node * day )
 			// overlapping events
 			current->setDoubleBooked( true );
 			latestEnding->setDoubleBooked( true );
-			if(  ( current->getDoneHours() > latestEnding->getDoneHours() )
-			     || (
-						current->getDoneHours()   == latestEnding->getDoneHours()
-				     && current->getDoneMinutes() >  latestEnding->getDoneMinutes()	
-					)
-			)
-			{
-				latestEnding = &(*current);
-			}
 		}
+		
+		if(  ( current->getDoneHours() > latestEnding->getDoneHours() )
+		     || (
+					current->getDoneHours()   == latestEnding->getDoneHours()
+			     && current->getDoneMinutes() >  latestEnding->getDoneMinutes()	
+				)
+		)
+		{
+			latestEnding = &(*current);
+		}	
 	}
+}
+
+void printDay( Node * day )
+{
+	// print the day header.
+	std::cout << "Day: "<< day->getDay() << " - " << day->getMonth() << " - " << day->getYear() << std::endl;
+	printDayHead();
+	std::cout << "   | DBook | Start Time | End Time |      Event                                        |" << std::endl;
+	printDayHead();
+	
+	std::vector<Detail> dets = day->getDetails();
+	markEventsDoubleBooked( &dets );
 	
 	// Step through events and print.
-	current = dets.begin();
-	done = dets.end();
+	auto current = dets.begin();
+	auto done = dets.end();
 	int i = 0;
 	for ( ; current != done; current++, i++ )
 	{
@@ -134,8 +154,20 @@ void printDay( Node * day )
 			std::cout << buffer;
 		}
 		
-		std::cout << " " << current->getText() << "\n";
+		std::string leftToPrint = current->getText();
+		while( leftToPrint.size() > 50 )
+		{
+			std::cout << " " << leftToPrint.substr( 0, 50 ) << "|\n";
+			printDayBlankBegin();
+			leftToPrint = leftToPrint.substr( 50 );
+		}
+		
+		int extraPrint = 50 - leftToPrint.size();
+		std::cout << " " << leftToPrint << std::string( extraPrint, ' ') << "|\n";
+		printDayHead();
 	}
+	
+	std::cout << "\n";
 }
 
 Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
