@@ -24,11 +24,15 @@ static std::vector<int> day(std::vector<std::string> command_vec, DoubleLinkedLi
 		return( ret );
 	}
 	
-	Node* temp = calendar->getNode(year, month, day);
+	Node* date = calendar->getNode(year, month, day);
 	
-	UTIL::printDay( temp );
+	UTIL::printDay( date );
 	
-	return( ret );
+	currentDate[0] = date->getYear();
+	currentDate[1] = date->getMonth();
+	currentDate[2] = date->getDay();
+	
+	return( currentDate );
 }
 
 static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
