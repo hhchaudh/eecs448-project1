@@ -35,6 +35,20 @@ static std::vector<int> day(std::vector<std::string> command_vec, DoubleLinkedLi
 	return( currentDate );
 }
 
+static std::vector<int> current(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
+	std::vector<int> ret = std::vector<int>();
+	
+	// convert the current day to the form of the view day command and use that.
+	std::vector<std::string> date = {
+			UTIL::getMonth( currentDate[1] ), 
+			std::to_string( currentDate[2])
+	};
+	
+	ret = day( date, calendar, currentDate );
+	
+	return( ret );
+}
+
 static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -155,10 +169,11 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
-		{ "year",  &year  },
-		{ "month", &month },
-		{ "week",  &week  },
-		{ "day",   &day   }
+		{ "year",    &year    },
+		{ "month",   &month   },
+		{ "week",    &week    },
+		{ "day",     &day     },
+		{ "current", &current }
 	};
 	
 	// see if the user's command was in the map.
