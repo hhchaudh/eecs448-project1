@@ -11,6 +11,11 @@ namespace CMD_VIEW
 	extern commandfunc func;
 }
 
+namespace CMD_DETAIL
+{
+	extern commandfunc func;
+}
+
 namespace UTIL
 {
 	extern int month_to_year[ 13 ];

@@ -65,9 +65,10 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 	
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
-		{ "help", &CMD_HELP::func },
-		{ "view", &CMD_VIEW::func },
-		{ "exit", &cmd_exit       }
+		{ "help",   &CMD_HELP::func   },
+		{ "view",   &CMD_VIEW::func   },
+		{ "detail", &CMD_DETAIL::func },
+		{ "exit",   &cmd_exit         }
 	};
 	
 	// see if the user's command was in the map.
@@ -89,21 +90,12 @@ std::vector<int> checkCommand(std::vector<std::string> command_vec, DoubleLinked
 			myDetail.setDoneMinutes( 99 );
 			myDetail.setText( tmp_str );
 			temp->addDetail( myDetail );
-		} else if (command_vec[1] == "remove") {
-			std::vector<Detail> details =  calendar->getNode(currentDate[0], currentDate[1], currentDate[2])->getDetails();
-			int index = atoi(command_vec[2].c_str());
-			if (index >= 0 && (unsigned)index < details.size() && details.size() != 0) {
-				temp->removeDetail(index);
-			}
-		} else {
-			std::cout << "Incorrect input: type 'help' for more help\n";
 		}
-	} else if (command_vec[0] == "details") {
-		// redo this later.
 	} else {
 		std::cout << "incorrect input |" << command_vec[0] << "| is not a valid command.\n";
 		std::cout << "Try typing 'help' for a list of commands.\n\n";
 	}
+	
 	return(ret);
 }
 

@@ -1,8 +1,6 @@
-20160801
+20160802
 2016080199999999I hate HIM!!!!!!
 2016080107000730This should get auto sorted to be first on Aug. 1. It is a long message and should wrap around to at least the next line. I am hoping that it wraps even farther though. Maybe like a 3 or 4 line event. Well, time to see if it worked or not.
 2016080108300945I This should print second. Conflict.
 2016080109301045I This should print Third. Conflict.
-2016080114001630I This should print Fourth.
-2016080214001630I An event on another day.
 2016083014001630I Yet another event.
