@@ -1,10 +1,10 @@
 #include "Detail.h"
 
 Detail::Detail() {
-	m_StartHours = 0;
-	m_StartMinutes = 0;
-	m_DoneHours = 0;
-	m_DoneMinutes = 0;
+	m_StartHours = 99;
+	m_StartMinutes = 99;
+	m_DoneHours = 99;
+	m_DoneMinutes = 99;
 	d_booked = false;
 	m_text = "";
 }

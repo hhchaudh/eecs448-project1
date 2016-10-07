@@ -1,8 +1,118 @@
 #include "calendar_std.h"
 #include "command.h"
+#include <regex>
 
 namespace CMD_DETAIL
 {
+
+static int getIntFrom2Digit( std::string digits)
+{
+	// If there is a leading 0, then drop it.
+	if( digits.substr( 0, 1 ) == "0" )
+	{
+		digits = digits.substr( 1, 1 );
+	}
+	
+	// after that we should just be able to use atoi to convert.
+	return atoi( digits.c_str() );
+}
+
+static bool getUserTime( Detail * det )
+{
+	int retries = 3;
+	std::string startTime, endTime;
+	std::regex reg( "^[0-9]{2}:[0-9]{2}$" );
+	while ( true )
+	{
+		if( 0 == retries--){ return false; }
+		
+		std::cout << "Please enter a start time, ex: 00:00, in military time. [q] to abort.\n";
+		std::cin >> startTime;
+		
+		// user wanted to quit, get otta here.
+		if( startTime.size() > 0 && startTime.substr( 0, 1 ) == "q" ){ return false; }
+		
+		if( !std::regex_match( startTime, reg) )
+		{   // user's input was invalid.
+			std::cout << "\nInvalid entry |" << startTime << "|. Please try again.\n\n";
+			continue;
+		}
+		
+		break;
+	}
+		
+	// well at least the start time was good.	
+	det->setStartHours( 
+			getIntFrom2Digit( 
+				startTime.substr( 0, 2 )
+			) 
+	);
+	det->setStartMinutes( 
+			getIntFrom2Digit( 
+				startTime.substr( 3, 2 )
+			) 
+	);
+		
+	retries = 3;
+	while ( true )
+	{
+		if( 0 == retries--){ return false; }
+		
+		std::cout << "Please enter an end time, ex: 00:00, in military time. [q] to abort.\n";
+		std::cin >> endTime;
+		
+		// user wanted to quit, get otta here.
+		if( endTime.size() > 0 && endTime.substr( 0, 1 ) == "q" ){ return false; }
+		
+		if( !std::regex_match( endTime, reg) )
+		{   // user's input was invalid.
+			std::cout << "\nInvalid entry |" << endTime << "|. Please try again.\n\n";
+			continue;
+		}
+		
+		break;
+	}
+		
+	// Now the end time was also good.
+	det->setDoneHours( 
+			getIntFrom2Digit( 
+				endTime.substr( 0, 2 )
+			) 
+	);
+	det->setDoneMinutes( 
+			getIntFrom2Digit( 
+				endTime.substr( 3, 2 )
+			) 
+	);
+	
+	return true;
+}
+
+static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
+	std::vector<int> ret = std::vector<int>();
+	
+	// confirm correct number of arguments.
+	if( command_vec.size() != 1 && command_vec[0] != "day" && command_vec[0] != "time" )
+	{
+		std::cout << "Incorrect input: should be: detail add [time|day]\n\n";
+		return( ret );
+	}
+	
+	Detail det; // automatically initialized to times of 99.
+	if( command_vec[0] == "time" ) // try to get the time from the user.
+	{
+		if( !getUserTime( &det ) )
+		{
+			std::cout << "No detail added, did not get a time.\n\n";
+			return( ret );
+		}
+	}
+	
+	std::cout << "Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
+								<< det.getDoneHours() << ":" << det.getDoneMinutes() << "|\n\n";
+	
+	return( ret );
+}
 
 static std::vector<int> remove(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
@@ -41,6 +151,7 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
+		{ "add",    &add    },
 		{ "remove", &remove }
 	};
 	
