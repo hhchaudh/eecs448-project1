@@ -5,6 +5,11 @@
 namespace CMD_DETAIL
 {
 
+static int getIntGarunteed( std::string digits )
+{
+	return atoi( digits.c_str() );
+}
+
 static int getIntFrom2Digit( std::string digits)
 {
 	// If there is a leading 0, then drop it.
@@ -88,6 +93,41 @@ static bool getUserTime( Detail * det )
 	return true;
 }
 
+static bool getRecurrence( int * recurrence )
+{
+	std::string userTry;
+	std::regex numReg( "^[1-9][0-9]{0,2}$" );
+	int retries = 3;
+	
+	std::cout   << "How many times should this event happen?\n"
+				<< "1 - 999   => 1 - 999\n" 
+				<< "EOC       => to end of Calendar.\n" 
+				<< "[q]       => abort.\n";
+	
+	while ( true )
+	{
+		if( 0 == retries--){ return false; }
+		
+		std::cin >> userTry;
+		
+		if( userTry == "EOC" ){ *recurrence = 0;    return true;   }
+		
+		if( userTry == "q" ){  return false;  }
+		
+		if( std::regex_match( userTry, numReg) )
+		{
+			*recurrence = getIntGarunteed( userTry );
+			return true;
+		}
+		
+		std::cout   << "The value |" << userTry << "| is not a valid number of retries.\n"
+					<< "Please try again:\n";
+	}
+	
+	// should not get here.
+	return false;
+}
+
 static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -108,7 +148,14 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		}
 	}
 	
-	std::cout << "Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
+	int recurrence;
+	if( ! getRecurrence( &recurrence) )
+	{
+		std::cout << "No detail added, did not get a valid recurrence.\n\n";
+		return( ret );
+	}
+	
+	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
 								<< det.getDoneHours() << ":" << det.getDoneMinutes() << "|\n\n";
 	
 	return( ret );
