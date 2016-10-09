@@ -25,21 +25,36 @@ static int getIntFrom2Digit( std::string digits)
 static bool getUserTime( Detail * det )
 {
 	int retries = 3;
+	int hours, mins;
 	std::string startTime, endTime;
 	std::regex reg( "^[0-9]{2}:[0-9]{2}$" );
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
 		
-		std::cout << "Please enter a start time, ex: 00:00, in military time. [q] to abort.\n";
-		std::cin >> startTime;
+		std::cout << "\nPlease enter a start time, ex: 00:00, in military time. [q] to abort.\n";
+		std::getline ( std::cin, startTime);
 		
 		// user wanted to quit, get otta here.
 		if( startTime.size() > 0 && startTime.substr( 0, 1 ) == "q" ){ return false; }
 		
 		if( !std::regex_match( startTime, reg) )
 		{   // user's input was invalid.
-			std::cout << "\nInvalid entry |" << startTime << "|. Please try again.\n\n";
+			std::cout << "\nInvalid entry |" << startTime << "|. Please try again.\n";
+			continue;
+		}
+		
+		hours = getIntFrom2Digit( startTime.substr( 0, 2 ) );
+		if( hours < 0 || hours > 23 )
+		{ 
+			std::cout << "\nInvalid entry |" << startTime.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
+			continue;
+		}
+		
+		mins = getIntFrom2Digit( startTime.substr( 3, 2 ) );
+		if( mins < 0 || mins > 59 )
+		{ 
+			std::cout << "\nInvalid entry |" << startTime.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
 			continue;
 		}
 		
@@ -47,24 +62,16 @@ static bool getUserTime( Detail * det )
 	}
 		
 	// well at least the start time was good.	
-	det->setStartHours( 
-			getIntFrom2Digit( 
-				startTime.substr( 0, 2 )
-			) 
-	);
-	det->setStartMinutes( 
-			getIntFrom2Digit( 
-				startTime.substr( 3, 2 )
-			) 
-	);
+	det->setStartHours( hours );
+	det->setStartMinutes( mins );
 		
 	retries = 3;
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
 		
-		std::cout << "Please enter an end time, ex: 00:00, in military time. [q] to abort.\n";
-		std::cin >> endTime;
+		std::cout << "\nPlease enter an end time, ex: 00:00, in military time. [q] to abort.\n";
+		std::getline ( std::cin, endTime );
 		
 		// user wanted to quit, get otta here.
 		if( endTime.size() > 0 && endTime.substr( 0, 1 ) == "q" ){ return false; }
@@ -75,20 +82,26 @@ static bool getUserTime( Detail * det )
 			continue;
 		}
 		
+		hours = getIntFrom2Digit( endTime.substr( 0, 2 ) );
+		if( hours < 0 || hours > 23 )
+		{ 
+			std::cout << "\nInvalid entry |" << endTime.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
+			continue;
+		}
+		
+		mins = getIntFrom2Digit( endTime.substr( 3, 2 ) );
+		if( mins < 0 || mins > 59 )
+		{ 
+			std::cout << "\nInvalid entry |" << endTime.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
+			continue;
+		}
+		
 		break;
 	}
 		
 	// Now the end time was also good.
-	det->setDoneHours( 
-			getIntFrom2Digit( 
-				endTime.substr( 0, 2 )
-			) 
-	);
-	det->setDoneMinutes( 
-			getIntFrom2Digit( 
-				endTime.substr( 3, 2 )
-			) 
-	);
+	det->setDoneHours( hours );
+	det->setDoneMinutes( mins );
 	
 	return true;
 }
@@ -99,7 +112,7 @@ static bool getRecurrence( int * recurrence )
 	std::regex numReg( "^[1-9][0-9]{0,2}$" );
 	int retries = 3;
 	
-	std::cout   << "How many times should this event happen?\n"
+	std::cout   << "\nHow many times should this event happen?\n"
 				<< "1 - 999   => 1 - 999\n" 
 				<< "EOC       => to end of Calendar.\n" 
 				<< "[q]       => abort.\n";
@@ -108,9 +121,9 @@ static bool getRecurrence( int * recurrence )
 	{
 		if( 0 == retries--){ return false; }
 		
-		std::cin >> userTry;
+		std::getline ( std::cin, userTry );
 		
-		if( userTry == "EOC" ){ *recurrence = 0;    return true;   }
+		if( userTry == "EOC" ){ *recurrence = -1;    return true;   }
 		
 		if( userTry == "q" ){  return false;  }
 		
@@ -128,6 +141,15 @@ static bool getRecurrence( int * recurrence )
 	return false;
 }
 
+static void getUserEvent( Detail * det )
+{
+	std::string userTry;
+	std::cout << "Please enter the event:\n";
+	std::getline ( std::cin, userTry );
+	det->setText( userTry );
+	return;
+}
+
 static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -139,6 +161,10 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	}
 	
 	Detail det; // automatically initialized to times of 99.
+	
+	// get the event
+	getUserEvent( &det );
+	
 	if( command_vec[0] == "time" ) // try to get the time from the user.
 	{
 		if( !getUserTime( &det ) )
@@ -148,6 +174,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		}
 	}
 	
+	// get the number of times the event should occur.
 	int recurrence;
 	if( ! getRecurrence( &recurrence) )
 	{
@@ -155,6 +182,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		return( ret );
 	}
 	
+	std::cout << "detail was: " << det.getText() << "\n";
 	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
 								<< det.getDoneHours() << ":" << det.getDoneMinutes() << "|\n\n";
 	
