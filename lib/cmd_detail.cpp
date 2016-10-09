@@ -22,12 +22,55 @@ static int getIntFrom2Digit( std::string digits)
 	return atoi( digits.c_str() );
 }
 
+static bool isValidTime( std::string timeString, int * retHours, int * retMins, int lastHours, int lastMins )
+{
+	int hours, mins;
+	std::regex validTime( "^[0-9]{2}:[0-9]{2}$" );
+	
+	// see if user's input is in valid time format.
+	if( !std::regex_match( timeString, validTime ) )
+	{   // user's input was invalid.
+		std::cout << "\nInvalid entry |" << timeString << "|. Please try again.\n";
+		return false;
+	}
+	
+	// was a valid format, get the hours.
+	hours = getIntFrom2Digit( timeString.substr( 0, 2 ) );
+	if( hours < 0 || hours > 23 )
+	{ 
+		std::cout << "\nInvalid entry |" << timeString.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
+		return false;
+	}
+	
+	// get the minutes.
+	mins = getIntFrom2Digit( timeString.substr( 3, 2 ) );
+	if( mins < 0 || mins > 59 )
+	{ 
+		std::cout << "\nInvalid entry |" << timeString.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
+		return false;
+	}
+	
+	// make sure this time comes after the last time.
+	int curTime  = ( hours * 60 ) + mins;
+	int lastTime = ( lastHours * 60 ) + lastMins;
+	
+	if( lastTime >= curTime)
+	{
+		std::cout << "\nInvalid entry |" << timeString << "|. Needs to happen after the start of the event.\n";
+		return false;
+	}
+	
+	// this time is fine.
+	*retHours = hours;
+	*retMins = mins;
+	return true;
+}
+
 static bool getUserTime( Detail * det )
 {
 	int retries = 3;
 	int hours, mins;
 	std::string startTime, endTime;
-	std::regex reg( "^[0-9]{2}:[0-9]{2}$" );
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
@@ -38,23 +81,9 @@ static bool getUserTime( Detail * det )
 		// user wanted to quit, get otta here.
 		if( startTime.size() > 0 && startTime.substr( 0, 1 ) == "q" ){ return false; }
 		
-		if( !std::regex_match( startTime, reg) )
-		{   // user's input was invalid.
-			std::cout << "\nInvalid entry |" << startTime << "|. Please try again.\n";
-			continue;
-		}
-		
-		hours = getIntFrom2Digit( startTime.substr( 0, 2 ) );
-		if( hours < 0 || hours > 23 )
-		{ 
-			std::cout << "\nInvalid entry |" << startTime.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
-			continue;
-		}
-		
-		mins = getIntFrom2Digit( startTime.substr( 3, 2 ) );
-		if( mins < 0 || mins > 59 )
-		{ 
-			std::cout << "\nInvalid entry |" << startTime.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
+		// check this time against a negative time, so it will win.
+		if( ! isValidTime( startTime, &hours, &mins, 0, -1 ) )
+		{
 			continue;
 		}
 		
@@ -76,23 +105,11 @@ static bool getUserTime( Detail * det )
 		// user wanted to quit, get otta here.
 		if( endTime.size() > 0 && endTime.substr( 0, 1 ) == "q" ){ return false; }
 		
-		if( !std::regex_match( endTime, reg) )
-		{   // user's input was invalid.
-			std::cout << "\nInvalid entry |" << endTime << "|. Please try again.\n\n";
-			continue;
-		}
-		
-		hours = getIntFrom2Digit( endTime.substr( 0, 2 ) );
-		if( hours < 0 || hours > 23 )
-		{ 
-			std::cout << "\nInvalid entry |" << endTime.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
-			continue;
-		}
-		
-		mins = getIntFrom2Digit( endTime.substr( 3, 2 ) );
-		if( mins < 0 || mins > 59 )
-		{ 
-			std::cout << "\nInvalid entry |" << endTime.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
+		// check this time against the start time.
+		if( ! isValidTime( 	endTime, 
+							&hours, &mins, 
+							det->getStartHours(), det->getStartMinutes() ) )
+		{
 			continue;
 		}
 		
