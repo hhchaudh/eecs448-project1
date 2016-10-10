@@ -167,20 +167,36 @@ static void getUserEvent( Detail * det )
 	return;
 }
 
-static bool getRepeatType( bool * repeatMonth )
+static bool getRepeatType( bool * repeatMonthly, int * repeatWeekly )
 {
-	*repeatMonth = true;
+	*repeatMonthly = false;
+	*repeatWeekly = 7;
 	return true;
 }
 
-static void addEvents( Detail det, int recurrence, Node * selectedDate, bool repeatMonth )
+static void addEvents( Detail det, int recurrence, Node * selectedDate, bool repeatMonthly, int repeatWeekly )
 {
-	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext() )
+	int repeatWeeklyReset = repeatWeekly;
+	repeatWeekly = 0;
+	
+	// step through every day left of the year, until we repeat as many times as we wanted.
+	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext(), repeatWeekly-- )
 	{
-		if( repeatMonth == true  && selectedDate->getDay() == currentDate->getDay() )
+		// If we are doing monthly, check if this day is the
+		// day of the month that we want.
+		if( repeatMonthly == true  && selectedDate->getDay() == currentDate->getDay() )
 		{
 			currentDate->addDetail( det );
 			recurrence--;
+			continue;
+		}
+		
+		if( repeatWeekly == 0 )
+		{
+			currentDate->addDetail( det );
+			repeatWeekly = repeatWeeklyReset;
+			recurrence--;
+			continue;
 		}
 	}
 }
@@ -217,8 +233,9 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		return( ret );
 	}
 	
-	bool repeatMonth = false;
-	if( recurrence > 1   &&   !getRepeatType( &repeatMonth) )
+	bool repeatMonthly = false;
+	int  repeatWeekly  = 999;
+	if( recurrence > 1   &&   !getRepeatType( &repeatMonthly, &repeatWeekly ) )
 	{
 		std::cout << "Don't know how to recur. Did not add any events.\n\n";
 		return( ret );
@@ -226,7 +243,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	
 	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
 	
-	addEvents( det, recurrence, date, repeatMonth );
+	addEvents( det, recurrence, date, repeatMonthly, repeatWeekly );
 	
 	std::cout << "detail was: " << det.getText() << "\n";
 	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
