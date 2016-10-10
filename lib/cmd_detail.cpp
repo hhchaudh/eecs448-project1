@@ -140,7 +140,7 @@ static bool getRecurrence( int * recurrence )
 		
 		std::getline ( std::cin, userTry );
 		
-		if( userTry == "EOC" ){ *recurrence = -1;    return true;   }
+		if( userTry == "EOC" ){ *recurrence = 999;    return true;   }
 		
 		if( userTry == "q" ){  return false;  }
 		
@@ -165,6 +165,24 @@ static void getUserEvent( Detail * det )
 	std::getline ( std::cin, userTry );
 	det->setText( userTry );
 	return;
+}
+
+static bool getRepeatType( bool * repeatMonth )
+{
+	*repeatMonth = true;
+	return true;
+}
+
+static void addEvents( Detail det, int recurrence, Node * selectedDate, bool repeatMonth )
+{
+	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext() )
+	{
+		if( repeatMonth == true  && selectedDate->getDay() == currentDate->getDay() )
+		{
+			currentDate->addDetail( det );
+			recurrence--;
+		}
+	}
 }
 
 static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
@@ -198,6 +216,17 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		std::cout << "No detail added, did not get a valid recurrence.\n\n";
 		return( ret );
 	}
+	
+	bool repeatMonth = false;
+	if( recurrence > 1   &&   !getRepeatType( &repeatMonth) )
+	{
+		std::cout << "Don't know how to recur. Did not add any events.\n\n";
+		return( ret );
+	}
+	
+	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
+	
+	addEvents( det, recurrence, date, repeatMonth );
 	
 	std::cout << "detail was: " << det.getText() << "\n";
 	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
