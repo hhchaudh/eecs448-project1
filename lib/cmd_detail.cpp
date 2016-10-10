@@ -167,21 +167,31 @@ static void getUserEvent( Detail * det )
 	return;
 }
 
-static bool getRepeatType( bool * repeatMonthly, int * repeatWeekly )
+static bool getRepeatType( bool * addToday, bool * repeatMonthly, int * repeatWeekly, std::unordered_map< int, bool> * repeatWeekDay )
 {
 	*repeatMonthly = false;
-	*repeatWeekly = 7;
+	*repeatWeekly = 9000;
+	(*repeatWeekDay)[0] = true;
+	(*repeatWeekDay)[6] = true;
+	*addToday = false;
 	return true;
 }
 
-static void addEvents( Detail det, int recurrence, Node * selectedDate, bool repeatMonthly, int repeatWeekly )
+static void addEvents( 
+		Detail 	det, 			// The detail to add.
+		int 	recurrence, 	// how many times to add it.
+		Node * 	selectedDate,	// the currently selected date.
+		bool 	addToday,		// Should the current day get added.
+		bool 	repeatMonthly, 	// should we repeat every month on selectedDate's day.
+		int 	repeatWeekly,	// add event every this many days.
+		std::unordered_map< int, bool> * repeatWeekDay // add events on these weekdays.
+)
 {
 	int repeatWeeklyReset = repeatWeekly;
-	repeatWeekly = 0;
 	
 	// step through every day left of the year, until we repeat as many times as we wanted.
 	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext(), repeatWeekly-- )
-	{
+	{	
 		// If we are doing monthly, check if this day is the
 		// day of the month that we want.
 		if( repeatMonthly == true  && selectedDate->getDay() == currentDate->getDay() )
@@ -191,12 +201,29 @@ static void addEvents( Detail det, int recurrence, Node * selectedDate, bool rep
 			continue;
 		}
 		
+		// add the event if our weekly counter has rolled over.
 		if( repeatWeekly == 0 )
 		{
 			currentDate->addDetail( det );
 			repeatWeekly = repeatWeeklyReset;
 			recurrence--;
 			continue;
+		}
+		
+		// add the day of week if the day of the week is correct.
+		int DOW = UTIL::getDayofweek( currentDate );
+		if( (*repeatWeekDay)[ DOW ] )
+		{
+			currentDate->addDetail( det );
+			recurrence--;
+			continue;
+		}
+		
+		// Add to the current day if we want that.
+		if( addToday && currentDate == selectedDate )
+		{
+			currentDate->addDetail( det );
+			recurrence--;
 		}
 	}
 }
@@ -233,9 +260,14 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 		return( ret );
 	}
 	
+	bool addToday = true;
 	bool repeatMonthly = false;
 	int  repeatWeekly  = 999;
-	if( recurrence > 1   &&   !getRepeatType( &repeatMonthly, &repeatWeekly ) )
+	std::unordered_map< int, bool> repeatWeekDay = {
+		{ 0, false }, { 1, false }, { 2, false }, { 3, false }, { 4, false }, { 5, false }, { 6, false }
+	};
+	
+	if( recurrence > 1   &&   !getRepeatType( &addToday, &repeatMonthly, &repeatWeekly, &repeatWeekDay ) )
 	{
 		std::cout << "Don't know how to recur. Did not add any events.\n\n";
 		return( ret );
@@ -243,7 +275,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	
 	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
 	
-	addEvents( det, recurrence, date, repeatMonthly, repeatWeekly );
+	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatWeekly, &repeatWeekDay );
 	
 	std::cout << "detail was: " << det.getText() << "\n";
 	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
