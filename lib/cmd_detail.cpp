@@ -123,7 +123,36 @@ static bool getUserTime( Detail * det )
 	return true;
 }
 
-static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly )
+static void userDaysToRepeat( std::unordered_set<std::string>* daysToRepeat)
+{
+	std::string userInput;
+
+	std::cout << "Enter days that you would like to have this event repeated on (use all lowercase) e.g. \"sunday\" instead of \"Sunday\":";
+	std::cout << "Type \"q\" to quit\n";
+	while(std::cin >> userInput)
+	{
+		if(userInput == "sunday" || userInput == "monday" || userInput == "tuesday" || userInput == "wednesday" || userInput == "thursday" || userInput == "friday" || userInput == "saturday")
+		{
+			daysToRepeat->insert(userInput);
+		}
+
+		// for (auto itr = daysToRepeat->begin(); itr != daysToRepeat->end(); ++itr)
+		// {
+    	// 	std::cout << (*itr) << " ";
+		// }
+		//
+		// std::cout << "\n";
+
+		if(userInput == "q")
+		{
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			break;
+		}
+	}
+
+}
+
+static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, bool * repeatByDays, std::unordered_set<std::string> * daysToRepeat )
 {
 	std::string userTry;
 	std::regex numReg( "^[1-9][0-9]{0,2}$" );
@@ -134,6 +163,7 @@ static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeat
 				<< "\"weekly\"     => Weekly\n"
 				<< "\"bi-weekly\"  => Bi-weekly\n"
 				<< "\"monthly\"    => Monthly\n"
+				<< "\"r\"          => Repeat during certain days\n"
 				<< "\"q\"          => Abort.\n";
 
 	while ( true )
@@ -148,7 +178,13 @@ static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeat
 
 		if( userTry == "monthly" ){ *recurrence = 999; *repeatMonthly = true; return true;  }
 
-		if( userTry == "EOC" ){ *recurrence = 999;    return true;   }
+		if( userTry == "r" )
+		{
+			userDaysToRepeat(daysToRepeat);
+			*recurrence = 999;
+			*repeatByDays = true;
+			return true;
+		}
 
 		if( userTry == "q" ){  return false;  }
 
@@ -166,6 +202,7 @@ static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeat
 	return false;
 }
 
+
 static void getUserEvent( Detail * det )
 {
 	std::string userTry;
@@ -175,7 +212,7 @@ static void getUserEvent( Detail * det )
 	return;
 }
 
-static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, std::unordered_map< int, bool> * repeatWeekDay, int recurrence, Node * selectedDate )
+static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, bool * repeatByDays, std::unordered_map< int, bool> * repeatWeekDay, std::unordered_set<std::string> * daysToRepeat, int recurrence, Node * selectedDate )
 {
 	/*
 	forces repetition every week
@@ -204,9 +241,51 @@ static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatB
 	bool repeatEachWeek = *repeatWeekly;
 	bool repeatEveryOtherWeek = *repeatBiWeekly;
 	bool repeatEachMonth = *repeatMonthly;
+	std::vector<int> dayIndex;
 
 
-	if(repeatEachMonth) //thought I might need this, so far i don't....
+	if(repeatByDays)
+	{
+		for (auto itr = daysToRepeat->begin(); itr != daysToRepeat->end(); ++itr)
+		{
+    		if(*itr == "sunday")
+			{
+				dayIndex.push_back(0);
+
+			} else if(*itr == "monday")
+			{
+				dayIndex.push_back(1);
+
+			} else if(*itr == "tuesday")
+			{
+				dayIndex.push_back(2);
+
+			} else if(*itr == "wednesday")
+			{
+				dayIndex.push_back(3);
+
+			} else if(*itr == "thursday")
+			{
+				dayIndex.push_back(4);
+
+			} else if(*itr == "friday")
+			{
+				dayIndex.push_back(5);
+
+			} else if(*itr == "saturday")
+			{
+				dayIndex.push_back(6);
+			}
+		}
+
+		for (auto itr = dayIndex.begin(); itr != dayIndex.end(); ++itr)
+		{
+			(*repeatWeekDay)[*itr] = true;
+		}
+		std::cout << "\n";
+		return true;
+	}
+	else if(repeatEachMonth) //thought I might need this, so far i don't....
 	{
 		return true;
 	}
@@ -255,6 +334,7 @@ static void addEvents(
 		bool 	repeatMonthly, 	// should we repeat every month on selectedDate's day.
 		bool 	repeatBiWeekly, // repeat every other week
 		bool 	repeatWeekly,	// add event every this many days.
+		bool	repeatByDays,
 		std::unordered_map< int, bool> * repeatWeekDay // add events on these weekdays.
 )
 {
@@ -325,7 +405,7 @@ static void addEvents(
 			continue;
 		}
 
-		// used for adding days continuously or weekly.
+		// used for adding days continuously or weekly or by only certain days
 		if( (*repeatWeekDay)[ DOW ] )
 		{
 			currentDate->addDetail( det );
@@ -333,7 +413,7 @@ static void addEvents(
 			continue;
 		}
 
-		// Add to the current day if we want that. (does nothing...)
+		// Add to the current day if we want that. (not used...)
 		if( addToday && currentDate == selectedDate )
 		{
 			currentDate->addDetail( det );
@@ -348,6 +428,8 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	bool repeatMonthly = false;
 	bool repeatWeekly  = false;
 	bool repeatBiWeekly = false;
+	bool repeatByDays = false;
+	std::unordered_set<std::string> daysToRepeat;
 
 	// confirm correct number of arguments.
 	if( command_vec.size() != 1 && command_vec[0] != "day" && command_vec[0] != "time" )
@@ -372,7 +454,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 
 	// get the number of times the event should occur.
 	int recurrence;
-	if( ! getRecurrence( &recurrence, &repeatMonthly, &repeatBiWeekly, &repeatWeekly) )
+	if( ! getRecurrence( &recurrence, &repeatMonthly, &repeatBiWeekly, &repeatWeekly, &repeatByDays, &daysToRepeat) )
 	{
 		std::cout << "No detail added, did not get a valid recurrence.\n\n";
 		return( ret );
@@ -384,13 +466,13 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 
 	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
 
-	if( recurrence > 1   &&   !setRepeatDays( &addToday, &repeatMonthly, &repeatBiWeekly, &repeatWeekly, &repeatWeekDay, recurrence, date ) )
+	if( recurrence > 1   &&   !setRepeatDays( &addToday, &repeatMonthly, &repeatBiWeekly, &repeatWeekly, &repeatByDays, &repeatWeekDay, &daysToRepeat, recurrence, date ) )
 	{
 		std::cout << "Don't know how to recur. Did not add any events.\n\n";
 		return( ret );
 	}
 
-	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatBiWeekly, repeatWeekly, &repeatWeekDay );
+	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatBiWeekly, repeatWeekly, repeatByDays, &repeatWeekDay );
 
 	std::cout << "detail was: " << det.getText() << "\n";
 	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |"
