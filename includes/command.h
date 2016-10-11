@@ -20,9 +20,10 @@ namespace UTIL
 {
 	extern int month_to_year[ 13 ];
 	extern std::unordered_map<std::string, int> mon_to_int;
-	
+
 	extern int getDayofweek(int y, int m, int d);
 	extern int getDayofweek( Node * day );
+	extern bool lessThanThirtyOne( Node * day );
 	extern void printCalHead();
 	extern void printWeekHead();
 	extern int getMonNum( std::string monthName );

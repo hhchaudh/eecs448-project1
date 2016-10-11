@@ -17,7 +17,7 @@ static int getIntFrom2Digit( std::string digits)
 	{
 		digits = digits.substr( 1, 1 );
 	}
-	
+
 	// after that we should just be able to use atoi to convert.
 	return atoi( digits.c_str() );
 }
@@ -26,40 +26,40 @@ static bool isValidTime( std::string timeString, int * retHours, int * retMins, 
 {
 	int hours, mins;
 	std::regex validTime( "^[0-9]{2}:[0-9]{2}$" );
-	
+
 	// see if user's input is in valid time format.
 	if( !std::regex_match( timeString, validTime ) )
 	{   // user's input was invalid.
 		std::cout << "\nInvalid entry |" << timeString << "|. Please try again.\n";
 		return false;
 	}
-	
+
 	// was a valid format, get the hours.
 	hours = getIntFrom2Digit( timeString.substr( 0, 2 ) );
 	if( hours < 0 || hours > 23 )
-	{ 
+	{
 		std::cout << "\nInvalid entry |" << timeString.substr( 0, 2 ) << "|. Needs to be within 00 and 23.\n";
 		return false;
 	}
-	
+
 	// get the minutes.
 	mins = getIntFrom2Digit( timeString.substr( 3, 2 ) );
 	if( mins < 0 || mins > 59 )
-	{ 
+	{
 		std::cout << "\nInvalid entry |" << timeString.substr( 3, 2 ) << "|. Needs to be within 00 and 59.\n";
 		return false;
 	}
-	
+
 	// make sure this time comes after the last time.
 	int curTime  = ( hours * 60 ) + mins;
 	int lastTime = ( lastHours * 60 ) + lastMins;
-	
+
 	if( lastTime >= curTime)
 	{
 		std::cout << "\nInvalid entry |" << timeString << "|. Needs to happen after the start of the event.\n";
 		return false;
 	}
-	
+
 	// this time is fine.
 	*retHours = hours;
 	*retMins = mins;
@@ -74,86 +74,94 @@ static bool getUserTime( Detail * det )
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
-		
+
 		std::cout << "\nPlease enter a start time, ex: 00:00, in military time. [q] to abort.\n";
 		std::getline ( std::cin, startTime);
-		
+
 		// user wanted to quit, get otta here.
 		if( startTime.size() > 0 && startTime.substr( 0, 1 ) == "q" ){ return false; }
-		
+
 		// check this time against a negative time, so it will win.
 		if( ! isValidTime( startTime, &hours, &mins, 0, -1 ) )
 		{
 			continue;
 		}
-		
+
 		break;
 	}
-		
-	// well at least the start time was good.	
+
+	// well at least the start time was good.
 	det->setStartHours( hours );
 	det->setStartMinutes( mins );
-		
+
 	retries = 3;
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
-		
+
 		std::cout << "\nPlease enter an end time, ex: 00:00, in military time. [q] to abort.\n";
 		std::getline ( std::cin, endTime );
-		
+
 		// user wanted to quit, get otta here.
 		if( endTime.size() > 0 && endTime.substr( 0, 1 ) == "q" ){ return false; }
-		
+
 		// check this time against the start time.
-		if( ! isValidTime( 	endTime, 
-							&hours, &mins, 
+		if( ! isValidTime( 	endTime,
+							&hours, &mins,
 							det->getStartHours(), det->getStartMinutes() ) )
 		{
 			continue;
 		}
-		
+
 		break;
 	}
-		
+
 	// Now the end time was also good.
 	det->setDoneHours( hours );
 	det->setDoneMinutes( mins );
-	
+
 	return true;
 }
 
-static bool getRecurrence( int * recurrence )
+static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly )
 {
 	std::string userTry;
 	std::regex numReg( "^[1-9][0-9]{0,2}$" );
 	int retries = 3;
-	
+
 	std::cout   << "\nHow many times should this event happen?\n"
-				<< "1 - 999   => 1 - 999\n" 
-				<< "EOC       => to end of Calendar.\n" 
-				<< "[q]       => abort.\n";
-	
+				<< "[number]     => The next [number] of days\n"
+				<< "\"weekly\"     => Weekly\n"
+				<< "\"bi-weekly\"  => Bi-weekly\n"
+				<< "\"monthly\"    => Monthly\n"
+				<< "\"q\"          => Abort.\n";
+
 	while ( true )
 	{
 		if( 0 == retries--){ return false; }
-		
+
 		std::getline ( std::cin, userTry );
-		
+
+		if( userTry == "weekly" ){ *recurrence = 999;  *repeatWeekly=true; return true;   }
+
+		if( userTry == "bi-weekly" ){ *recurrence = 999; *repeatBiWeekly = true; return true;  }
+
+		if( userTry == "monthly" ){ *recurrence = 999; *repeatMonthly = true; return true;  }
+
 		if( userTry == "EOC" ){ *recurrence = 999;    return true;   }
-		
+
 		if( userTry == "q" ){  return false;  }
-		
+
 		if( std::regex_match( userTry, numReg) )
 		{
 			*recurrence = getIntGarunteed( userTry );
 			return true;
 		}
-		
+
 		std::cout   << "The value |" << userTry << "| is not a valid number of retries.\n"
 					<< "Please try again:\n";
 	}
-	
+
 	// should not get here.
 	return false;
 }
@@ -167,59 +175,165 @@ static void getUserEvent( Detail * det )
 	return;
 }
 
-static bool getRepeatType( bool * addToday, bool * repeatMonthly, int * repeatWeekly, std::unordered_map< int, bool> * repeatWeekDay )
+static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, std::unordered_map< int, bool> * repeatWeekDay, int recurrence, Node * selectedDate )
 {
+	/*
+	forces repetition every week
+
+	Node * currentDate = selectedDate;
+	int timesToRecur = recurrence;
+	int DOW = UTIL::getDayofweek( currentDate );
+
+	while(timesToRecur > 0)
+	{
+		if(DOW == 7)
+		{
+			DOW = 0;
+		}
+
+		(*repeatWeekDay)[DOW] = true;
+		timesToRecur--;
+	}
+
 	*repeatMonthly = false;
 	*repeatWeekly = 9000;
-	(*repeatWeekDay)[0] = true;
-	(*repeatWeekDay)[6] = true;
 	*addToday = false;
 	return true;
+	*/
+
+	bool repeatEachWeek = *repeatWeekly;
+	bool repeatEveryOtherWeek = *repeatBiWeekly;
+	bool repeatEachMonth = *repeatMonthly;
+
+
+	if(repeatEachMonth) //thought I might need this, so far i don't....
+	{
+		return true;
+	}
+	else if(repeatEachWeek || repeatEveryOtherWeek)
+	{
+		Node * currentDate = selectedDate;
+		int DOW = UTIL::getDayofweek( currentDate );
+		(*repeatWeekDay)[DOW] = true;
+
+		return true;
+	}
+	else
+	{
+		Node * currentDate = selectedDate;
+		int timesToRecur;
+
+		if(recurrence > 7)
+		{
+			timesToRecur = 7;
+		}
+		else
+		{
+			timesToRecur = recurrence;
+		}
+
+		while(timesToRecur > 0)
+		{
+			int DOW = UTIL::getDayofweek( currentDate );
+
+			(*repeatWeekDay)[DOW] = true;
+			timesToRecur--;
+			currentDate = currentDate->getNext();
+		}
+
+		return true;
+	}
+
+	return false; //Shouldn't get here
 }
 
-static void addEvents( 
+static void addEvents(
 		Detail 	det, 			// The detail to add.
 		int 	recurrence, 	// how many times to add it.
 		Node * 	selectedDate,	// the currently selected date.
 		bool 	addToday,		// Should the current day get added.
 		bool 	repeatMonthly, 	// should we repeat every month on selectedDate's day.
-		int 	repeatWeekly,	// add event every this many days.
+		bool 	repeatBiWeekly, // repeat every other week
+		bool 	repeatWeekly,	// add event every this many days.
 		std::unordered_map< int, bool> * repeatWeekDay // add events on these weekdays.
 )
 {
-	int repeatWeeklyReset = repeatWeekly;
-	
+
+	bool alternator = true; //used for bi-weekly alternating
+	bool setDetailAtLastDayOfEveryMonth = false; //used to check if a detail repeated monthly falls on the 31st (which would make it fall on the end of every month with fewer than 31 days)
+ 	bool setDetailAtLastDayOfFeb = false;
+	int monthlyDateToRepeat = 0;
+
+
+	/*
+	Okay so we can detect current date
+	if that date is the 31st, then last date for all months = true
+	if that date is the 30th, then last date for feb = true
+	*/
+	if(repeatMonthly)
+	{
+		monthlyDateToRepeat = selectedDate->getDay();
+		if(monthlyDateToRepeat == 31)
+		{
+			setDetailAtLastDayOfEveryMonth = true;
+			setDetailAtLastDayOfFeb = true;
+		}
+		else if(monthlyDateToRepeat == 30)
+		{
+			setDetailAtLastDayOfFeb = true;
+		}
+	}
+
 	// step through every day left of the year, until we repeat as many times as we wanted.
-	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext(), repeatWeekly-- )
-	{	
+	for ( Node * currentDate = selectedDate; currentDate != nullptr && recurrence != 0; currentDate = currentDate->getNext())
+	{
 		// If we are doing monthly, check if this day is the
 		// day of the month that we want.
-		if( repeatMonthly == true  && selectedDate->getDay() == currentDate->getDay() )
+		if( repeatMonthly )
 		{
-			currentDate->addDetail( det );
-			recurrence--;
-			continue;
+			if(setDetailAtLastDayOfEveryMonth  && UTIL::lessThanThirtyOne(currentDate) && (currentDate->getDay() == 30) )
+			{
+				currentDate->addDetail( det );
+				recurrence--;
+				continue;
+			}
+			else if(setDetailAtLastDayOfFeb && (currentDate->getMonth() == 2) && (currentDate->getDay() == 28) )
+			{
+				currentDate->addDetail( det );
+				recurrence--;
+				continue;
+			}
+			else if (currentDate->getDay() == monthlyDateToRepeat)
+			{
+				currentDate->addDetail( det );
+				recurrence--;
+				continue;
+			}
 		}
-		
-		// add the event if our weekly counter has rolled over.
-		if( repeatWeekly == 0 )
-		{
-			currentDate->addDetail( det );
-			repeatWeekly = repeatWeeklyReset;
-			recurrence--;
-			continue;
-		}
-		
-		// add the day of week if the day of the week is correct.
+
+
 		int DOW = UTIL::getDayofweek( currentDate );
+
+		if(repeatBiWeekly && (*repeatWeekDay)[DOW])
+		{
+			if(alternator)
+			{
+				currentDate->addDetail( det );
+				recurrence--;
+			}
+			alternator = !alternator;
+			continue;
+		}
+
+		// used for adding days continuously or weekly.
 		if( (*repeatWeekDay)[ DOW ] )
 		{
 			currentDate->addDetail( det );
 			recurrence--;
 			continue;
 		}
-		
-		// Add to the current day if we want that.
+
+		// Add to the current day if we want that. (does nothing...)
 		if( addToday && currentDate == selectedDate )
 		{
 			currentDate->addDetail( det );
@@ -230,19 +344,23 @@ static void addEvents(
 
 static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
-	
+	bool addToday = false;
+	bool repeatMonthly = false;
+	bool repeatWeekly  = false;
+	bool repeatBiWeekly = false;
+
 	// confirm correct number of arguments.
 	if( command_vec.size() != 1 && command_vec[0] != "day" && command_vec[0] != "time" )
 	{
 		std::cout << "Incorrect input: should be: detail add [time|day]\n\n";
 		return( ret );
 	}
-	
+
 	Detail det; // automatically initialized to times of 99.
-	
+
 	// get the event
 	getUserEvent( &det );
-	
+
 	if( command_vec[0] == "time" ) // try to get the time from the user.
 	{
 		if( !getUserTime( &det ) )
@@ -251,80 +369,77 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 			return( ret );
 		}
 	}
-	
+
 	// get the number of times the event should occur.
 	int recurrence;
-	if( ! getRecurrence( &recurrence) )
+	if( ! getRecurrence( &recurrence, &repeatMonthly, &repeatBiWeekly, &repeatWeekly) )
 	{
 		std::cout << "No detail added, did not get a valid recurrence.\n\n";
 		return( ret );
 	}
-	
-	bool addToday = true;
-	bool repeatMonthly = false;
-	int  repeatWeekly  = 999;
+
 	std::unordered_map< int, bool> repeatWeekDay = {
 		{ 0, false }, { 1, false }, { 2, false }, { 3, false }, { 4, false }, { 5, false }, { 6, false }
 	};
-	
-	if( recurrence > 1   &&   !getRepeatType( &addToday, &repeatMonthly, &repeatWeekly, &repeatWeekDay ) )
+
+	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
+
+	if( recurrence > 1   &&   !setRepeatDays( &addToday, &repeatMonthly, &repeatBiWeekly, &repeatWeekly, &repeatWeekDay, recurrence, date ) )
 	{
 		std::cout << "Don't know how to recur. Did not add any events.\n\n";
 		return( ret );
 	}
-	
-	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
-	
-	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatWeekly, &repeatWeekDay );
-	
+
+	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatBiWeekly, repeatWeekly, &repeatWeekDay );
+
 	std::cout << "detail was: " << det.getText() << "\n";
-	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |" 
+	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |"
 								<< det.getDoneHours() << ":" << det.getDoneMinutes() << "|\n\n";
-	
+
 	return( ret );
 }
 
 static std::vector<int> remove(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
-	
+
 	// confirm correct number of arguments.
 	if( command_vec.size() != 1 )
 	{
 		std::cout << "Incorrect input: should be: detail remove [index]\n\n";
 		return( ret );
 	}
-	
+
 	Node * date = calendar->getNode(currentDate[0], currentDate[1], currentDate[2]);
 	std::vector<Detail> dets =  date->getDetails();
 	int index = atoi(command_vec[0].c_str());
-	
+
 	if (index < 0 || (unsigned)index >= dets.size() ) {
 		std::cout << "Incorrect input: could not find index |" << index << "| on current date.\n\n";
 		return( ret );
 	}
-	
+
 	date->removeDetail(index);
 	std::cout << "Removed detail.\n\n";
-	
+
 	return( ret );
 }
 
 
 std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
-	
+
 	if( command_vec.size() == 0 )
 	{
 		std::cout << "Incorrect input: detail command requires arguments. type 'help' for more details.\n\n";
 		return( ret );
 	}
-	
+
 	// map the command names to command functions.
 	std::unordered_map<std::string, commandfunc *> commands = {
 		{ "add",    &add    },
 		{ "remove", &remove }
 	};
-	
+
 	// see if the user's command was in the map.
 	auto cmd_func = commands.find( command_vec[0] );
 	if( cmd_func != commands.end() ) {
@@ -337,7 +452,7 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 		std::cout << "incorrect input |" << command_vec[0] << "| is not a valid first arg for the command detail.\n";
 		std::cout << "Try typing 'help' for a list of commands.\n\n";
 	}
-	
+
 	return( ret );
 }
 

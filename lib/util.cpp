@@ -21,14 +21,19 @@ int getDayofweek( Node * day ) {
 	return getDayofweek( day->getYear(), day->getMonth(), day->getDay() );
 }
 
+bool lessThanThirtyOne(Node * day) {
+	int daysInMonths[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	return(daysInMonths[day->getMonth()-1] < 31);
+}
+
 int month_to_year[] = {
 //  INVAL  JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC
 	2017, 2017, 2017, 2017, 2017, 2017, 2017, 2017, 2016, 2016, 2016, 2016, 2016
 };
 
 std::unordered_map<std::string, int> mon_to_int = {
-        { "JAN", 1 }, { "FEB", 2 }, { "MAR", 3 }, { "APR", 4  }, { "MAY", 5  }, { "JUN", 6  }, 
-        { "jan", 1 }, { "feb", 2 }, { "mar", 3 }, { "apr", 4  }, { "may", 5  }, { "jun", 6  }, 
+        { "JAN", 1 }, { "FEB", 2 }, { "MAR", 3 }, { "APR", 4  }, { "MAY", 5  }, { "JUN", 6  },
+        { "jan", 1 }, { "feb", 2 }, { "mar", 3 }, { "apr", 4  }, { "may", 5  }, { "jun", 6  },
 		{ "JUL", 7 }, { "AUG", 8 }, { "SEP", 9 }, { "OCT", 10 }, { "NOV", 11 }, { "DEC", 12 },
 		{ "jul", 7 }, { "aug", 8 }, { "sep", 9 }, { "oct", 10 }, { "nov", 11 }, { "dec", 12 }
 };
@@ -64,7 +69,7 @@ int getMonNum( std::string monthName )
 	if( month == mon_to_int.end() ) {
 		return 0;
 	}
-	
+
 	return mon_to_int[ monthName ];
 }
 
@@ -89,17 +94,17 @@ static void markEventsDoubleBooked( std::vector<Detail> * dets )
 	{
 		current->setDoubleBooked( false );  // assume it is false and only set if it is double booked.
 		if( current->getStartHours() == 99 ){ continue; } // ignore day events.
-		
+
 		if( latestEnding == nullptr ) // no event to compare it to so no overlap yet
 		{
 			latestEnding = &(*current); // and detail has the latest ending.
 			continue;
 		}
-		
+
 		if(  (  current->getStartHours() < latestEnding->getDoneHours()  )
 			 || (
 				     current->getStartHours()   ==  latestEnding->getDoneHours()
-				  && current->getStartMinutes() <   latestEnding->getDoneMinutes() 	
+				  && current->getStartMinutes() <   latestEnding->getDoneMinutes()
 				)
 		)
 		{
@@ -107,16 +112,16 @@ static void markEventsDoubleBooked( std::vector<Detail> * dets )
 			current->setDoubleBooked( true );
 			latestEnding->setDoubleBooked( true );
 		}
-		
+
 		if(  ( current->getDoneHours() > latestEnding->getDoneHours() )
 		     || (
 					current->getDoneHours()   == latestEnding->getDoneHours()
-			     && current->getDoneMinutes() >  latestEnding->getDoneMinutes()	
+			     && current->getDoneMinutes() >  latestEnding->getDoneMinutes()
 				)
 		)
 		{
 			latestEnding = &(*current);
-		}	
+		}
 	}
 }
 
@@ -127,10 +132,10 @@ void printDay( Node * day )
 	printDayHead();
 	std::cout << "   | DBook | Start Time | End Time |      Event                                        |" << std::endl;
 	printDayHead();
-	
+
 	std::vector<Detail> dets = day->getDetails();
 	markEventsDoubleBooked( &dets );
-	
+
 	// Step through events and print.
 	auto current = dets.begin();
 	auto done = dets.end();
@@ -142,18 +147,18 @@ void printDay( Node * day )
 		std::cout << i << ") |";
 		if( current->getDoubleBooked() ){  std::cout << "   X   |";  }
 		else						    {  std::cout << "       |";  }
-		if( current->getStartHours() == 99 ){  std::cout << "    -----   |   -----  |";  }
+		if( current->getStartHours() == 99 ){  std::cout << "  All Day   |  All Day |";  }
 		else
 		{
 			snprintf( buffer, buf_size,
-					 "    %02d:%02d   |   %02d:%02d  |", 
-					 current->getStartHours(), current->getStartMinutes(), 
-					 current->getDoneHours(),  current->getDoneMinutes() 
+					 "    %02d:%02d   |   %02d:%02d  |",
+					 current->getStartHours(), current->getStartMinutes(),
+					 current->getDoneHours(),  current->getDoneMinutes()
 			);
 			buffer[ buf_size - 1 ]  = '\0';
 			std::cout << buffer;
 		}
-		
+
 		std::string leftToPrint = current->getText();
 		while( leftToPrint.size() > 50 )
 		{
@@ -161,12 +166,12 @@ void printDay( Node * day )
 			printDayBlankBegin();
 			leftToPrint = leftToPrint.substr( 50 );
 		}
-		
+
 		int extraPrint = 50 - leftToPrint.size();
 		std::cout << " " << leftToPrint << std::string( extraPrint, ' ') << "|\n";
 		printDayHead();
 	}
-	
+
 	std::cout << "\n";
 }
 
@@ -174,13 +179,13 @@ Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 {
 	int dayOfWeek = getDayofweek( day );
 	int origionalMonth = day->getMonth();
-	
+
 	// Step backward through this week until we get to Sunday or beginning of Calendar
 	while (  (dayOfWeek > 0)  &&  (day->getPrev() != nullptr)  )
 	{
 		day = day->getPrev();
 		dayOfWeek--;
-		
+
 		// If we don't want to wrap to the previous month, Then stop at the first.
 		if(   !monthWrap   &&   ( day->getMonth() != origionalMonth )   )
 		{
@@ -189,7 +194,7 @@ Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 			break;
 		}
 	}
-	
+
 	// we might not be on Sunday, so print blank spots until the day we are at.
 	std::cout << "|";
 	std::string blankDay = "     |";
@@ -197,7 +202,7 @@ Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 	{
 		std::cout << blankDay;
 	}
-	
+
 	// Print the days until the end of week, or the end of the calendar.
 	while (   (dayOfWeek < 7)  &&  (day != nullptr)   )
 	{
@@ -206,33 +211,33 @@ Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 		{
 			break;
 		}
-		
+
 		char buff[3];
 		sprintf( buff, "%2d", day->getDay() );
 		std::cout << " " << buff;
-		
+
 		// print '*' if day has details.
 		if( day->getDetails().size() != 0 )  { std::cout << "*";    }
 		else                                 { std::cout << " ";    }
-		
+
 		// print '@' if this is the current selected day.
 		if( day->getMonth() == currentDate[1] && day->getDay() == currentDate[2])
 		     { std::cout << "@";  }
 		else { std::cout << " ";  }
-		
+
 		std::cout << "|";
-		
+
 		dayOfWeek++;
 		day = day->getNext();
 	}
-	
+
 	// might not have printed a full week, so fill the rest with blanks.
 	for( int i = dayOfWeek; i < 7; i++ )
 	{
 		std::cout << blankDay;
 	}
 
-	std::cout << "\n";	
+	std::cout << "\n";
 	// return a pointer to the next day that we didn't print, or NULL if we are at end of Calendar.
 	return day;
 }
