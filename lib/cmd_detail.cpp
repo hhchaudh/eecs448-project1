@@ -5,11 +5,19 @@
 namespace CMD_DETAIL
 {
 
+/**
+ *Function meant to take a string representation of digits and return an integer version of those digits.
+ *@param digits is a string of numerical characters
+ */
 static int getIntGarunteed( std::string digits )
 {
 	return atoi( digits.c_str() );
 }
 
+/**
+ *Function meant to insure that a leading zeroes are eliminated before converting to an intger
+ *@param digits is a string of numerical characters
+ */
 static int getIntFrom2Digit( std::string digits)
 {
 	// If there is a leading 0, then drop it.
@@ -22,6 +30,14 @@ static int getIntFrom2Digit( std::string digits)
 	return atoi( digits.c_str() );
 }
 
+/**
+ *Function meant to validate the time that the user entered.
+ *@param timeString is a string representing the time taht the user provided
+ *@param retHours is a pointer to the hours that will be used by the calling function.
+ *@param retMins is a pointer to the minutes that will be used by the calling function.
+ *@param lastHours is a variable provided by thte calling function as a check to see if the time is valid
+ *@param lastMins is a variable provided by thte calling function as a check to see if the time is valid
+ */
 static bool isValidTime( std::string timeString, int * retHours, int * retMins, int lastHours, int lastMins )
 {
 	int hours, mins;
@@ -66,6 +82,10 @@ static bool isValidTime( std::string timeString, int * retHours, int * retMins, 
 	return true;
 }
 
+/**
+ *Function that gets the time from the user and passes it to isValidTime to validate
+ *@param det is a pointer to a Detail
+ */
 static bool getUserTime( Detail * det )
 {
 	int retries = 3;
@@ -123,6 +143,10 @@ static bool getUserTime( Detail * det )
 	return true;
 }
 
+/**
+ *Function used to obtain which days need to have certain details repeated e.g. repeat detail on M W F
+ *@param daysToRepeat is a pointer to a set containing strings, the set prevents teh user from entering duplicates
+ */
 static void userDaysToRepeat( std::unordered_set<std::string>* daysToRepeat)
 {
 	std::string userInput;
@@ -152,6 +176,15 @@ static void userDaysToRepeat( std::unordered_set<std::string>* daysToRepeat)
 
 }
 
+/**
+ *Function meant to determine what kind of recurrence is necessary
+ *@param recurrence is a pointer to the number of times we want to create the recurrence
+ *@param repeatMonthly is a pointer to a bool that deteremines whether we should repeat monthly
+ *@param repeatBiWeekly is a pointer to a bool that determines whether or not we should repeat bi-weekly
+ *@param repeatWeekly is a pointer to a bool that determines whether or not we should repeat weekly
+ *@param repeatByDays is a poiner to a bool that determines whether or not we should repeat using certain days
+ *@param daysToRepeat is a pointer to a set of string variables that will contain which days a detail needs to be repeated on.
+ */
 static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, bool * repeatByDays, std::unordered_set<std::string> * daysToRepeat )
 {
 	std::string userTry;
@@ -202,7 +235,10 @@ static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeat
 	return false;
 }
 
-
+/**
+ *Function that saves details from the user
+ *@param det is a pointer to a Detail variable
+ */
 static void getUserEvent( Detail * det )
 {
 	std::string userTry;
@@ -212,6 +248,19 @@ static void getUserEvent( Detail * det )
 	return;
 }
 
+
+/**
+ *Function meant to determine what kind of recurrence is necessary
+ *@param addToday is a pointer to a bool that determines whether we should add details to the currentday, it's not used
+ *@param repeatMonthly is a pointer to a bool that deteremines whether we should repeat monthly
+ *@param repeatBiWeekly is a pointer to a bool that determines whether or not we should repeat bi-weekly
+ *@param repeatWeekly is a pointer to a bool that determines whether or not we should repeat weekly
+ *@param repeatByDays is a poiner to a bool that determines whether or not we should repeat using certain days
+ *@param repeatWeekDay is a pointer to an unordered_map that contains a set of the days of tht week represented by integers that are mapped to bool variables
+ *@param daysToRepeat is a pointer to a set of string variables that will contain which days a detail needs to be repeated on.
+ *@param recurrence is a pointer to the number of times we want to create the recurrence
+ *@param selectedDate is a pointer to a Node that contains the date that we're trying to modify
+ */
 static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatBiWeekly, bool * repeatWeekly, bool * repeatByDays, std::unordered_map< int, bool> * repeatWeekDay, std::unordered_set<std::string> * daysToRepeat, int recurrence, Node * selectedDate )
 {
 	/*
@@ -329,6 +378,18 @@ static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatB
 	return false; //Shouldn't get here
 }
 
+/**
+ *Function that adds details with the appropriate repetition
+ *@param det is a detail to be added
+ *@param recurrence is a pointer to the number of times we want to create the recurrence
+ *@param selectedDate is a pointer to a Node that contains the date that we're trying to modify
+ *@param addToday is a pointer to a bool that determines whether we should add details to the currentday, it's not used
+ *@param repeatMonthly is a pointer to a bool that deteremines whether we should repeat monthly
+ *@param repeatBiWeekly is a pointer to a bool that determines whether or not we should repeat bi-weekly
+ *@param repeatWeekly is a pointer to a bool that determines whether or not we should repeat weekly
+ *@param repeatByDays is a poiner to a bool that determines whether or not we should repeat using certain days
+ *@param repeatWeekDay is a pointer to an unordered_map that contains a set of the days of tht week represented by integers that are mapped to bool variables
+ */
 static void addEvents(
 		Detail 	det, 			// The detail to add.
 		int 	recurrence, 	// how many times to add it.
@@ -425,6 +486,13 @@ static void addEvents(
 	}
 }
 
+/**
+ *Function entry point for adding to the calendar
+ *@param command_vec is a vector that contains the add string that notifies the application that we're going to add a detail
+ *@param calendar is a DoubleLinkedList that represents the calendar
+ *@param selectedDate is a pointer to a Node that contains the date that we're trying to modify
+ *@param currentDate a string representation of the current date
+ */
 static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	bool addToday = false;
@@ -482,6 +550,13 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	return( ret );
 }
 
+/**
+ *Function entry point for removing from the calendar
+ *@param command_vec is a vector that contains the add string that notifies the application that we're going to add a detail
+ *@param calendar is a DoubleLinkedList that represents the calendar
+ *@param selectedDate is a pointer to a Node that contains the date that we're trying to modify
+ *@param currentDate a string representation of the current date
+ */
 static std::vector<int> remove(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 
@@ -507,7 +582,14 @@ static std::vector<int> remove(std::vector<std::string> command_vec, DoubleLinke
 	return( ret );
 }
 
-
+/**
+ *Function validates user input on add or remove
+ *@param command_vec is a vector that contains the add string that notifies the application that we're going to add a detail
+ *@param calendar is a DoubleLinkedList that represents the calendar
+ *@param selectedDate is a pointer to a Node that contains the date that we're trying to modify
+ *@param currentDate a string representation of the current date
+ *@param ret a vector containing integers
+ */
 std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 
