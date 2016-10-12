@@ -172,7 +172,7 @@ static bool getRecurrence( int * recurrence, bool * repeatMonthly, bool * repeat
 
 		std::getline ( std::cin, userTry );
 
-		if( userTry == "weekly" ){ *recurrence = 999;  *repeatWeekly=true; return true;   }
+		if( userTry == "weekly" ){ *recurrence = 999;   *repeatWeekly=true; return true;   }
 
 		if( userTry == "bi-weekly" ){ *recurrence = 999; *repeatBiWeekly = true; return true;  }
 
@@ -239,12 +239,14 @@ static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatB
 	*/
 
 	bool repeatEachWeek = *repeatWeekly;
+
 	bool repeatEveryOtherWeek = *repeatBiWeekly;
 	bool repeatEachMonth = *repeatMonthly;
+	bool repeatDays = *repeatByDays;
 	std::vector<int> dayIndex;
 
 
-	if(repeatByDays)
+	if(repeatDays )
 	{
 		for (auto itr = daysToRepeat->begin(); itr != daysToRepeat->end(); ++itr)
 		{
@@ -285,13 +287,15 @@ static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatB
 		std::cout << "\n";
 		return true;
 	}
-	else if(repeatEachMonth) //thought I might need this, so far i don't....
+
+	if(repeatEachMonth) //thought I might need this, so far i don't....
 	{
 		return true;
 	}
 	else if(repeatEachWeek || repeatEveryOtherWeek)
 	{
 		Node * currentDate = selectedDate;
+
 		int DOW = UTIL::getDayofweek( currentDate );
 		(*repeatWeekDay)[DOW] = true;
 
@@ -314,7 +318,6 @@ static bool setRepeatDays( bool * addToday, bool * repeatMonthly, bool * repeatB
 		while(timesToRecur > 0)
 		{
 			int DOW = UTIL::getDayofweek( currentDate );
-
 			(*repeatWeekDay)[DOW] = true;
 			timesToRecur--;
 			currentDate = currentDate->getNext();
