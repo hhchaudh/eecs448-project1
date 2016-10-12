@@ -1,0 +1,281 @@
+\hypertarget{group__CMD__DETAIL}{\section{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}
+\label{group__CMD__DETAIL}\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{group__CMD__DETAIL_gae5f62f8c2c8ec4735c4bfba3e8ff1dbe}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-Garunteed} (std\-::string digits)
+\item 
+static int \hyperlink{group__CMD__DETAIL_gab55ffe2dd662c04c46f186949f67687f}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-From2\-Digit} (std\-::string digits)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga29ba75ec42415d88530bf7d3f03001ef}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::is\-Valid\-Time} (std\-::string time\-String, int $\ast$ret\-Hours, int $\ast$ret\-Mins, int last\-Hours, int last\-Mins)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga52e8172ce6105959e8df1e6b66942092}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Time} (\hyperlink{classDetail}{Detail} $\ast$det)
+\item 
+static void \hyperlink{group__CMD__DETAIL_ga179b6930ace840a1b90415d9445360d3}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::user\-Days\-To\-Repeat} (std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga252bd82356adeffbbe613c41329608cb}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Recurrence} (int $\ast$recurrence, bool $\ast$repeat\-Monthly, bool $\ast$repeat\-Bi\-Weekly, bool $\ast$repeat\-Weekly, bool $\ast$repeat\-By\-Days, std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat)
+\item 
+static void \hyperlink{group__CMD__DETAIL_gaa62607ee248ceddc948be24d50691a04}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Event} (\hyperlink{classDetail}{Detail} $\ast$det)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga95245c4a89879b482ae7ae360b1be3ac}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::set\-Repeat\-Days} (bool $\ast$add\-Today, bool $\ast$repeat\-Monthly, bool $\ast$repeat\-Bi\-Weekly, bool $\ast$repeat\-Weekly, bool $\ast$repeat\-By\-Days, std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$repeat\-Week\-Day, std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat, int recurrence, \hyperlink{classNode}{Node} $\ast$selected\-Date)
+\item 
+static void \hyperlink{group__CMD__DETAIL_ga80f84e2810faa505dc48fcc8832ead6c}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add\-Events} (\hyperlink{classDetail}{Detail} det, int recurrence, \hyperlink{classNode}{Node} $\ast$selected\-Date, bool add\-Today, bool repeat\-Monthly, bool repeat\-Bi\-Weekly, bool repeat\-Weekly, bool repeat\-By\-Days, std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$repeat\-Week\-Day)
+\item 
+static std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_ga0b49c27571f2cb14fe28d9267ac5d1d0}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\item 
+static std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_gab77ee0d754003aa6a1f3c0aa301962b8}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::remove} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\item 
+std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_ga220b66828663d5311ad270969b6155ed}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::func} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__CMD__DETAIL_ga0b49c27571f2cb14fe28d9267ac5d1d0}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!add@{add}}
+\index{add@{add}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::vector$<$int$>$ C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{command\-\_\-vec, }
+\item[{{\bf Double\-Linked\-List} $\ast$}]{calendar, }
+\item[{std\-::vector$<$ int $>$}]{current\-Date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga0b49c27571f2cb14fe28d9267ac5d1d0}
+Function entry point for adding to the calendar 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-vec} & is a vector that contains the add string that notifies the application that we're going to add a detail \\
+\hline
+{\em calendar} & is a \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} that represents the calendar \\
+\hline
+{\em selected\-Date} & is a pointer to a \hyperlink{classNode}{Node} that contains the date that we're trying to modify \\
+\hline
+{\em current\-Date} & a string representation of the current date \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga80f84e2810faa505dc48fcc8832ead6c}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!add\-Events@{add\-Events}}
+\index{add\-Events@{add\-Events}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{add\-Events}]{\setlength{\rightskip}{0pt plus 5cm}static void C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Detail}}]{det, }
+\item[{int}]{recurrence, }
+\item[{{\bf Node} $\ast$}]{selected\-Date, }
+\item[{bool}]{add\-Today, }
+\item[{bool}]{repeat\-Monthly, }
+\item[{bool}]{repeat\-Bi\-Weekly, }
+\item[{bool}]{repeat\-Weekly, }
+\item[{bool}]{repeat\-By\-Days, }
+\item[{std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$}]{repeat\-Week\-Day}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga80f84e2810faa505dc48fcc8832ead6c}
+Function that adds details with the appropriate repetition 
+\begin{DoxyParams}{Parameters}
+{\em det} & is a detail to be added \\
+\hline
+{\em recurrence} & is a pointer to the number of times we want to create the recurrence \\
+\hline
+{\em selected\-Date} & is a pointer to a \hyperlink{classNode}{Node} that contains the date that we're trying to modify \\
+\hline
+{\em add\-Today} & is a pointer to a bool that determines whether we should add details to the currentday, it's not used \\
+\hline
+{\em repeat\-Monthly} & is a pointer to a bool that deteremines whether we should repeat monthly \\
+\hline
+{\em repeat\-Bi\-Weekly} & is a pointer to a bool that determines whether or not we should repeat bi-\/weekly \\
+\hline
+{\em repeat\-Weekly} & is a pointer to a bool that determines whether or not we should repeat weekly \\
+\hline
+{\em repeat\-By\-Days} & is a poiner to a bool that determines whether or not we should repeat using certain days \\
+\hline
+{\em repeat\-Week\-Day} & is a pointer to an unordered\-\_\-map that contains a set of the days of tht week represented by integers that are mapped to bool variables \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga220b66828663d5311ad270969b6155ed}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!func@{func}}
+\index{func@{func}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{func}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::func (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{command\-\_\-vec, }
+\item[{{\bf Double\-Linked\-List} $\ast$}]{calendar, }
+\item[{std\-::vector$<$ int $>$}]{current\-Date}
+\end{DoxyParamCaption}
+)}}\label{group__CMD__DETAIL_ga220b66828663d5311ad270969b6155ed}
+Function validates user input on add or remove 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-vec} & is a vector that contains the add string that notifies the application that we're going to add a detail \\
+\hline
+{\em calendar} & is a \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} that represents the calendar \\
+\hline
+{\em selected\-Date} & is a pointer to a \hyperlink{classNode}{Node} that contains the date that we're trying to modify \\
+\hline
+{\em current\-Date} & a string representation of the current date \\
+\hline
+{\em ret} & a vector containing integers \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_gab55ffe2dd662c04c46f186949f67687f}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!get\-Int\-From2\-Digit@{get\-Int\-From2\-Digit}}
+\index{get\-Int\-From2\-Digit@{get\-Int\-From2\-Digit}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{get\-Int\-From2\-Digit}]{\setlength{\rightskip}{0pt plus 5cm}static int C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-From2\-Digit (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{digits}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_gab55ffe2dd662c04c46f186949f67687f}
+Function meant to insure that a leading zeroes are eliminated before converting to an intger 
+\begin{DoxyParams}{Parameters}
+{\em digits} & is a string of numerical characters \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_gae5f62f8c2c8ec4735c4bfba3e8ff1dbe}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!get\-Int\-Garunteed@{get\-Int\-Garunteed}}
+\index{get\-Int\-Garunteed@{get\-Int\-Garunteed}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{get\-Int\-Garunteed}]{\setlength{\rightskip}{0pt plus 5cm}static int C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-Garunteed (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{digits}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_gae5f62f8c2c8ec4735c4bfba3e8ff1dbe}
+Function meant to take a string representation of digits and return an integer version of those digits. 
+\begin{DoxyParams}{Parameters}
+{\em digits} & is a string of numerical characters \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga252bd82356adeffbbe613c41329608cb}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!get\-Recurrence@{get\-Recurrence}}
+\index{get\-Recurrence@{get\-Recurrence}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{get\-Recurrence}]{\setlength{\rightskip}{0pt plus 5cm}static bool C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Recurrence (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{recurrence, }
+\item[{bool $\ast$}]{repeat\-Monthly, }
+\item[{bool $\ast$}]{repeat\-Bi\-Weekly, }
+\item[{bool $\ast$}]{repeat\-Weekly, }
+\item[{bool $\ast$}]{repeat\-By\-Days, }
+\item[{std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$}]{days\-To\-Repeat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga252bd82356adeffbbe613c41329608cb}
+Function meant to determine what kind of recurrence is necessary 
+\begin{DoxyParams}{Parameters}
+{\em recurrence} & is a pointer to the number of times we want to create the recurrence \\
+\hline
+{\em repeat\-Monthly} & is a pointer to a bool that deteremines whether we should repeat monthly \\
+\hline
+{\em repeat\-Bi\-Weekly} & is a pointer to a bool that determines whether or not we should repeat bi-\/weekly \\
+\hline
+{\em repeat\-Weekly} & is a pointer to a bool that determines whether or not we should repeat weekly \\
+\hline
+{\em repeat\-By\-Days} & is a poiner to a bool that determines whether or not we should repeat using certain days \\
+\hline
+{\em days\-To\-Repeat} & is a pointer to a set of string variables that will contain which days a detail needs to be repeated on. \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_gaa62607ee248ceddc948be24d50691a04}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!get\-User\-Event@{get\-User\-Event}}
+\index{get\-User\-Event@{get\-User\-Event}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{get\-User\-Event}]{\setlength{\rightskip}{0pt plus 5cm}static void C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Detail} $\ast$}]{det}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_gaa62607ee248ceddc948be24d50691a04}
+Function that saves details from the user 
+\begin{DoxyParams}{Parameters}
+{\em det} & is a pointer to a \hyperlink{classDetail}{Detail} variable \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga52e8172ce6105959e8df1e6b66942092}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!get\-User\-Time@{get\-User\-Time}}
+\index{get\-User\-Time@{get\-User\-Time}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{get\-User\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static bool C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Time (
+\begin{DoxyParamCaption}
+\item[{{\bf Detail} $\ast$}]{det}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga52e8172ce6105959e8df1e6b66942092}
+Function that gets the time from the user and passes it to is\-Valid\-Time to validate 
+\begin{DoxyParams}{Parameters}
+{\em det} & is a pointer to a \hyperlink{classDetail}{Detail} \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga29ba75ec42415d88530bf7d3f03001ef}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!is\-Valid\-Time@{is\-Valid\-Time}}
+\index{is\-Valid\-Time@{is\-Valid\-Time}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{is\-Valid\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static bool C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::is\-Valid\-Time (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{time\-String, }
+\item[{int $\ast$}]{ret\-Hours, }
+\item[{int $\ast$}]{ret\-Mins, }
+\item[{int}]{last\-Hours, }
+\item[{int}]{last\-Mins}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga29ba75ec42415d88530bf7d3f03001ef}
+Function meant to validate the time that the user entered. 
+\begin{DoxyParams}{Parameters}
+{\em time\-String} & is a string representing the time taht the user provided \\
+\hline
+{\em ret\-Hours} & is a pointer to the hours that will be used by the calling function. \\
+\hline
+{\em ret\-Mins} & is a pointer to the minutes that will be used by the calling function. \\
+\hline
+{\em last\-Hours} & is a variable provided by thte calling function as a check to see if the time is valid \\
+\hline
+{\em last\-Mins} & is a variable provided by thte calling function as a check to see if the time is valid \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_gab77ee0d754003aa6a1f3c0aa301962b8}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!remove@{remove}}
+\index{remove@{remove}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::vector$<$int$>$ C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::remove (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{command\-\_\-vec, }
+\item[{{\bf Double\-Linked\-List} $\ast$}]{calendar, }
+\item[{std\-::vector$<$ int $>$}]{current\-Date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_gab77ee0d754003aa6a1f3c0aa301962b8}
+Function entry point for removing from the calendar 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-vec} & is a vector that contains the add string that notifies the application that we're going to add a detail \\
+\hline
+{\em calendar} & is a \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} that represents the calendar \\
+\hline
+{\em selected\-Date} & is a pointer to a \hyperlink{classNode}{Node} that contains the date that we're trying to modify \\
+\hline
+{\em current\-Date} & a string representation of the current date \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga95245c4a89879b482ae7ae360b1be3ac}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!set\-Repeat\-Days@{set\-Repeat\-Days}}
+\index{set\-Repeat\-Days@{set\-Repeat\-Days}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{set\-Repeat\-Days}]{\setlength{\rightskip}{0pt plus 5cm}static bool C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::set\-Repeat\-Days (
+\begin{DoxyParamCaption}
+\item[{bool $\ast$}]{add\-Today, }
+\item[{bool $\ast$}]{repeat\-Monthly, }
+\item[{bool $\ast$}]{repeat\-Bi\-Weekly, }
+\item[{bool $\ast$}]{repeat\-Weekly, }
+\item[{bool $\ast$}]{repeat\-By\-Days, }
+\item[{std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$}]{repeat\-Week\-Day, }
+\item[{std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$}]{days\-To\-Repeat, }
+\item[{int}]{recurrence, }
+\item[{{\bf Node} $\ast$}]{selected\-Date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga95245c4a89879b482ae7ae360b1be3ac}
+Function meant to determine what kind of recurrence is necessary 
+\begin{DoxyParams}{Parameters}
+{\em add\-Today} & is a pointer to a bool that determines whether we should add details to the currentday, it's not used \\
+\hline
+{\em repeat\-Monthly} & is a pointer to a bool that deteremines whether we should repeat monthly \\
+\hline
+{\em repeat\-Bi\-Weekly} & is a pointer to a bool that determines whether or not we should repeat bi-\/weekly \\
+\hline
+{\em repeat\-Weekly} & is a pointer to a bool that determines whether or not we should repeat weekly \\
+\hline
+{\em repeat\-By\-Days} & is a poiner to a bool that determines whether or not we should repeat using certain days \\
+\hline
+{\em repeat\-Week\-Day} & is a pointer to an unordered\-\_\-map that contains a set of the days of tht week represented by integers that are mapped to bool variables \\
+\hline
+{\em days\-To\-Repeat} & is a pointer to a set of string variables that will contain which days a detail needs to be repeated on. \\
+\hline
+{\em recurrence} & is a pointer to the number of times we want to create the recurrence \\
+\hline
+{\em selected\-Date} & is a pointer to a \hyperlink{classNode}{Node} that contains the date that we're trying to modify \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__CMD__DETAIL_ga179b6930ace840a1b90415d9445360d3}{\index{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}!user\-Days\-To\-Repeat@{user\-Days\-To\-Repeat}}
+\index{user\-Days\-To\-Repeat@{user\-Days\-To\-Repeat}!CMD_DETAIL@{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}}
+\subsubsection[{user\-Days\-To\-Repeat}]{\setlength{\rightskip}{0pt plus 5cm}static void C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::user\-Days\-To\-Repeat (
+\begin{DoxyParamCaption}
+\item[{std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$}]{days\-To\-Repeat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__CMD__DETAIL_ga179b6930ace840a1b90415d9445360d3}
+Function used to obtain which days need to have certain details repeated e.\-g. repeat detail on M W F 
+\begin{DoxyParams}{Parameters}
+{\em days\-To\-Repeat} & is a pointer to a set containing strings, the set prevents teh user from entering duplicates \\
+\hline
+\end{DoxyParams}

@@ -1,9 +1,20 @@
+/**
+ * @file cmd_detail.cpp A module that is used to add and remove details from days.
+ */
+
+//! A module that is used to add and remove details from days.
+
 #include "calendar_std.h"
 #include "command.h"
 #include <regex>
 
 namespace CMD_DETAIL
 {
+
+/*! 
+ * \addtogroup CMD_DETAIL
+ * @{ 
+ */
 
 /**
  *Function meant to take a string representation of digits and return an integer version of those digits.
@@ -620,5 +631,7 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 
 	return( ret );
 }
+
+/*! @} End of Doxygen Groups*/
 
 }

@@ -1,0 +1,42 @@
+\hypertarget{cmd__detail_8cpp}{\section{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/lib/cmd\-\_\-detail.cpp File Reference}
+\label{cmd__detail_8cpp}\index{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/lib/cmd\-\_\-detail.\-cpp@{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/lib/cmd\-\_\-detail.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}calendar\-\_\-std.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}command.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$regex$>$}\\*
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceCMD__DETAIL}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L}
+\begin{DoxyCompactList}\small\item\em A module that is used to add and remove details from days. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{group__CMD__DETAIL_gae5f62f8c2c8ec4735c4bfba3e8ff1dbe}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-Garunteed} (std\-::string digits)
+\item 
+static int \hyperlink{group__CMD__DETAIL_gab55ffe2dd662c04c46f186949f67687f}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Int\-From2\-Digit} (std\-::string digits)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga29ba75ec42415d88530bf7d3f03001ef}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::is\-Valid\-Time} (std\-::string time\-String, int $\ast$ret\-Hours, int $\ast$ret\-Mins, int last\-Hours, int last\-Mins)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga52e8172ce6105959e8df1e6b66942092}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Time} (\hyperlink{classDetail}{Detail} $\ast$det)
+\item 
+static void \hyperlink{group__CMD__DETAIL_ga179b6930ace840a1b90415d9445360d3}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::user\-Days\-To\-Repeat} (std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga252bd82356adeffbbe613c41329608cb}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-Recurrence} (int $\ast$recurrence, bool $\ast$repeat\-Monthly, bool $\ast$repeat\-Bi\-Weekly, bool $\ast$repeat\-Weekly, bool $\ast$repeat\-By\-Days, std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat)
+\item 
+static void \hyperlink{group__CMD__DETAIL_gaa62607ee248ceddc948be24d50691a04}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::get\-User\-Event} (\hyperlink{classDetail}{Detail} $\ast$det)
+\item 
+static bool \hyperlink{group__CMD__DETAIL_ga95245c4a89879b482ae7ae360b1be3ac}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::set\-Repeat\-Days} (bool $\ast$add\-Today, bool $\ast$repeat\-Monthly, bool $\ast$repeat\-Bi\-Weekly, bool $\ast$repeat\-Weekly, bool $\ast$repeat\-By\-Days, std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$repeat\-Week\-Day, std\-::unordered\-\_\-set$<$ std\-::string $>$ $\ast$days\-To\-Repeat, int recurrence, \hyperlink{classNode}{Node} $\ast$selected\-Date)
+\item 
+static void \hyperlink{group__CMD__DETAIL_ga80f84e2810faa505dc48fcc8832ead6c}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add\-Events} (\hyperlink{classDetail}{Detail} det, int recurrence, \hyperlink{classNode}{Node} $\ast$selected\-Date, bool add\-Today, bool repeat\-Monthly, bool repeat\-Bi\-Weekly, bool repeat\-Weekly, bool repeat\-By\-Days, std\-::unordered\-\_\-map$<$ int, bool $>$ $\ast$repeat\-Week\-Day)
+\item 
+static std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_ga0b49c27571f2cb14fe28d9267ac5d1d0}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::add} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\item 
+static std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_gab77ee0d754003aa6a1f3c0aa301962b8}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::remove} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\item 
+std\-::vector$<$ int $>$ \hyperlink{group__CMD__DETAIL_ga220b66828663d5311ad270969b6155ed}{C\-M\-D\-\_\-\-D\-E\-T\-A\-I\-L\-::func} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A module that is used to add and remove details from days. 

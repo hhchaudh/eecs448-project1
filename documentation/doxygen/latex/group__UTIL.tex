@@ -1,0 +1,207 @@
+\hypertarget{group__UTIL}{\section{U\-T\-I\-L}
+\label{group__UTIL}\index{U\-T\-I\-L@{U\-T\-I\-L}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__UTIL_gaa9c234531d4ed8848e15458f8fcb377c}{U\-T\-I\-L\-::get\-Dayofweek} (int y, int m, int d)
+\item 
+int \hyperlink{group__UTIL_ga7a178c29c06227bb28a5b651b8d57908}{U\-T\-I\-L\-::get\-Dayofweek} (\hyperlink{classNode}{Node} $\ast$day)
+\item 
+bool \hyperlink{group__UTIL_gaefbc24433355f7a87cd9f1a6eeb6393e}{U\-T\-I\-L\-::less\-Than\-Thirty\-One} (\hyperlink{classNode}{Node} $\ast$day)
+\item 
+void \hyperlink{group__UTIL_gae51cb73bab26a8b09786c55a4491eed0}{U\-T\-I\-L\-::print\-Cal\-Head} ()
+\item 
+void \hyperlink{group__UTIL_gac9ec4c5a9961d7932fbd04c40c17d110}{U\-T\-I\-L\-::print\-Week\-Head} ()
+\item 
+void \hyperlink{group__UTIL_gaf42511038942fe8acfd713b8e39de1eb}{U\-T\-I\-L\-::print\-Day\-Head} ()
+\item 
+void \hyperlink{group__UTIL_ga63005cc2bbe386d0d6def9216246170b}{U\-T\-I\-L\-::print\-Day\-Blank\-Begin} ()
+\item 
+int \hyperlink{group__UTIL_ga3ae728ca2e986674b59994f39ce12f04}{U\-T\-I\-L\-::get\-Mon\-Num} (std\-::string month\-Name)
+\item 
+std\-::string \hyperlink{group__UTIL_gaab82a62e4871b62fdf10cec49a8eaa24}{U\-T\-I\-L\-::get\-Month} (int m)
+\item 
+static void \hyperlink{group__UTIL_ga56218f451bf4a1c2f050eeece129acd7}{U\-T\-I\-L\-::mark\-Events\-Double\-Booked} (std\-::vector$<$ \hyperlink{classDetail}{Detail} $>$ $\ast$dets)
+\item 
+void \hyperlink{group__UTIL_ga974003737cc9f033ee267c54092af631}{U\-T\-I\-L\-::print\-Day} (\hyperlink{classNode}{Node} $\ast$day)
+\item 
+\hypertarget{group__UTIL_gab2f2244a22eff0c715737d8236b5b6ce}{\hyperlink{classNode}{Node} $\ast$ {\bfseries U\-T\-I\-L\-::print\-Week} (\hyperlink{classNode}{Node} $\ast$day, bool month\-Wrap, std\-::vector$<$ int $>$ current\-Date)}\label{group__UTIL_gab2f2244a22eff0c715737d8236b5b6ce}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__UTIL_ga825bc9e6f0accf92a1b07431568a397c}{U\-T\-I\-L\-::month\-\_\-to\-\_\-year} \mbox{[}13\mbox{]}
+\item 
+std\-::unordered\-\_\-map\\*
+$<$ std\-::string, int $>$ \hyperlink{group__UTIL_ga044d0402087a045aabd076a5126699d2}{U\-T\-I\-L\-::mon\-\_\-to\-\_\-int}
+\item 
+const std\-::string \hyperlink{group__UTIL_ga88a2cb2e6ccec0c5df742e71dc28835b}{U\-T\-I\-L\-::months} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__UTIL_gaa9c234531d4ed8848e15458f8fcb377c}{\index{U\-T\-I\-L@{U\-T\-I\-L}!get\-Dayofweek@{get\-Dayofweek}}
+\index{get\-Dayofweek@{get\-Dayofweek}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{get\-Dayofweek}]{\setlength{\rightskip}{0pt plus 5cm}int U\-T\-I\-L\-::get\-Dayofweek (
+\begin{DoxyParamCaption}
+\item[{int}]{y, }
+\item[{int}]{m, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gaa9c234531d4ed8848e15458f8fcb377c}
+Returns the day of the week (sun=0 through sat=6). 
+\begin{DoxyParams}{Parameters}
+{\em y} & The year of the day \\
+\hline
+{\em m} & The month of the day \\
+\hline
+{\em d} & The day \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The day of the week as an int (sun=0 through sat=6). 
+\end{DoxyReturn}
+\hypertarget{group__UTIL_ga7a178c29c06227bb28a5b651b8d57908}{\index{U\-T\-I\-L@{U\-T\-I\-L}!get\-Dayofweek@{get\-Dayofweek}}
+\index{get\-Dayofweek@{get\-Dayofweek}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{get\-Dayofweek}]{\setlength{\rightskip}{0pt plus 5cm}int U\-T\-I\-L\-::get\-Dayofweek (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{day}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_ga7a178c29c06227bb28a5b651b8d57908}
+Returns the day of the week (sun=0 through sat=6). 
+\begin{DoxyParams}{Parameters}
+{\em day} & The date to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The day of the week as an int (sun=0 through sat=6). 
+\end{DoxyReturn}
+\hypertarget{group__UTIL_ga3ae728ca2e986674b59994f39ce12f04}{\index{U\-T\-I\-L@{U\-T\-I\-L}!get\-Mon\-Num@{get\-Mon\-Num}}
+\index{get\-Mon\-Num@{get\-Mon\-Num}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{get\-Mon\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int U\-T\-I\-L\-::get\-Mon\-Num (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{month\-Name}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_ga3ae728ca2e986674b59994f39ce12f04}
+Given a month name returns its corresponding integer value. 
+\begin{DoxyParams}{Parameters}
+{\em month\-Name} & The month to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the integer representation of the month. 
+\end{DoxyReturn}
+\hypertarget{group__UTIL_gaab82a62e4871b62fdf10cec49a8eaa24}{\index{U\-T\-I\-L@{U\-T\-I\-L}!get\-Month@{get\-Month}}
+\index{get\-Month@{get\-Month}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{get\-Month}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string U\-T\-I\-L\-::get\-Month (
+\begin{DoxyParamCaption}
+\item[{int}]{m}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gaab82a62e4871b62fdf10cec49a8eaa24}
+Converts an interger rep of a month to a 3 letter string. \hypertarget{group__UTIL_gaefbc24433355f7a87cd9f1a6eeb6393e}{\index{U\-T\-I\-L@{U\-T\-I\-L}!less\-Than\-Thirty\-One@{less\-Than\-Thirty\-One}}
+\index{less\-Than\-Thirty\-One@{less\-Than\-Thirty\-One}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{less\-Than\-Thirty\-One}]{\setlength{\rightskip}{0pt plus 5cm}bool U\-T\-I\-L\-::less\-Than\-Thirty\-One (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{day}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gaefbc24433355f7a87cd9f1a6eeb6393e}
+Returns true if the month passed in has less then thirty one days, false otherwise. 
+\begin{DoxyParams}{Parameters}
+{\em day} & The date to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false. 
+\end{DoxyReturn}
+\hypertarget{group__UTIL_ga56218f451bf4a1c2f050eeece129acd7}{\index{U\-T\-I\-L@{U\-T\-I\-L}!mark\-Events\-Double\-Booked@{mark\-Events\-Double\-Booked}}
+\index{mark\-Events\-Double\-Booked@{mark\-Events\-Double\-Booked}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{mark\-Events\-Double\-Booked}]{\setlength{\rightskip}{0pt plus 5cm}static void U\-T\-I\-L\-::mark\-Events\-Double\-Booked (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Detail} $>$ $\ast$}]{dets}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{group__UTIL_ga56218f451bf4a1c2f050eeece129acd7}
+Go through the list of details and mark the overlapping ones. 
+\begin{DoxyParams}{Parameters}
+{\em dets} & The detail list. \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__UTIL_gae51cb73bab26a8b09786c55a4491eed0}{\index{U\-T\-I\-L@{U\-T\-I\-L}!print\-Cal\-Head@{print\-Cal\-Head}}
+\index{print\-Cal\-Head@{print\-Cal\-Head}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{print\-Cal\-Head}]{\setlength{\rightskip}{0pt plus 5cm}void U\-T\-I\-L\-::print\-Cal\-Head (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gae51cb73bab26a8b09786c55a4491eed0}
+Prints a heading for the month and week views. \hypertarget{group__UTIL_ga974003737cc9f033ee267c54092af631}{\index{U\-T\-I\-L@{U\-T\-I\-L}!print\-Day@{print\-Day}}
+\index{print\-Day@{print\-Day}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{print\-Day}]{\setlength{\rightskip}{0pt plus 5cm}void U\-T\-I\-L\-::print\-Day (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{day}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_ga974003737cc9f033ee267c54092af631}
+Print the passed in day in the day view. 
+\begin{DoxyParams}{Parameters}
+{\em day} & The day to print. \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__UTIL_ga63005cc2bbe386d0d6def9216246170b}{\index{U\-T\-I\-L@{U\-T\-I\-L}!print\-Day\-Blank\-Begin@{print\-Day\-Blank\-Begin}}
+\index{print\-Day\-Blank\-Begin@{print\-Day\-Blank\-Begin}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{print\-Day\-Blank\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}void U\-T\-I\-L\-::print\-Day\-Blank\-Begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_ga63005cc2bbe386d0d6def9216246170b}
+Prints a blank beginning for the day view. \hypertarget{group__UTIL_gaf42511038942fe8acfd713b8e39de1eb}{\index{U\-T\-I\-L@{U\-T\-I\-L}!print\-Day\-Head@{print\-Day\-Head}}
+\index{print\-Day\-Head@{print\-Day\-Head}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{print\-Day\-Head}]{\setlength{\rightskip}{0pt plus 5cm}void U\-T\-I\-L\-::print\-Day\-Head (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gaf42511038942fe8acfd713b8e39de1eb}
+Prints a divider for the day view. \hypertarget{group__UTIL_gac9ec4c5a9961d7932fbd04c40c17d110}{\index{U\-T\-I\-L@{U\-T\-I\-L}!print\-Week\-Head@{print\-Week\-Head}}
+\index{print\-Week\-Head@{print\-Week\-Head}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{print\-Week\-Head}]{\setlength{\rightskip}{0pt plus 5cm}void U\-T\-I\-L\-::print\-Week\-Head (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__UTIL_gac9ec4c5a9961d7932fbd04c40c17d110}
+Prints a divider for the month and week views. 
+
+\subsection{Variable Documentation}
+\hypertarget{group__UTIL_ga044d0402087a045aabd076a5126699d2}{\index{U\-T\-I\-L@{U\-T\-I\-L}!mon\-\_\-to\-\_\-int@{mon\-\_\-to\-\_\-int}}
+\index{mon\-\_\-to\-\_\-int@{mon\-\_\-to\-\_\-int}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{mon\-\_\-to\-\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}std\-::unordered\-\_\-map$<$ std\-::string, int $>$ U\-T\-I\-L\-::mon\-\_\-to\-\_\-int}}\label{group__UTIL_ga044d0402087a045aabd076a5126699d2}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+        \{ \textcolor{stringliteral}{"JAN"}, 1 \}, \{ \textcolor{stringliteral}{"FEB"}, 2 \}, \{ \textcolor{stringliteral}{"MAR"}, 3 \}, \{ \textcolor{stringliteral}{"APR"}, 4  \}, \{ \textcolor{stringliteral}{"MAY"}, 5  \}, \{ \textcolor{stringliteral}{"JUN"}, 6  \},
+        \{ \textcolor{stringliteral}{"jan"}, 1 \}, \{ \textcolor{stringliteral}{"feb"}, 2 \}, \{ \textcolor{stringliteral}{"mar"}, 3 \}, \{ \textcolor{stringliteral}{"apr"}, 4  \}, \{ \textcolor{stringliteral}{"may"}, 5  \}, \{ \textcolor{stringliteral}{"jun"}, 6  \},
+        \{ \textcolor{stringliteral}{"JUL"}, 7 \}, \{ \textcolor{stringliteral}{"AUG"}, 8 \}, \{ \textcolor{stringliteral}{"SEP"}, 9 \}, \{ \textcolor{stringliteral}{"OCT"}, 10 \}, \{ \textcolor{stringliteral}{"NOV"}, 11 \}, \{ \textcolor{stringliteral}{"DEC"}, 12 \},
+        \{ \textcolor{stringliteral}{"jul"}, 7 \}, \{ \textcolor{stringliteral}{"aug"}, 8 \}, \{ \textcolor{stringliteral}{"sep"}, 9 \}, \{ \textcolor{stringliteral}{"oct"}, 10 \}, \{ \textcolor{stringliteral}{"nov"}, 11 \}, \{ \textcolor{stringliteral}{"dec"}, 12 \}
+\}
+\end{DoxyCode}
+A mapping of month names to corresponding numbers. \hypertarget{group__UTIL_ga825bc9e6f0accf92a1b07431568a397c}{\index{U\-T\-I\-L@{U\-T\-I\-L}!month\-\_\-to\-\_\-year@{month\-\_\-to\-\_\-year}}
+\index{month\-\_\-to\-\_\-year@{month\-\_\-to\-\_\-year}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{month\-\_\-to\-\_\-year}]{\setlength{\rightskip}{0pt plus 5cm}int U\-T\-I\-L\-::month\-\_\-to\-\_\-year}}\label{group__UTIL_ga825bc9e6f0accf92a1b07431568a397c}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+
+    2017, 2017, 2017, 2017, 2017, 2017, 2017, 2017, 2016, 2016, 2016, 2016, 2016
+\}
+\end{DoxyCode}
+Given an integer month as the index will return the year that month belongs to. \hypertarget{group__UTIL_ga88a2cb2e6ccec0c5df742e71dc28835b}{\index{U\-T\-I\-L@{U\-T\-I\-L}!months@{months}}
+\index{months@{months}!UTIL@{U\-T\-I\-L}}
+\subsubsection[{months}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string U\-T\-I\-L\-::months\mbox{[}$\,$\mbox{]}}}\label{group__UTIL_ga88a2cb2e6ccec0c5df742e71dc28835b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"ERR"}, \textcolor{stringliteral}{"JAN"}, \textcolor{stringliteral}{"FEB"}, \textcolor{stringliteral}{"MAR"}, \textcolor{stringliteral}{"APR"}, \textcolor{stringliteral}{"MAY"}, \textcolor{stringliteral}{"JUN"}, \textcolor{stringliteral}{"JUL"}, \textcolor{stringliteral}{"AUG"}, \textcolor{stringliteral}{"SEP"}, \textcolor{stringliteral}{"OCT"}, \textcolor{stringliteral}{"NOV"}, \textcolor{stringliteral}{"DEC"}
+\}
+\end{DoxyCode}
+Converts an interger rep of a month to a 3 letter string. 

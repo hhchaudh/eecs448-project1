@@ -1,8 +1,19 @@
+/**
+ * @file util.cpp A helper module for the commands.
+ */
+
+//! A helper module for the commands.
+
 #include "calendar_std.h"
 #include "command.h"
 
 namespace UTIL
 {
+
+/*! 
+ * \addtogroup UTIL
+ * @{ 
+ */
 
 /**
  * Returns the day of the week (sun=0 through sat=6).
@@ -17,20 +28,37 @@ int getDayofweek(int y, int m, int d) {
 	return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
 }
 
+/**
+ * Returns the day of the week (sun=0 through sat=6).
+ * @param day     The date to query.
+ * @return The day of the week as an int (sun=0 through sat=6).
+ */
 int getDayofweek( Node * day ) {
 	return getDayofweek( day->getYear(), day->getMonth(), day->getDay() );
 }
 
+/**
+ * Returns true if the month passed in has less then thirty one days, false otherwise.
+ * @param day     The date to query.
+ * @return True or false.
+ */
 bool lessThanThirtyOne(Node * day) {
 	int daysInMonths[] = {31,28,31,30,31,30,31,31,30,31,30,31};
 	return(daysInMonths[day->getMonth()-1] < 31);
 }
 
+/**
+ * Given an integer month as the index will return the year that month belongs to.
+ */
 int month_to_year[] = {
 //  INVAL  JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC
 	2017, 2017, 2017, 2017, 2017, 2017, 2017, 2017, 2016, 2016, 2016, 2016, 2016
 };
 
+
+/**
+ * A mapping of month names to corresponding numbers.
+ */
 std::unordered_map<std::string, int> mon_to_int = {
         { "JAN", 1 }, { "FEB", 2 }, { "MAR", 3 }, { "APR", 4  }, { "MAY", 5  }, { "JUN", 6  },
         { "jan", 1 }, { "feb", 2 }, { "mar", 3 }, { "apr", 4  }, { "may", 5  }, { "jun", 6  },
@@ -38,24 +66,36 @@ std::unordered_map<std::string, int> mon_to_int = {
 		{ "jul", 7 }, { "aug", 8 }, { "sep", 9 }, { "oct", 10 }, { "nov", 11 }, { "dec", 12 }
 };
 
+/**
+ * Prints a heading for the month and week views.
+ */
 void printCalHead()
 {
 	std::cout << "| SUN | MON | TUE | WED | THU | FRI | SAT |\n";
 	return;
 }
 
+/**
+ * Prints a divider for the month and week views.
+ */
 void printWeekHead()
 {
 	std::cout << "|-----------------------------------------|\n";
 	return;
 }
 
+/**
+ * Prints a divider for the day view.
+ */
 void printDayHead()
 {
 	std::cout << "---|-------|------------|----------|---------------------------------------------------|\n";
 	return;
 }
 
+/**
+ * Prints a blank beginning for the day view.
+ */
 void printDayBlankBegin()
 {
 	std::cout << "   |       |            |          |";
@@ -63,6 +103,11 @@ void printDayBlankBegin()
 }
 
 
+/**
+ * Given a month name returns its corresponding integer value.
+ * @param monthName     The month to query.
+ * @return the integer representation of the month.
+ */
 int getMonNum( std::string monthName )
 {
 	auto month = mon_to_int.find( monthName );
@@ -73,10 +118,18 @@ int getMonNum( std::string monthName )
 	return mon_to_int[ monthName ];
 }
 
+ 
+/**
+ * Converts an interger rep of a month to a 3 letter string.
+ */
 const std::string months[] = {
 	"ERR", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 };
 
+
+/**
+ * Converts an interger rep of a month to a 3 letter string.
+ */
 std::string getMonth( int m )
 {
 	if ( m < 1 || m > 12 )
@@ -84,6 +137,10 @@ std::string getMonth( int m )
 	return months[m];
 }
 
+/**
+ * Go through the list of details and mark the overlapping ones.
+ * @param dets     The detail list.
+ */
 static void markEventsDoubleBooked( std::vector<Detail> * dets )
 {
 	// step through the details and mark the overlaps.
@@ -125,6 +182,10 @@ static void markEventsDoubleBooked( std::vector<Detail> * dets )
 	}
 }
 
+/**
+ * Print the passed in day in the day view.
+ * @param day     The day to print.
+ */
 void printDay( Node * day )
 {
 	// print the day header.
@@ -241,5 +302,7 @@ Node * printWeek( Node * day, bool monthWrap, std::vector<int> currentDate )
 	// return a pointer to the next day that we didn't print, or NULL if we are at end of Calendar.
 	return day;
 }
+
+/*! @} End of Doxygen Groups*/
 
 }
