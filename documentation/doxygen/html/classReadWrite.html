@@ -39,6 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classReadWrite-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ReadWrite Class Reference</div>  </div>
@@ -106,6 +109,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a778d106489a4f41730d902d338ec3937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a323d8e4f3bf72f0ef4726b3c08f0f4c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReadWrite.html#a323d8e4f3bf72f0ef4726b3c08f0f4c3">storeFileInfo</a> (<a class="el" href="classDoubleLinkedList.html">DoubleLinkedList</a> *dll)</td></tr>
 <tr class="separator:a323d8e4f3bf72f0ef4726b3c08f0f4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3ce1dfd90cd2fca6ae783b0b4c02421a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ce1dfd90cd2fca6ae783b0b4c02421a"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_curdate</b></td></tr>
+<tr class="separator:a3ce1dfd90cd2fca6ae783b0b4c02421a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Purpose: Generates file, user.txt, to keep user calendar data, and retrieve information from previous sessions An object to read and write info from and to a file, to and from a list respectively. </p>

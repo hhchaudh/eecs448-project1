@@ -39,6 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,10 +94,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="classReadWrite.html#af7557737b9043d9e605473c7e6984046">getDate</a>()</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classReadWrite.html#a778d106489a4f41730d902d338ec3937">getFileInfo</a>(DoubleLinkedList *dll)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classReadWrite.html#a82950d962ae4e05f04772b82b6690670">isFile</a>() const </td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classReadWrite.html#a11c22591e481ff4fc111e485ab2955c2">ReadWrite</a>()</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classReadWrite.html#a22a0b16f5004c059980424203c84978a">setDate</a>(std::vector&lt; int &gt; curdate)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classReadWrite.html#a323d8e4f3bf72f0ef4726b3c08f0f4c3">storeFileInfo</a>(DoubleLinkedList *dll)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~ReadWrite</b>() (defined in <a class="el" href="classReadWrite.html">ReadWrite</a>)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_curdate</b> (defined in <a class="el" href="classReadWrite.html">ReadWrite</a>)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classReadWrite.html#a11c22591e481ff4fc111e485ab2955c2">ReadWrite</a>()</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classReadWrite.html#a22a0b16f5004c059980424203c84978a">setDate</a>(std::vector&lt; int &gt; curdate)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classReadWrite.html#a323d8e4f3bf72f0ef4726b3c08f0f4c3">storeFileInfo</a>(DoubleLinkedList *dll)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~ReadWrite</b>() (defined in <a class="el" href="classReadWrite.html">ReadWrite</a>)</td><td class="entry"><a class="el" href="classReadWrite.html">ReadWrite</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -39,6 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDetail-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Detail Class Reference</div>  </div>
@@ -126,6 +129,27 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a23e6afc6f70c31bdcc064461b80ea44c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetail.html#a23e6afc6f70c31bdcc064461b80ea44c">compare</a> (<a class="el" href="classDetail.html">Detail</a> a, <a class="el" href="classDetail.html">Detail</a> b)</td></tr>
 <tr class="separator:a23e6afc6f70c31bdcc064461b80ea44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae5d7233d20d874af776a90ef79dfded9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5d7233d20d874af776a90ef79dfded9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_StartHours</b></td></tr>
+<tr class="separator:ae5d7233d20d874af776a90ef79dfded9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad985a9d0d02047a80375ba9f95f67e3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad985a9d0d02047a80375ba9f95f67e3e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_StartMinutes</b></td></tr>
+<tr class="separator:ad985a9d0d02047a80375ba9f95f67e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af925648f0ec018abeb3131c0a5715ccd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af925648f0ec018abeb3131c0a5715ccd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_DoneHours</b></td></tr>
+<tr class="separator:af925648f0ec018abeb3131c0a5715ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5315dda44e17f7e08ef7fa401734b6d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5315dda44e17f7e08ef7fa401734b6d2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_DoneMinutes</b></td></tr>
+<tr class="separator:a5315dda44e17f7e08ef7fa401734b6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda906a93e179641f8f051ab7ab8fe3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adda906a93e179641f8f051ab7ab8fe3d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>d_booked</b></td></tr>
+<tr class="separator:adda906a93e179641f8f051ab7ab8fe3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81fd7c29e758dea6790a1147465bdec6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81fd7c29e758dea6790a1147465bdec6"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_text</b></td></tr>
+<tr class="separator:a81fd7c29e758dea6790a1147465bdec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Purpose: To hold info on a specific detal. <a class="el" href="classDetail.html">Detail</a> class to hold info on a detail. </p>

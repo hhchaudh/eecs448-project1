@@ -39,6 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,13 +92,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This is the complete list of members for <a class="el" href="classDetail.html">Detail</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a23e6afc6f70c31bdcc064461b80ea44c">compare</a>(Detail a, Detail b)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classDetail.html#ade0deea5232733e7bdb658dadcc6b5fe">Detail</a>()</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a495a656ee4869f2dac3c27bc8105a606">getDoneHours</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classDetail.html#a1ec3b7b3f3b2b8d587e2e55625288185">getDoneMinutes</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a63624d1a3d099fa76cf776a00902d3e0">getDoubleBooked</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classDetail.html#a7e50f64f712a2775f4bfca3d5ca408d5">getStartHours</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#ae7a56cb0c31323a94aea889f7b8790b8">getStartMinutes</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classDetail.html#a8bb858933394ae9b854fbca7ce4db9cf">getText</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>d_booked</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#ade0deea5232733e7bdb658dadcc6b5fe">Detail</a>()</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDetail.html#a495a656ee4869f2dac3c27bc8105a606">getDoneHours</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a1ec3b7b3f3b2b8d587e2e55625288185">getDoneMinutes</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDetail.html#a63624d1a3d099fa76cf776a00902d3e0">getDoubleBooked</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a7e50f64f712a2775f4bfca3d5ca408d5">getStartHours</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDetail.html#ae7a56cb0c31323a94aea889f7b8790b8">getStartMinutes</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a8bb858933394ae9b854fbca7ce4db9cf">getText</a>() const </td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_DoneHours</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_DoneMinutes</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_StartHours</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_StartMinutes</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>m_text</b> (defined in <a class="el" href="classDetail.html">Detail</a>)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classDetail.html#af539d10fd24811f7d68bdf236a6feda0">setDoneHours</a>(int DoneHour)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDetail.html#aad257615ab5ad0cb4447e677c547bd13">setDoneMinutes</a>(int DoneMinute)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classDetail.html#a3c4c2777819074375234980889aa4f1e">setDoubleBooked</a>(bool doubleBooked)</td><td class="entry"><a class="el" href="classDetail.html">Detail</a></td><td class="entry"></td></tr>

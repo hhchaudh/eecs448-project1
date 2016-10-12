@@ -39,6 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,17 +95,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>CMD_HELP</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">extern</span> commandfunc func;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">extern</span> commandfunc <a class="code" href="group__CMD__VIEW.html#gab9f53f36db853a3fac4e20a7f2747245">func</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>CMD_VIEW</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespaceCMD__VIEW.html">    9</a></span>&#160;<span class="keyword">namespace </span>CMD_VIEW</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">extern</span> commandfunc func;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>CMD_DETAIL</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">extern</span> commandfunc func;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">extern</span> commandfunc <a class="code" href="group__CMD__VIEW.html#gab9f53f36db853a3fac4e20a7f2747245">func</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>UTIL</div>
@@ -112,18 +114,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">extern</span> std::unordered_map&lt;std::string, int&gt; mon_to_int;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">int</span> getDayofweek(<span class="keywordtype">int</span> y, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> d);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">int</span> getDayofweek( <a class="code" href="classNode.html">Node</a> * day );</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">bool</span> lessThanThirtyOne( <a class="code" href="classNode.html">Node</a> * day );</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">int</span> getDayofweek( <a class="code" href="classNode.html">Node</a> * <a class="code" href="group__CMD__VIEW.html#ga32d55ec99d38b5cd97d79445bbef0f55">day</a> );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">bool</span> lessThanThirtyOne( <a class="code" href="classNode.html">Node</a> * <a class="code" href="group__CMD__VIEW.html#ga32d55ec99d38b5cd97d79445bbef0f55">day</a> );</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">void</span> printCalHead();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">void</span> printWeekHead();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">int</span> getMonNum( std::string monthName );</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">extern</span> std::string getMonth( <span class="keywordtype">int</span> m );</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">extern</span> <a class="code" href="classNode.html">Node</a> * printWeek( <a class="code" href="classNode.html">Node</a> * day, <span class="keywordtype">bool</span> monthWrap, std::vector&lt;int&gt; currentDate );</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">void</span> printDay( <a class="code" href="classNode.html">Node</a> * day );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">extern</span> <a class="code" href="classNode.html">Node</a> * printWeek( <a class="code" href="classNode.html">Node</a> * <a class="code" href="group__CMD__VIEW.html#ga32d55ec99d38b5cd97d79445bbef0f55">day</a>, <span class="keywordtype">bool</span> monthWrap, std::vector&lt;int&gt; currentDate );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">extern</span> <span class="keywordtype">void</span> printDay( <a class="code" href="classNode.html">Node</a> * <a class="code" href="group__CMD__VIEW.html#ga32d55ec99d38b5cd97d79445bbef0f55">day</a> );</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classNode_html"><div class="ttname"><a href="classNode.html">Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:17</div></div>
+<div class="ttc" id="group__CMD__VIEW_html_gab9f53f36db853a3fac4e20a7f2747245"><div class="ttname"><a href="group__CMD__VIEW.html#gab9f53f36db853a3fac4e20a7f2747245">CMD_VIEW::func</a></div><div class="ttdeci">std::vector&lt; int &gt; func(std::vector&lt; std::string &gt; command_vec, DoubleLinkedList *calendar, std::vector&lt; int &gt; currentDate)</div><div class="ttdef"><b>Definition:</b> cmd_view.cpp:214</div></div>
+<div class="ttc" id="group__CMD__VIEW_html_ga32d55ec99d38b5cd97d79445bbef0f55"><div class="ttname"><a href="group__CMD__VIEW.html#ga32d55ec99d38b5cd97d79445bbef0f55">CMD_VIEW::day</a></div><div class="ttdeci">static std::vector&lt; int &gt; day(std::vector&lt; std::string &gt; command_vec, DoubleLinkedList *calendar, std::vector&lt; int &gt; currentDate)</div><div class="ttdef"><b>Definition:</b> cmd_view.cpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

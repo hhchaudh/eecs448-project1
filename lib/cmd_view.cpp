@@ -1,9 +1,27 @@
+/**
+ * @file cmd_view.cpp A module that is used to display content to the user.
+ */
+
+//! A module that is used to display content to the user.
+
 #include "calendar_std.h"
 #include "command.h"
 
 namespace CMD_VIEW
 {
 
+/*! 
+ * \addtogroup CMD_VIEW 
+ * @{ 
+ */
+
+/**
+ * Prints out events and info for the selected date.
+ * @param command_vec Contains the Month and Day to be printed.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 static std::vector<int> day(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -35,6 +53,13 @@ static std::vector<int> day(std::vector<std::string> command_vec, DoubleLinkedLi
 	return( currentDate );
 }
 
+/**
+ * Prints out events and info for the currently selected day.
+ * @param command_vec ignored
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 static std::vector<int> current(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -49,6 +74,13 @@ static std::vector<int> current(std::vector<std::string> command_vec, DoubleLink
 	return( ret );
 }
 
+/**
+ * Prints out a Calendar resembling a month. Days with events are morked with '*' the current date is marked with '@'
+ * @param command_vec Contains the Month to be printed.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -89,6 +121,13 @@ static std::vector<int> month(std::vector<std::string> command_vec, DoubleLinked
 	return( ret );
 }
 
+/**
+ * Prints out a Calendar resembling a week. Days with events are morked with '*' the current date is marked with '@'
+ * @param command_vec Contains the Month and day of the week to be printed.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 static std::vector<int> week(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -119,6 +158,13 @@ static std::vector<int> week(std::vector<std::string> command_vec, DoubleLinkedL
 	return( ret );
 }
 
+/**
+ * Prints out a Calendar resembling a year. Months with events are morked with '*' the current date is marked with '@'
+ * @param command_vec ignored.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 static std::vector<int> year(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	std::unordered_map<std::string, int> printed_months;
@@ -158,6 +204,13 @@ static std::vector<int> year(std::vector<std::string> command_vec, DoubleLinkedL
 }
 
 
+/**
+ * Takes care to call all of the view commands.
+ * @param command_vec Contains the command name plus arguments.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
 	
@@ -190,6 +243,9 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	}
 	
 	return( ret );
+
+/*! @} End of Doxygen Groups*/
+
 }
 
 }
