@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp The main functions for running the Calendar program.
+ */
+
+
 #include "calendar_std.h"
 #include "command.h"
 

@@ -1,0 +1,101 @@
+\hypertarget{main_8cpp}{\section{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/main.cpp File Reference}
+\label{main_8cpp}\index{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/main.\-cpp@{/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/main.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}calendar\-\_\-std.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}command.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_ad707908a23285d58630908f2bfa1f700}{find\-Num\-Days\-Month} (int year, int month)
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d}{parse\-Command} (std\-::string command\-\_\-str)
+\item 
+\hypertarget{main_8cpp_ac72ea4a76e2aee8030e1cefbce14bdc3}{std\-::vector$<$ int $>$ {\bfseries cmd\-\_\-exit} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)}\label{main_8cpp_ac72ea4a76e2aee8030e1cefbce14bdc3}
+
+\item 
+std\-::vector$<$ int $>$ \hyperlink{main_8cpp_ae6db6b92c10e18b318eba72769180db7}{check\-Command} (std\-::vector$<$ std\-::string $>$ command\-\_\-vec, \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$calendar, std\-::vector$<$ int $>$ current\-Date)
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main functions for running the Calendar program. 
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_ae6db6b92c10e18b318eba72769180db7}{\index{main.\-cpp@{main.\-cpp}!check\-Command@{check\-Command}}
+\index{check\-Command@{check\-Command}!main.cpp@{main.\-cpp}}
+\subsubsection[{check\-Command}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ check\-Command (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{command\-\_\-vec, }
+\item[{{\bf Double\-Linked\-List} $\ast$}]{calendar, }
+\item[{std\-::vector$<$ int $>$}]{current\-Date}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ae6db6b92c10e18b318eba72769180db7}
+Checks what command should be ran. 
+\begin{DoxyParams}{Parameters}
+{\em comand\-\_\-vec} & The seperated command. \\
+\hline
+{\em calendar} & The \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object that is the calendar. \\
+\hline
+{\em current\-Date} & The current date of focus for the program. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of ints that are either the new current day, or a command to close the program. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_ad707908a23285d58630908f2bfa1f700}{\index{main.\-cpp@{main.\-cpp}!find\-Num\-Days\-Month@{find\-Num\-Days\-Month}}
+\index{find\-Num\-Days\-Month@{find\-Num\-Days\-Month}!main.cpp@{main.\-cpp}}
+\subsubsection[{find\-Num\-Days\-Month}]{\setlength{\rightskip}{0pt plus 5cm}int find\-Num\-Days\-Month (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ad707908a23285d58630908f2bfa1f700}
+Finds the number of days in the month of the given year 
+\begin{DoxyParams}{Parameters}
+{\em year} & The year of the month \\
+\hline
+{\em month} & The month to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of days in the month for the given year 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+The main method of the program. \begin{DoxyAuthor}{Author}
+Rony Singh 
+
+Jackson Schilmoeller 
+
+Chris Porras 
+
+Brad Gibbons 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0, 18 Sep 2016 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The return message of the program. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d}{\index{main.\-cpp@{main.\-cpp}!parse\-Command@{parse\-Command}}
+\index{parse\-Command@{parse\-Command}!main.cpp@{main.\-cpp}}
+\subsubsection[{parse\-Command}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ parse\-Command (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{command\-\_\-str}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a1a6a27fddacafe110c65390c9727bf8d}
+Takes a command as a string and parses it into the seperate parts. 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-str} & The string to be broken apart. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings that are the different parts of the command. 
+\end{DoxyReturn}

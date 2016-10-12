@@ -1,8 +1,27 @@
+/**
+ * @file cmd_help.cpp A module that is used to display help menu.
+ */
+
+//! A module that is used to display help menu
+
 #include "calendar_std.h"
 #include "command.h"
 
 namespace CMD_HELP
 {
+
+/*! 
+ * \addtogroup CMD_HELP
+ * @{ 
+ */
+
+/**
+ * Prints out the help menu.
+ * @param command_vec ignored, no args.
+ * @param calendar The linked list of days which compose the calendar.
+ * @param currentDate The currently selected day.
+ * @return A date vector to change the current date, empty for success, and a single entry to exit the program.
+ */
 
 std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* calendar, std::vector<int> currentDate) {
 	std::vector<int> ret = std::vector<int>();
@@ -23,5 +42,7 @@ std::vector<int> func(std::vector<std::string> command_vec, DoubleLinkedList* ca
 	
 	return(ret);
 }
+
+/*! @} End of Doxygen Groups*/
 
 }
