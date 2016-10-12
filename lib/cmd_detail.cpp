@@ -432,7 +432,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 	std::unordered_set<std::string> daysToRepeat;
 
 	// confirm correct number of arguments.
-	if( command_vec.size() != 1 && command_vec[0] != "day" && command_vec[0] != "time" )
+	if( command_vec.size() != 1 || ( command_vec[0] != "day" && command_vec[0] != "time" ) )
 	{
 		std::cout << "Incorrect input: should be: detail add [time|day]\n\n";
 		return( ret );
@@ -474,9 +474,7 @@ static std::vector<int> add(std::vector<std::string> command_vec, DoubleLinkedLi
 
 	addEvents( det, recurrence, date, addToday, repeatMonthly, repeatBiWeekly, repeatWeekly, repeatByDays, &repeatWeekDay );
 
-	std::cout << "detail was: " << det.getText() << "\n";
-	std::cout << "rec = |" << recurrence <<"| Got sTime = |" << det.getStartHours() << ":" << det.getStartMinutes() << "| endTime = |"
-								<< det.getDoneHours() << ":" << det.getDoneMinutes() << "|\n\n";
+	std::cout << "detail was added.\n\n";
 
 	return( ret );
 }

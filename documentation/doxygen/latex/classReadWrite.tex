@@ -1,0 +1,106 @@
+\hypertarget{classReadWrite}{\section{Read\-Write Class Reference}
+\label{classReadWrite}\index{Read\-Write@{Read\-Write}}
+}
+
+
+{\ttfamily \#include $<$Read\-Write.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classReadWrite_a11c22591e481ff4fc111e485ab2955c2}{Read\-Write} ()
+\item 
+bool \hyperlink{classReadWrite_a82950d962ae4e05f04772b82b6690670}{is\-File} () const 
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classReadWrite_af7557737b9043d9e605473c7e6984046}{get\-Date} ()
+\item 
+void \hyperlink{classReadWrite_a22a0b16f5004c059980424203c84978a}{set\-Date} (std\-::vector$<$ int $>$ curdate)
+\item 
+void \hyperlink{classReadWrite_a778d106489a4f41730d902d338ec3937}{get\-File\-Info} (\hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$dll)
+\item 
+void \hyperlink{classReadWrite_a323d8e4f3bf72f0ef4726b3c08f0f4c3}{store\-File\-Info} (\hyperlink{classDoubleLinkedList}{Double\-Linked\-List} $\ast$dll)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Purpose\-: Generates file, user.\-txt, to keep user calendar data, and retrieve information from previous sessions An object to read and write info from and to a file, to and from a list respectively. \begin{DoxyAuthor}{Author}
+Jackson Schilmoeller 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0, 18 Sep 2016 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classReadWrite_a11c22591e481ff4fc111e485ab2955c2}{\index{Read\-Write@{Read\-Write}!Read\-Write@{Read\-Write}}
+\index{Read\-Write@{Read\-Write}!ReadWrite@{Read\-Write}}
+\subsubsection[{Read\-Write}]{\setlength{\rightskip}{0pt plus 5cm}Read\-Write\-::\-Read\-Write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classReadWrite_a11c22591e481ff4fc111e485ab2955c2}
+A constructor for the \hyperlink{classReadWrite}{Read\-Write} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classReadWrite_af7557737b9043d9e605473c7e6984046}{\index{Read\-Write@{Read\-Write}!get\-Date@{get\-Date}}
+\index{get\-Date@{get\-Date}!ReadWrite@{Read\-Write}}
+\subsubsection[{get\-Date}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ Read\-Write\-::get\-Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classReadWrite_af7557737b9043d9e605473c7e6984046}
+Returns the date currently stored as the date in focus. \begin{DoxyReturn}{Returns}
+The date currently stored as the date in focus. 
+\end{DoxyReturn}
+\hypertarget{classReadWrite_a778d106489a4f41730d902d338ec3937}{\index{Read\-Write@{Read\-Write}!get\-File\-Info@{get\-File\-Info}}
+\index{get\-File\-Info@{get\-File\-Info}!ReadWrite@{Read\-Write}}
+\subsubsection[{get\-File\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Read\-Write\-::get\-File\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf Double\-Linked\-List} $\ast$}]{dll}
+\end{DoxyParamCaption}
+)}}\label{classReadWrite_a778d106489a4f41730d902d338ec3937}
+Reads in the information from the file and stores it into a \hyperlink{classDoubleLinkedList}{Double\-Linked\-List}. 
+\begin{DoxyParams}{Parameters}
+{\em The} & \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object to be filled \\
+\hline
+\end{DoxyParams}
+\hypertarget{classReadWrite_a82950d962ae4e05f04772b82b6690670}{\index{Read\-Write@{Read\-Write}!is\-File@{is\-File}}
+\index{is\-File@{is\-File}!ReadWrite@{Read\-Write}}
+\subsubsection[{is\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool Read\-Write\-::is\-File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classReadWrite_a82950d962ae4e05f04772b82b6690670}
+Checks if user.\-txt has already been created. \begin{DoxyReturn}{Returns}
+True if the file exists, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classReadWrite_a22a0b16f5004c059980424203c84978a}{\index{Read\-Write@{Read\-Write}!set\-Date@{set\-Date}}
+\index{set\-Date@{set\-Date}!ReadWrite@{Read\-Write}}
+\subsubsection[{set\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Read\-Write\-::set\-Date (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ int $>$}]{curdate}
+\end{DoxyParamCaption}
+)}}\label{classReadWrite_a22a0b16f5004c059980424203c84978a}
+Stores the date currently in focus. 
+\begin{DoxyParams}{Parameters}
+{\em A} & vector of size three representive of the date in current focus. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classReadWrite_a323d8e4f3bf72f0ef4726b3c08f0f4c3}{\index{Read\-Write@{Read\-Write}!store\-File\-Info@{store\-File\-Info}}
+\index{store\-File\-Info@{store\-File\-Info}!ReadWrite@{Read\-Write}}
+\subsubsection[{store\-File\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Read\-Write\-::store\-File\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf Double\-Linked\-List} $\ast$}]{dll}
+\end{DoxyParamCaption}
+)}}\label{classReadWrite_a323d8e4f3bf72f0ef4726b3c08f0f4c3}
+Stores The information from the \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object into the file. 
+\begin{DoxyParams}{Parameters}
+{\em The} & \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object to be read from. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/includes/Read\-Write.\-h\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/Read\-Write.\-cpp\end{DoxyCompactItemize}

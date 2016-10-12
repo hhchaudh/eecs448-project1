@@ -1,0 +1,228 @@
+\hypertarget{classDoubleLinkedList}{\section{Double\-Linked\-List Class Reference}
+\label{classDoubleLinkedList}\index{Double\-Linked\-List@{Double\-Linked\-List}}
+}
+
+
+{\ttfamily \#include $<$Double\-Linked\-List.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDoubleLinkedList_a7e2c72978120a51da2251e378ef1892c}{Double\-Linked\-List} ()
+\item 
+\hyperlink{classDoubleLinkedList_aca14acc73e64f2cf121f1a9f06f37693}{Double\-Linked\-List} (int start\-Year, int start\-Month, int end\-Year, int end\-Month)
+\item 
+\hyperlink{classDoubleLinkedList_ab808039dac47f1f62d00fcf0951550c5}{$\sim$\-Double\-Linked\-List} ()
+\item 
+int \hyperlink{classDoubleLinkedList_aa5a9a72733c34832f237cca418ec525a}{size} () const 
+\item 
+void \hyperlink{classDoubleLinkedList_ae4d516bcfeea73b92b9cb927c3a157c7}{push\-Front} (int year, int month, int day)
+\item 
+void \hyperlink{classDoubleLinkedList_a436c04186fe23d797cae9f89eb1ae579}{remove\-Front} ()
+\item 
+void \hyperlink{classDoubleLinkedList_a9f5ff04eb32e7fa3e37734754a98df80}{push\-Back} (int year, int month, int day)
+\item 
+void \hyperlink{classDoubleLinkedList_aa142f7151ffc4f93aa7e5fb111dbf356}{remove\-Back} ()
+\item 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classDoubleLinkedList_af7a43fcd47e701812ec7282e750d66ca}{get\-Front} () const 
+\item 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classDoubleLinkedList_af37a823cffeb12eeb3f00ffe35a5930f}{get\-Back} () const 
+\item 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classDoubleLinkedList_a9d4043921a43ae60db5f44805c8772ab}{get\-Node} (int year, int month, int day) const 
+\item 
+bool \hyperlink{classDoubleLinkedList_a55b1b4c923c7cb7ed49c131287263b2a}{check\-Year} (int year) const 
+\item 
+bool \hyperlink{classDoubleLinkedList_a0d87703266d9a88738013e35e4e587e4}{check\-Month} (int year, int month) const 
+\item 
+bool \hyperlink{classDoubleLinkedList_ae1c0896583217d3a8d423711dabbb375}{check\-Day} (int year, int month, int day) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Purpose\-: To handle the creation and interaction of Nodes-\/ specifically for a Calender A list to store \hyperlink{classNode}{Node} objects. \begin{DoxyAuthor}{Author}
+Brad Gibbons 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0, 15 Sep 2016 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDoubleLinkedList_a7e2c72978120a51da2251e378ef1892c}{\index{Double\-Linked\-List@{Double\-Linked\-List}!Double\-Linked\-List@{Double\-Linked\-List}}
+\index{Double\-Linked\-List@{Double\-Linked\-List}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{Double\-Linked\-List}]{\setlength{\rightskip}{0pt plus 5cm}Double\-Linked\-List\-::\-Double\-Linked\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_a7e2c72978120a51da2251e378ef1892c}
+A constructor for the \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object. \hypertarget{classDoubleLinkedList_aca14acc73e64f2cf121f1a9f06f37693}{\index{Double\-Linked\-List@{Double\-Linked\-List}!Double\-Linked\-List@{Double\-Linked\-List}}
+\index{Double\-Linked\-List@{Double\-Linked\-List}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{Double\-Linked\-List}]{\setlength{\rightskip}{0pt plus 5cm}Double\-Linked\-List\-::\-Double\-Linked\-List (
+\begin{DoxyParamCaption}
+\item[{int}]{start\-Year, }
+\item[{int}]{start\-Month, }
+\item[{int}]{end\-Year, }
+\item[{int}]{end\-Month}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_aca14acc73e64f2cf121f1a9f06f37693}
+An overload constructor for the \hyperlink{classDoubleLinkedList}{Double\-Linked\-List} object to populate the list with \hyperlink{classNode}{Node} objects. 
+\begin{DoxyParams}{Parameters}
+{\em start\-Year} & The starting year for the linked list. \\
+\hline
+{\em start\-Month} & The starting month for the linked list. \\
+\hline
+{\em end\-Year} & The ending year for the linked list. \\
+\hline
+{\em end\-Month} & The ending month for the linked list. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDoubleLinkedList_ab808039dac47f1f62d00fcf0951550c5}{\index{Double\-Linked\-List@{Double\-Linked\-List}!$\sim$\-Double\-Linked\-List@{$\sim$\-Double\-Linked\-List}}
+\index{$\sim$\-Double\-Linked\-List@{$\sim$\-Double\-Linked\-List}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{$\sim$\-Double\-Linked\-List}]{\setlength{\rightskip}{0pt plus 5cm}Double\-Linked\-List\-::$\sim$\-Double\-Linked\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_ab808039dac47f1f62d00fcf0951550c5}
+A deconstructor to delete the \hyperlink{classNode}{Node} objects stored in the list. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classDoubleLinkedList_ae1c0896583217d3a8d423711dabbb375}{\index{Double\-Linked\-List@{Double\-Linked\-List}!check\-Day@{check\-Day}}
+\index{check\-Day@{check\-Day}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{check\-Day}]{\setlength{\rightskip}{0pt plus 5cm}bool Double\-Linked\-List\-::check\-Day (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_ae1c0896583217d3a8d423711dabbb375}
+Checks if the given day exists in the list \begin{DoxyReturn}{Returns}
+True if the day exists in the list, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_a0d87703266d9a88738013e35e4e587e4}{\index{Double\-Linked\-List@{Double\-Linked\-List}!check\-Month@{check\-Month}}
+\index{check\-Month@{check\-Month}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{check\-Month}]{\setlength{\rightskip}{0pt plus 5cm}bool Double\-Linked\-List\-::check\-Month (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_a0d87703266d9a88738013e35e4e587e4}
+Checks if the month exists in the calender for the given year. \begin{DoxyReturn}{Returns}
+True if the month exists for the year, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_a55b1b4c923c7cb7ed49c131287263b2a}{\index{Double\-Linked\-List@{Double\-Linked\-List}!check\-Year@{check\-Year}}
+\index{check\-Year@{check\-Year}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{check\-Year}]{\setlength{\rightskip}{0pt plus 5cm}bool Double\-Linked\-List\-::check\-Year (
+\begin{DoxyParamCaption}
+\item[{int}]{year}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_a55b1b4c923c7cb7ed49c131287263b2a}
+Checks if the year requested exists. \begin{DoxyReturn}{Returns}
+True if the year is part of the list, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_af37a823cffeb12eeb3f00ffe35a5930f}{\index{Double\-Linked\-List@{Double\-Linked\-List}!get\-Back@{get\-Back}}
+\index{get\-Back@{get\-Back}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{get\-Back}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ Double\-Linked\-List\-::get\-Back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_af37a823cffeb12eeb3f00ffe35a5930f}
+Method to return the back \hyperlink{classNode}{Node} in the list. \begin{DoxyReturn}{Returns}
+The \hyperlink{classNode}{Node} currently at the back of the list. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_af7a43fcd47e701812ec7282e750d66ca}{\index{Double\-Linked\-List@{Double\-Linked\-List}!get\-Front@{get\-Front}}
+\index{get\-Front@{get\-Front}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{get\-Front}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ Double\-Linked\-List\-::get\-Front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_af7a43fcd47e701812ec7282e750d66ca}
+Method to get the front \hyperlink{classNode}{Node} in the list. \begin{DoxyReturn}{Returns}
+The \hyperlink{classNode}{Node} currently at the front of the list. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_a9d4043921a43ae60db5f44805c8772ab}{\index{Double\-Linked\-List@{Double\-Linked\-List}!get\-Node@{get\-Node}}
+\index{get\-Node@{get\-Node}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ Double\-Linked\-List\-::get\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_a9d4043921a43ae60db5f44805c8772ab}
+Method to get the \hyperlink{classNode}{Node} with the set date. 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be searched for. \\
+\hline
+{\em month} & Month to be searched for. \\
+\hline
+{\em day} & Day to be searched for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A node with the specified values. 
+\end{DoxyReturn}
+\hypertarget{classDoubleLinkedList_a9f5ff04eb32e7fa3e37734754a98df80}{\index{Double\-Linked\-List@{Double\-Linked\-List}!push\-Back@{push\-Back}}
+\index{push\-Back@{push\-Back}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{push\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void Double\-Linked\-List\-::push\-Back (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_a9f5ff04eb32e7fa3e37734754a98df80}
+Adds a \hyperlink{classNode}{Node} to the back of the list with set values. 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+{\em month} & Month to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+{\em day} & Day to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDoubleLinkedList_ae4d516bcfeea73b92b9cb927c3a157c7}{\index{Double\-Linked\-List@{Double\-Linked\-List}!push\-Front@{push\-Front}}
+\index{push\-Front@{push\-Front}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{push\-Front}]{\setlength{\rightskip}{0pt plus 5cm}void Double\-Linked\-List\-::push\-Front (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month, }
+\item[{int}]{day}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_ae4d516bcfeea73b92b9cb927c3a157c7}
+Adds a \hyperlink{classNode}{Node} to the front of the list with set values. 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+{\em month} & Month to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+{\em day} & Day to be stored in the added \hyperlink{classNode}{Node} object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDoubleLinkedList_aa142f7151ffc4f93aa7e5fb111dbf356}{\index{Double\-Linked\-List@{Double\-Linked\-List}!remove\-Back@{remove\-Back}}
+\index{remove\-Back@{remove\-Back}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{remove\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void Double\-Linked\-List\-::remove\-Back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_aa142f7151ffc4f93aa7e5fb111dbf356}
+Removes the back \hyperlink{classNode}{Node} in the list. \hypertarget{classDoubleLinkedList_a436c04186fe23d797cae9f89eb1ae579}{\index{Double\-Linked\-List@{Double\-Linked\-List}!remove\-Front@{remove\-Front}}
+\index{remove\-Front@{remove\-Front}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{remove\-Front}]{\setlength{\rightskip}{0pt plus 5cm}void Double\-Linked\-List\-::remove\-Front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDoubleLinkedList_a436c04186fe23d797cae9f89eb1ae579}
+Removes the front \hyperlink{classNode}{Node} in the list. \hypertarget{classDoubleLinkedList_aa5a9a72733c34832f237cca418ec525a}{\index{Double\-Linked\-List@{Double\-Linked\-List}!size@{size}}
+\index{size@{size}!DoubleLinkedList@{Double\-Linked\-List}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int Double\-Linked\-List\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDoubleLinkedList_aa5a9a72733c34832f237cca418ec525a}
+Method to get the size of the list. \begin{DoxyReturn}{Returns}
+The number of \hyperlink{classNode}{Node} objects in the linked list. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/includes/Double\-Linked\-List.\-h\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/Double\-Linked\-List.\-cpp\end{DoxyCompactItemize}

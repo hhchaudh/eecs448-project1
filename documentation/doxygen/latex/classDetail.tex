@@ -1,0 +1,219 @@
+\hypertarget{classDetail}{\section{Detail Class Reference}
+\label{classDetail}\index{Detail@{Detail}}
+}
+
+
+{\ttfamily \#include $<$Detail.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDetail_ade0deea5232733e7bdb658dadcc6b5fe}{Detail} ()
+\item 
+void \hyperlink{classDetail_ad62d325e64479e4e48f994bc0ef63874}{set\-Start\-Hours} (int Start\-Hour)
+\item 
+int \hyperlink{classDetail_a7e50f64f712a2775f4bfca3d5ca408d5}{get\-Start\-Hours} () const 
+\item 
+void \hyperlink{classDetail_a9272fb5c632df14c480a4e0065b5cc92}{set\-Start\-Minutes} (int Start\-Minute)
+\item 
+int \hyperlink{classDetail_ae7a56cb0c31323a94aea889f7b8790b8}{get\-Start\-Minutes} () const 
+\item 
+void \hyperlink{classDetail_af539d10fd24811f7d68bdf236a6feda0}{set\-Done\-Hours} (int Done\-Hour)
+\item 
+int \hyperlink{classDetail_a495a656ee4869f2dac3c27bc8105a606}{get\-Done\-Hours} () const 
+\item 
+void \hyperlink{classDetail_aad257615ab5ad0cb4447e677c547bd13}{set\-Done\-Minutes} (int Done\-Minute)
+\item 
+int \hyperlink{classDetail_a1ec3b7b3f3b2b8d587e2e55625288185}{get\-Done\-Minutes} () const 
+\item 
+void \hyperlink{classDetail_a3c4c2777819074375234980889aa4f1e}{set\-Double\-Booked} (bool double\-Booked)
+\item 
+bool \hyperlink{classDetail_a63624d1a3d099fa76cf776a00902d3e0}{get\-Double\-Booked} () const 
+\item 
+void \hyperlink{classDetail_afb3373c8d4361f64e39d29a70a7dcf98}{set\-Text} (std\-::string text)
+\item 
+std\-::string \hyperlink{classDetail_a8bb858933394ae9b854fbca7ce4db9cf}{get\-Text} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classDetail_a23e6afc6f70c31bdcc064461b80ea44c}{compare} (\hyperlink{classDetail}{Detail} a, \hyperlink{classDetail}{Detail} b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Purpose\-: To hold info on a specific detal. \hyperlink{classDetail}{Detail} class to hold info on a detail. \begin{DoxyAuthor}{Author}
+Jacob Fustos 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0, 11 Oct 2016 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDetail_ade0deea5232733e7bdb658dadcc6b5fe}{\index{Detail@{Detail}!Detail@{Detail}}
+\index{Detail@{Detail}!Detail@{Detail}}
+\subsubsection[{Detail}]{\setlength{\rightskip}{0pt plus 5cm}Detail\-::\-Detail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDetail_ade0deea5232733e7bdb658dadcc6b5fe}
+Constructor for a \hyperlink{classDetail}{Detail} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classDetail_a23e6afc6f70c31bdcc064461b80ea44c}{\index{Detail@{Detail}!compare@{compare}}
+\index{compare@{compare}!Detail@{Detail}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool Detail\-::compare (
+\begin{DoxyParamCaption}
+\item[{{\bf Detail}}]{a, }
+\item[{{\bf Detail}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDetail_a23e6afc6f70c31bdcc064461b80ea44c}
+Compare a to b. 
+\begin{DoxyParams}{Parameters}
+{\em a} & An event to compare. \\
+\hline
+{\em b} & The other event to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a should come before b, else false. 
+\end{DoxyReturn}
+\hypertarget{classDetail_a495a656ee4869f2dac3c27bc8105a606}{\index{Detail@{Detail}!get\-Done\-Hours@{get\-Done\-Hours}}
+\index{get\-Done\-Hours@{get\-Done\-Hours}!Detail@{Detail}}
+\subsubsection[{get\-Done\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}int Detail\-::get\-Done\-Hours (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_a495a656ee4869f2dac3c27bc8105a606}
+Gets the hour the event will end. \begin{DoxyReturn}{Returns}
+The hour the event will end. 
+\end{DoxyReturn}
+\hypertarget{classDetail_a1ec3b7b3f3b2b8d587e2e55625288185}{\index{Detail@{Detail}!get\-Done\-Minutes@{get\-Done\-Minutes}}
+\index{get\-Done\-Minutes@{get\-Done\-Minutes}!Detail@{Detail}}
+\subsubsection[{get\-Done\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}int Detail\-::get\-Done\-Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_a1ec3b7b3f3b2b8d587e2e55625288185}
+Gets the minutes the event will end. \begin{DoxyReturn}{Returns}
+The minutes the event will end. 
+\end{DoxyReturn}
+\hypertarget{classDetail_a63624d1a3d099fa76cf776a00902d3e0}{\index{Detail@{Detail}!get\-Double\-Booked@{get\-Double\-Booked}}
+\index{get\-Double\-Booked@{get\-Double\-Booked}!Detail@{Detail}}
+\subsubsection[{get\-Double\-Booked}]{\setlength{\rightskip}{0pt plus 5cm}bool Detail\-::get\-Double\-Booked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_a63624d1a3d099fa76cf776a00902d3e0}
+Gets if the detail overlaps another detail. \begin{DoxyReturn}{Returns}
+true if does overlap, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDetail_a7e50f64f712a2775f4bfca3d5ca408d5}{\index{Detail@{Detail}!get\-Start\-Hours@{get\-Start\-Hours}}
+\index{get\-Start\-Hours@{get\-Start\-Hours}!Detail@{Detail}}
+\subsubsection[{get\-Start\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}int Detail\-::get\-Start\-Hours (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_a7e50f64f712a2775f4bfca3d5ca408d5}
+Gets the hour the event will start. \begin{DoxyReturn}{Returns}
+The hour the event will start. 
+\end{DoxyReturn}
+\hypertarget{classDetail_ae7a56cb0c31323a94aea889f7b8790b8}{\index{Detail@{Detail}!get\-Start\-Minutes@{get\-Start\-Minutes}}
+\index{get\-Start\-Minutes@{get\-Start\-Minutes}!Detail@{Detail}}
+\subsubsection[{get\-Start\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}int Detail\-::get\-Start\-Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_ae7a56cb0c31323a94aea889f7b8790b8}
+Gets the Minutes the event will start. \begin{DoxyReturn}{Returns}
+The minutes the event will start. 
+\end{DoxyReturn}
+\hypertarget{classDetail_a8bb858933394ae9b854fbca7ce4db9cf}{\index{Detail@{Detail}!get\-Text@{get\-Text}}
+\index{get\-Text@{get\-Text}!Detail@{Detail}}
+\subsubsection[{get\-Text}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Detail\-::get\-Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDetail_a8bb858933394ae9b854fbca7ce4db9cf}
+Gets the text describing the event. \begin{DoxyReturn}{Returns}
+The text describing the event. 
+\end{DoxyReturn}
+\hypertarget{classDetail_af539d10fd24811f7d68bdf236a6feda0}{\index{Detail@{Detail}!set\-Done\-Hours@{set\-Done\-Hours}}
+\index{set\-Done\-Hours@{set\-Done\-Hours}!Detail@{Detail}}
+\subsubsection[{set\-Done\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Done\-Hours (
+\begin{DoxyParamCaption}
+\item[{int}]{Done\-Hour}
+\end{DoxyParamCaption}
+)}}\label{classDetail_af539d10fd24811f7d68bdf236a6feda0}
+Sets the hour the event will end. 
+\begin{DoxyParams}{Parameters}
+{\em Done\-Hour} & The hour the event will end. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDetail_aad257615ab5ad0cb4447e677c547bd13}{\index{Detail@{Detail}!set\-Done\-Minutes@{set\-Done\-Minutes}}
+\index{set\-Done\-Minutes@{set\-Done\-Minutes}!Detail@{Detail}}
+\subsubsection[{set\-Done\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Done\-Minutes (
+\begin{DoxyParamCaption}
+\item[{int}]{Done\-Minute}
+\end{DoxyParamCaption}
+)}}\label{classDetail_aad257615ab5ad0cb4447e677c547bd13}
+Sets the minutes the event will end. 
+\begin{DoxyParams}{Parameters}
+{\em Done\-Minute} & The minutes the event will end. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDetail_a3c4c2777819074375234980889aa4f1e}{\index{Detail@{Detail}!set\-Double\-Booked@{set\-Double\-Booked}}
+\index{set\-Double\-Booked@{set\-Double\-Booked}!Detail@{Detail}}
+\subsubsection[{set\-Double\-Booked}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Double\-Booked (
+\begin{DoxyParamCaption}
+\item[{bool}]{double\-Booked}
+\end{DoxyParamCaption}
+)}}\label{classDetail_a3c4c2777819074375234980889aa4f1e}
+Sets if the event overlaps with another event.. 
+\begin{DoxyParams}{Parameters}
+{\em double\-Booked} & true if event is overlapping, false otherwise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDetail_ad62d325e64479e4e48f994bc0ef63874}{\index{Detail@{Detail}!set\-Start\-Hours@{set\-Start\-Hours}}
+\index{set\-Start\-Hours@{set\-Start\-Hours}!Detail@{Detail}}
+\subsubsection[{set\-Start\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Start\-Hours (
+\begin{DoxyParamCaption}
+\item[{int}]{Start\-Hour}
+\end{DoxyParamCaption}
+)}}\label{classDetail_ad62d325e64479e4e48f994bc0ef63874}
+Sets the hour the event will start. 
+\begin{DoxyParams}{Parameters}
+{\em Start\-Hour} & The hour the event will start. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDetail_a9272fb5c632df14c480a4e0065b5cc92}{\index{Detail@{Detail}!set\-Start\-Minutes@{set\-Start\-Minutes}}
+\index{set\-Start\-Minutes@{set\-Start\-Minutes}!Detail@{Detail}}
+\subsubsection[{set\-Start\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Start\-Minutes (
+\begin{DoxyParamCaption}
+\item[{int}]{Start\-Minute}
+\end{DoxyParamCaption}
+)}}\label{classDetail_a9272fb5c632df14c480a4e0065b5cc92}
+Sets the minutes the event will start. 
+\begin{DoxyParams}{Parameters}
+{\em Start\-Minute} & The minutes the event will start. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDetail_afb3373c8d4361f64e39d29a70a7dcf98}{\index{Detail@{Detail}!set\-Text@{set\-Text}}
+\index{set\-Text@{set\-Text}!Detail@{Detail}}
+\subsubsection[{set\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Detail\-::set\-Text (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{text}
+\end{DoxyParamCaption}
+)}}\label{classDetail_afb3373c8d4361f64e39d29a70a7dcf98}
+Sets the text describing the event. 
+\begin{DoxyParams}{Parameters}
+{\em text} & The text describing the event. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/includes/Detail.\-h\item 
+/home/jfustos/school/\-E\-E\-C\-S448/\-Project02/proj2/calendar/Detail.\-cpp\end{DoxyCompactItemize}
